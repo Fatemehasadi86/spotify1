@@ -1,0 +1,4 @@
+#ifndef SONGREPOSITORY_H
+#define SONGREPOSITORY_H
+
+#endif // SONGREPOSITORY_H

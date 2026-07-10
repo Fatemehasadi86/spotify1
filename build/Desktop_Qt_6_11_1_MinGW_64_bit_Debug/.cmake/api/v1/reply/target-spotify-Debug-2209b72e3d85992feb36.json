@@ -84,13 +84,13 @@
 			{
 				"command" : 4,
 				"file" : 1,
-				"line" : 29,
+				"line" : 42,
 				"parent" : 0
 			},
 			{
 				"command" : 5,
 				"file" : 1,
-				"line" : 23,
+				"line" : 36,
 				"parent" : 0
 			},
 			{
@@ -418,18 +418,24 @@
 				2,
 				6,
 				9,
-				10
+				10,
+				12,
+				16,
+				18,
+				20,
+				22,
+				24
 			]
 		}
 	],
 	"dependencies" : 
 	[
 		{
-			"id" : "spotify_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
-		},
-		{
 			"backtrace" : 0,
 			"id" : "spotify_autogen::@6890427a1f51a3e7e1df"
+		},
+		{
+			"id" : "spotify_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
 		}
 	],
 	"id" : "spotify::@6890427a1f51a3e7e1df",
@@ -540,8 +546,8 @@
 			"sourceIndexes" : 
 			[
 				0,
-				13,
-				14
+				26,
+				27
 			]
 		},
 		{
@@ -552,7 +558,13 @@
 				2,
 				6,
 				9,
-				10
+				10,
+				12,
+				16,
+				18,
+				20,
+				22,
+				24
 			]
 		},
 		{
@@ -563,7 +575,14 @@
 				5,
 				7,
 				8,
-				11
+				11,
+				13,
+				14,
+				15,
+				17,
+				19,
+				21,
+				23
 			]
 		},
 		{
@@ -577,14 +596,14 @@
 			"name" : "",
 			"sourceIndexes" : 
 			[
-				12
+				25
 			]
 		},
 		{
 			"name" : "CMake Rules",
 			"sourceIndexes" : 
 			[
-				15
+				28
 			]
 		}
 	],
@@ -656,6 +675,77 @@
 			"backtrace" : 4,
 			"path" : "Album.h",
 			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "Album.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "AbstractRepository.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 4,
+			"path" : "AccountRepository.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 4,
+			"path" : "AlbumRepository.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "AlbumRepository.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "ArtistRepository.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "ArtistRepository.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "ListenerRepository.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "ListenerRepository.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "PlaylistRepository.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "PlaylistRepository.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "SongRepository.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "SongRepository.cpp",
+			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 47,

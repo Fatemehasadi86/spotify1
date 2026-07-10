@@ -378,9 +378,21 @@
 	"HEADERS" : 
 	[
 		[
+			"C:/Users/BLUE0409/Documents/spotify/AbstractRepository.h",
+			"MU",
+			"EWIEGA46WW/moc_AbstractRepository.cpp",
+			null
+		],
+		[
 			"C:/Users/BLUE0409/Documents/spotify/Account.h",
 			"MU",
 			"EWIEGA46WW/moc_Account.cpp",
+			null
+		],
+		[
+			"C:/Users/BLUE0409/Documents/spotify/AccountRepository.h",
+			"MU",
+			"EWIEGA46WW/moc_AccountRepository.cpp",
 			null
 		],
 		[
@@ -390,15 +402,45 @@
 			null
 		],
 		[
+			"C:/Users/BLUE0409/Documents/spotify/AlbumRepository.h",
+			"MU",
+			"EWIEGA46WW/moc_AlbumRepository.cpp",
+			null
+		],
+		[
+			"C:/Users/BLUE0409/Documents/spotify/ArtistRepository.h",
+			"MU",
+			"EWIEGA46WW/moc_ArtistRepository.cpp",
+			null
+		],
+		[
+			"C:/Users/BLUE0409/Documents/spotify/ListenerRepository.h",
+			"MU",
+			"EWIEGA46WW/moc_ListenerRepository.cpp",
+			null
+		],
+		[
 			"C:/Users/BLUE0409/Documents/spotify/PlayList.h",
 			"MU",
 			"EWIEGA46WW/moc_PlayList.cpp",
 			null
 		],
 		[
+			"C:/Users/BLUE0409/Documents/spotify/PlaylistRepository.h",
+			"MU",
+			"EWIEGA46WW/moc_PlaylistRepository.cpp",
+			null
+		],
+		[
 			"C:/Users/BLUE0409/Documents/spotify/Song.h",
 			"MU",
 			"EWIEGA46WW/moc_Song.cpp",
+			null
+		],
+		[
+			"C:/Users/BLUE0409/Documents/spotify/SongRepository.h",
+			"MU",
+			"EWIEGA46WW/moc_SongRepository.cpp",
 			null
 		],
 		[
@@ -481,8 +523,25 @@
 	[
 		[ "C:/Users/BLUE0409/Documents/spotify/Account.cpp", "MU", null ],
 		[ "C:/Users/BLUE0409/Documents/spotify/Album.cpp", "MU", null ],
+		[ "C:/Users/BLUE0409/Documents/spotify/AlbumRepository.cpp", "MU", null ],
+		[
+			"C:/Users/BLUE0409/Documents/spotify/ArtistRepository.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/BLUE0409/Documents/spotify/ListenerRepository.cpp",
+			"MU",
+			null
+		],
 		[ "C:/Users/BLUE0409/Documents/spotify/PlayList.cpp", "MU", null ],
+		[
+			"C:/Users/BLUE0409/Documents/spotify/PlaylistRepository.cpp",
+			"MU",
+			null
+		],
 		[ "C:/Users/BLUE0409/Documents/spotify/Song.cpp", "MU", null ],
+		[ "C:/Users/BLUE0409/Documents/spotify/SongRepository.cpp", "MU", null ],
 		[ "C:/Users/BLUE0409/Documents/spotify/main.cpp", "MU", null ],
 		[ "C:/Users/BLUE0409/Documents/spotify/mainwindow.cpp", "MU", null ]
 	],
