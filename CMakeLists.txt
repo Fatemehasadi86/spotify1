@@ -11,6 +11,14 @@ qt_add_executable(spotify
     mainwindow.cpp
     mainwindow.h
     mainwindow.ui
+    Account.h
+    Account.cpp
+    PlayList.h
+    Song.h
+    Song.cpp
+    PlayList.cpp
+    Album.h
+    Album.cpp
 )
 
 target_link_libraries(spotify
