@@ -1,0 +1,21 @@
+# ninja log v7
+47	602	8054568110793931	spotify_autogen/timestamp	8b5505ab561f299e
+47	602	8054568110793931	spotify_autogen/mocs_compilation.cpp	8b5505ab561f299e
+47	602	8054568110793931	C:/Users/BLUE0409/Documents/spotify/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/spotify_autogen/timestamp	8b5505ab561f299e
+47	602	8054568110793931	C:/Users/BLUE0409/Documents/spotify/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/spotify_autogen/mocs_compilation.cpp	8b5505ab561f299e
+612	998	8054568116443949	CMakeFiles/spotify.dir/Account.cpp.obj	dbcad5d2181e1fd9
+1043	2200	8053742653854835	CMakeFiles/spotify.dir/Song.cpp.obj	5e127636763da0c0
+1063	2198	8053742654054828	CMakeFiles/spotify.dir/Album.cpp.obj	e6be62d5e07908dd
+1054	2203	8053742653964843	CMakeFiles/spotify.dir/PlayList.cpp.obj	d6fd0b21773f76fb
+618	1125	8054568116503921	CMakeFiles/spotify.dir/ArtistRepository.cpp.obj	828f984eda6db3a0
+1073	2208	8053742654144847	CMakeFiles/spotify.dir/AlbumRepository.cpp.obj	3081a1d70ccf5e3
+625	1163	8054568116573960	CMakeFiles/spotify.dir/ListenerRepository.cpp.obj	e794fe81e84321d6
+1102	2205	8053742654444842	CMakeFiles/spotify.dir/SongRepository.cpp.obj	5cc5398eb2edcf2e
+1095	2231	8053742654364825	CMakeFiles/spotify.dir/PlaylistRepository.cpp.obj	86cdd43fa125f963
+1015	3823	8053742653574815	CMakeFiles/spotify.dir/spotify_autogen/mocs_compilation.cpp.obj	79f1a6834f8e2301
+1021	3706	8053742653634908	CMakeFiles/spotify.dir/main.cpp.obj	a2e3b7044654e377
+603	3359	8054568116353937	CMakeFiles/spotify.dir/mainwindow.cpp.obj	3a97ee0c90c3ed0e
+3359	3940	8054568143912793	spotify.exe	232af73c62edf932
+36	274	8053742639764737	CMakeFiles/clean.additional	6739b0c043762088
+274	304	8053742642144792	clean	ff8daee0d35ed8b2
+633	1016	8054568116653962	CMakeFiles/spotify.dir/Artist.cpp.obj	c4bff708043e9afc

@@ -7,7 +7,7 @@
 				{
 					"build" : ".",
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-.-Debug-3ba3483f5e9d7145f415.json",
+					"jsonFile" : "directory-.-Debug-ed3a33ed00cb8662f573.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.16"
@@ -44,7 +44,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "spotify::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-spotify-Debug-758e6610a9a0ff47b72f.json",
+					"jsonFile" : "target-spotify-Debug-6982a350919ee83e0736.json",
 					"name" : "spotify",
 					"projectIndex" : 0
 				},

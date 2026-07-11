@@ -408,9 +408,21 @@
 			null
 		],
 		[
+			"C:/Users/BLUE0409/Documents/spotify/Artist.h",
+			"MU",
+			"EWIEGA46WW/moc_Artist.cpp",
+			null
+		],
+		[
 			"C:/Users/BLUE0409/Documents/spotify/ArtistRepository.h",
 			"MU",
 			"EWIEGA46WW/moc_ArtistRepository.cpp",
+			null
+		],
+		[
+			"C:/Users/BLUE0409/Documents/spotify/Listener.h",
+			"MU",
+			"EWIEGA46WW/moc_Listener.cpp",
 			null
 		],
 		[
@@ -524,11 +536,13 @@
 		[ "C:/Users/BLUE0409/Documents/spotify/Account.cpp", "MU", null ],
 		[ "C:/Users/BLUE0409/Documents/spotify/Album.cpp", "MU", null ],
 		[ "C:/Users/BLUE0409/Documents/spotify/AlbumRepository.cpp", "MU", null ],
+		[ "C:/Users/BLUE0409/Documents/spotify/Artist.cpp", "MU", null ],
 		[
 			"C:/Users/BLUE0409/Documents/spotify/ArtistRepository.cpp",
 			"MU",
 			null
 		],
+		[ "C:/Users/BLUE0409/Documents/spotify/Listener.cpp", "MU", null ],
 		[
 			"C:/Users/BLUE0409/Documents/spotify/ListenerRepository.cpp",
 			"MU",
