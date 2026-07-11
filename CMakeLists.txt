@@ -35,6 +35,9 @@ qt_add_executable(spotify
     Artist.cpp
     Listener.h
     Listener.cpp
+
+    registerwindow.h registerwindow.cpp registerwindow.ui
+    loginwindow.h loginwindow.cpp loginwindow.ui
 )
 
 target_link_libraries(spotify

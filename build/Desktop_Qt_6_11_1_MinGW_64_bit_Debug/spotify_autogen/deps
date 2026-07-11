@@ -154,6 +154,7 @@ spotify_autogen/timestamp: \
 	C:/Qt/6.11.1/mingw_64/include/QtGui/qwindowdefs.h \
 	C:/Qt/6.11.1/mingw_64/include/QtGui/qwindowdefs_win.h \
 	C:/Qt/6.11.1/mingw_64/include/QtWidgets/QMainWindow \
+	C:/Qt/6.11.1/mingw_64/include/QtWidgets/QWidget \
 	C:/Qt/6.11.1/mingw_64/include/QtWidgets/qmainwindow.h \
 	C:/Qt/6.11.1/mingw_64/include/QtWidgets/qsizepolicy.h \
 	C:/Qt/6.11.1/mingw_64/include/QtWidgets/qtabwidget.h \
@@ -622,6 +623,8 @@ spotify_autogen/timestamp: \
 	C:/Users/BLUE0409/Documents/spotify/ArtistRepository.cpp \
 	C:/Users/BLUE0409/Documents/spotify/ArtistRepository.h \
 	C:/Users/BLUE0409/Documents/spotify/CMakeLists.txt \
+	C:/Users/BLUE0409/Documents/spotify/Listener.cpp \
+	C:/Users/BLUE0409/Documents/spotify/Listener.h \
 	C:/Users/BLUE0409/Documents/spotify/ListenerRepository.cpp \
 	C:/Users/BLUE0409/Documents/spotify/ListenerRepository.h \
 	C:/Users/BLUE0409/Documents/spotify/PlayList.cpp \
@@ -639,8 +642,14 @@ spotify_autogen/timestamp: \
 	C:/Users/BLUE0409/Documents/spotify/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/CMakeFiles/3.30.5/CMakeRCCompiler.cmake \
 	C:/Users/BLUE0409/Documents/spotify/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/CMakeFiles/3.30.5/CMakeSystem.cmake \
 	C:/Users/BLUE0409/Documents/spotify/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/spotify_autogen/moc_predefs.h \
+	C:/Users/BLUE0409/Documents/spotify/loginwindow.cpp \
+	C:/Users/BLUE0409/Documents/spotify/loginwindow.h \
 	C:/Users/BLUE0409/Documents/spotify/main.cpp \
 	C:/Users/BLUE0409/Documents/spotify/mainwindow.cpp \
 	C:/Users/BLUE0409/Documents/spotify/mainwindow.h \
+	C:/Users/BLUE0409/Documents/spotify/registerwindow.cpp \
+	C:/Users/BLUE0409/Documents/spotify/registerwindow.h \
+	C:/Users/BLUE0409/Documents/spotify/loginwindow.ui \
 	C:/Users/BLUE0409/Documents/spotify/mainwindow.ui \
+	C:/Users/BLUE0409/Documents/spotify/registerwindow.ui \
 	C:/Qt/Tools/CMake_64/bin/cmake.exe

@@ -456,9 +456,21 @@
 			null
 		],
 		[
+			"C:/Users/BLUE0409/Documents/spotify/loginwindow.h",
+			"MU",
+			"EWIEGA46WW/moc_loginwindow.cpp",
+			null
+		],
+		[
 			"C:/Users/BLUE0409/Documents/spotify/mainwindow.h",
 			"MU",
 			"EWIEGA46WW/moc_mainwindow.cpp",
+			null
+		],
+		[
+			"C:/Users/BLUE0409/Documents/spotify/registerwindow.h",
+			"MU",
+			"EWIEGA46WW/moc_registerwindow.cpp",
 			null
 		]
 	],
@@ -556,8 +568,10 @@
 		],
 		[ "C:/Users/BLUE0409/Documents/spotify/Song.cpp", "MU", null ],
 		[ "C:/Users/BLUE0409/Documents/spotify/SongRepository.cpp", "MU", null ],
+		[ "C:/Users/BLUE0409/Documents/spotify/loginwindow.cpp", "MU", null ],
 		[ "C:/Users/BLUE0409/Documents/spotify/main.cpp", "MU", null ],
-		[ "C:/Users/BLUE0409/Documents/spotify/mainwindow.cpp", "MU", null ]
+		[ "C:/Users/BLUE0409/Documents/spotify/mainwindow.cpp", "MU", null ],
+		[ "C:/Users/BLUE0409/Documents/spotify/registerwindow.cpp", "MU", null ]
 	],
 	"UIC_OPTIONS" : [],
 	"UIC_SEARCH_PATHS" : [],
