@@ -38,10 +38,10 @@ public:
     {
         if (loginwindow->objectName().isEmpty())
             loginwindow->setObjectName("loginwindow");
-        loginwindow->resize(704, 537);
+        loginwindow->resize(732, 609);
         pushButton_2 = new QPushButton(loginwindow);
         pushButton_2->setObjectName("pushButton_2");
-        pushButton_2->setGeometry(QRect(220, 440, 251, 51));
+        pushButton_2->setGeometry(QRect(220, 490, 251, 51));
         pushButton_2->setStyleSheet(QString::fromUtf8("QPushButton\n"
 "{\n"
 "    background-color: transparent;\n"
@@ -65,7 +65,7 @@ public:
 "}"));
         label = new QLabel(loginwindow);
         label->setObjectName("label");
-        label->setGeometry(QRect(190, 30, 311, 91));
+        label->setGeometry(QRect(190, 80, 311, 91));
         label->setStyleSheet(QString::fromUtf8("QLabel\n"
 "{\n"
 "    color: white;\n"
@@ -74,7 +74,7 @@ public:
 "}"));
         layoutWidget = new QWidget(loginwindow);
         layoutWidget->setObjectName("layoutWidget");
-        layoutWidget->setGeometry(QRect(70, 250, 581, 78));
+        layoutWidget->setGeometry(QRect(70, 300, 581, 78));
         verticalLayout_3 = new QVBoxLayout(layoutWidget);
         verticalLayout_3->setObjectName("verticalLayout_3");
         verticalLayout_3->setContentsMargins(0, 0, 0, 0);
@@ -110,7 +110,7 @@ public:
 
         pushButton = new QPushButton(loginwindow);
         pushButton->setObjectName("pushButton");
-        pushButton->setGeometry(QRect(220, 360, 251, 51));
+        pushButton->setGeometry(QRect(220, 410, 251, 51));
         pushButton->setStyleSheet(QString::fromUtf8("QPushButton\n"
 "{\n"
 "    background-color: #1DB954;\n"
@@ -133,7 +133,7 @@ public:
 "}"));
         layoutWidget_2 = new QWidget(loginwindow);
         layoutWidget_2->setObjectName("layoutWidget_2");
-        layoutWidget_2->setGeometry(QRect(70, 150, 581, 78));
+        layoutWidget_2->setGeometry(QRect(70, 200, 581, 78));
         verticalLayout_4 = new QVBoxLayout(layoutWidget_2);
         verticalLayout_4->setObjectName("verticalLayout_4");
         verticalLayout_4->setContentsMargins(0, 0, 0, 0);

@@ -21,8 +21,8 @@ registerWindow::~registerWindow()
 void registerWindow::on_pushButton_clicked()
 {
     QString fullName = ui->lineEdit_4->text();
-    QString userName = ui->lineEdit_5->text();
-    QString password = ui->lineEdit_6->text();
+    QString userName = ui->lineEdit_6->text();
+    QString password = ui->lineEdit_5->text();
     QString biography = ui->lineEdit_7->text();
 
     // بررسی خالی نبودن فیلدها
@@ -47,8 +47,8 @@ void registerWindow::on_pushButton_clicked()
     ListenerRepository listenerRepository;
     ArtistRepository artistRepository;
 
-    // listenerRepository.loadFromFile();
-    // artistRepository.loadFromFile();
+    listenerRepository.loadFromFile();
+    artistRepository.loadFromFile();
 
     if(listenerRepository.searchByUserName(userName.toStdString()).has_value() ||
         artistRepository.searchByUserName(userName.toStdString()).has_value())
@@ -90,3 +90,8 @@ void registerWindow::on_pushButton_clicked()
 
     close();
 }
+void registerWindow::on_pushButton_2_clicked()
+{
+    close();
+}
+

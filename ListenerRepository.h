@@ -23,6 +23,7 @@ public:
 
 
     void updateLiked(int listenerId, int songId, bool liked);
+    void loadFromFile();
     bool isLiked(int listenerId, int songId);
 };
 

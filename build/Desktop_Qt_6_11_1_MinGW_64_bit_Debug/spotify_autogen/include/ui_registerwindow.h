@@ -52,7 +52,7 @@ public:
     {
         if (registerWindow->objectName().isEmpty())
             registerWindow->setObjectName("registerWindow");
-        registerWindow->resize(730, 599);
+        registerWindow->resize(735, 617);
         layoutWidget = new QWidget(registerWindow);
         layoutWidget->setObjectName("layoutWidget");
         layoutWidget->setGeometry(QRect(70, 140, 571, 42));

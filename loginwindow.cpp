@@ -5,6 +5,7 @@
 #include "ListenerRepository.h"
 #include "registerwindow.h"
 #include <optional>
+#include "artistwindow.h"
 
 loginwindow::loginwindow(QWidget *parent)
     : QWidget(parent)
@@ -35,8 +36,8 @@ void loginwindow::on_pushButton_clicked()
     ArtistRepository artistRepository;
     ListenerRepository listenerRepository;
 
-    // listenerRepository.loadFromFile();
-    // artistRepository.loadFromFile();
+    listenerRepository.loadFromFile();
+    artistRepository.loadFromFile();
 
     std::optional artist = artistRepository.searchByUserName(username.toStdString());
 
@@ -44,10 +45,9 @@ void loginwindow::on_pushButton_clicked()
     {
         if (artist->getPassword() == password.toStdString())
         {
-            QMessageBox::information(this,
-                                     "Success",
-                                     "Welcome Artist!");
-            return;
+            artistWindow *artistw1 = new artistWindow();
+            artistw1->show();
+            this->close();
         }
     }
 

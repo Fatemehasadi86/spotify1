@@ -1,4 +1,7 @@
 #include "ListenerRepository.h"
+#include <fstream>
+#include "Listener.h"
+#include <QDebug>
 
 using namespace std;
 
@@ -18,6 +21,17 @@ int ListenerRepository::save(const Account& account)
     }
 
     listeners.push_back(account);
+
+    std::ofstream file("accounts.txt", std::ios::app);
+
+    file << account.getId() << std::endl;
+    file << account.getFullName() << std::endl;
+    file << account.getUsername() << std::endl;
+    file << account.getPassword() << std::endl;
+    file << "Listener" << std::endl;
+
+    file.close();
+
     return account.getId();
 }
 
@@ -70,4 +84,41 @@ bool ListenerRepository::isLiked(int listenerId, int songId)
 {
 
     return false;
+}
+
+void ListenerRepository::loadFromFile(){
+    listeners.clear();
+
+    std::ifstream file("accounts.txt");
+
+    if (!file.is_open())
+        return;
+
+    int id;
+    std::string fullName;
+    std::string userName;
+    std::string password;
+    std::string type;
+
+    while (file >> id)
+    {
+        file.ignore();
+
+        getline(file, fullName);
+        getline(file, userName);
+        getline(file, password);
+        getline(file, type);
+
+        if (type == "Listener")
+        {
+            Listener listener;
+            listener.setId(id);
+            listener.setFullName(fullName);
+            listener.setUsername(userName);
+            listener.setPassword(password);
+            listeners.push_back(listener);
+        }
+    }
+
+    file.close();
 }

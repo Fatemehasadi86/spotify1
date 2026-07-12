@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 #include <QApplication>
-
+#include "artistwindow.h"
 #include "registerwindow.h"
 #include "loginwindow.h"
 #include <fstream>
@@ -10,7 +10,8 @@ int main(int argc, char *argv[])
     MainWindow ma;
     loginwindow l;
     registerWindow r;
-    l.show();
+    artistWindow ar;
+    ar.show();
     // std::ofstream file("accounts.txt", std::ios::trunc);
     // file.close();
     return QApplication::exec();

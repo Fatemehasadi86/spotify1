@@ -635,6 +635,8 @@ spotify_autogen/timestamp: \
 	C:/Users/BLUE0409/Documents/spotify/Song.h \
 	C:/Users/BLUE0409/Documents/spotify/SongRepository.cpp \
 	C:/Users/BLUE0409/Documents/spotify/SongRepository.h \
+	C:/Users/BLUE0409/Documents/spotify/artistwindow.cpp \
+	C:/Users/BLUE0409/Documents/spotify/artistwindow.h \
 	C:/Users/BLUE0409/Documents/spotify/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/.qtcreator/cmake-helper/maintenance_tool_provider.cmake \
 	C:/Users/BLUE0409/Documents/spotify/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/.qtcreator/cmake-helper/package-manager.cmake \
 	C:/Users/BLUE0409/Documents/spotify/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/.qtcreator/cmake-helper/qtcreator-project.cmake \
@@ -649,6 +651,7 @@ spotify_autogen/timestamp: \
 	C:/Users/BLUE0409/Documents/spotify/mainwindow.h \
 	C:/Users/BLUE0409/Documents/spotify/registerwindow.cpp \
 	C:/Users/BLUE0409/Documents/spotify/registerwindow.h \
+	C:/Users/BLUE0409/Documents/spotify/artistwindow.ui \
 	C:/Users/BLUE0409/Documents/spotify/loginwindow.ui \
 	C:/Users/BLUE0409/Documents/spotify/mainwindow.ui \
 	C:/Users/BLUE0409/Documents/spotify/registerwindow.ui \
