@@ -15,6 +15,7 @@ private:
 
 public:
 
+    Song();
     Song(int songId,const std::string name,int releaseYear,
          const std::string genre,const std::string filePath,
          int artistId,int albumId ,std::string imagePath1);
@@ -33,6 +34,11 @@ public:
     void setName(const std::string name);
     void setGenre(const std::string genre);
     void setImagePath(const std::string imagePath);
+    void setReleaseYear(int year);
+    void setFilePath(const std::string& path);
+    void setArtistId(int id);
+    void setAlbumId(int id);
+    void setId(int id);
 
 
 };

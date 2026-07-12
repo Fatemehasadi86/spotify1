@@ -3,11 +3,13 @@
 #include "addalbumwindow.h"
 #include "AlbumRepository.h"
 #include <vector>
+#include "addsongwindow.h"
 
-artistWindow::artistWindow(QWidget *parent)
+artistWindow::artistWindow(int artistId,QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::artistWindow)
 {
+    this->artistId=artistId;
     ui->setupUi(this);
     loadAlbums();
 }
@@ -48,5 +50,12 @@ void artistWindow::loadAlbums()
 void artistWindow::on_pushButton_5_clicked()
 {
     close();
+}
+
+
+void artistWindow::on_pushButton_2_clicked()
+{
+    addSongWindow *addsong=new addSongWindow(artistId);
+    addsong->show();
 }
 

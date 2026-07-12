@@ -45,7 +45,7 @@ void loginwindow::on_pushButton_clicked()
     {
         if (artist->getPassword() == password.toStdString())
         {
-            artistWindow *artistw1 = new artistWindow();
+            artistWindow *artistw1 = new artistWindow(artist->getId());
             artistw1->show();
             this->close();
         }

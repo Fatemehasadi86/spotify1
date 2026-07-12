@@ -12,7 +12,7 @@ class artistWindow : public QWidget
     Q_OBJECT
 
 public:
-    explicit artistWindow(QWidget *parent = nullptr);
+    explicit artistWindow(int artistId ,QWidget *parent = nullptr);
     ~artistWindow();
     void loadAlbums();
 
@@ -21,8 +21,11 @@ private slots:
 
     void on_pushButton_5_clicked();
 
+    void on_pushButton_2_clicked();
+
 private:
     Ui::artistWindow *ui;
+    int artistId;
 };
 
 #endif // ARTISTWINDOW_H

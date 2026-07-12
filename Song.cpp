@@ -16,6 +16,35 @@ Song::Song(int songId,const std::string name,
     this->imagePath = imagePath;
 }
 
+Song::Song()
+{
+}
+
+void Song::setReleaseYear(int year)
+{
+    releaseYear = year;
+}
+
+void Song::setFilePath(const std::string& path)
+{
+    filePath = path;
+}
+
+void Song::setArtistId(int id)
+{
+    artistId = id;
+}
+
+void Song::setAlbumId(int id)
+{
+    albumId = id;
+}
+
+void Song::setId(int id)
+{
+    songId = id;
+}
+
 
 int Song::getId() const
 {
