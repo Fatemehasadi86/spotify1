@@ -2,6 +2,8 @@
 #include "Artist.h"
 #include <fstream>
 #include <QDebug>
+#include "AlbumRepository.h"
+
 
 using namespace std;
 

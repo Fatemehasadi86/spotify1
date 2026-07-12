@@ -13,6 +13,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QListWidget>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QWidget>
 
@@ -31,6 +32,7 @@ public:
     QPushButton *pushButton_3;
     QPushButton *pushButton_4;
     QPushButton *pushButton_5;
+    QListWidget *listWidgetAlbums;
 
     void setupUi(QWidget *artistWindow)
     {
@@ -167,7 +169,7 @@ public:
 "}"));
         pushButton_5 = new QPushButton(artistWindow);
         pushButton_5->setObjectName("pushButton_5");
-        pushButton_5->setGeometry(QRect(750, 590, 101, 51));
+        pushButton_5->setGeometry(QRect(750, 600, 101, 51));
         pushButton_5->setStyleSheet(QString::fromUtf8("QPushButton{\n"
 "    background-color: #E53935;\n"
 "    color: white;\n"
@@ -185,6 +187,9 @@ public:
 "QPushButton:pressed{\n"
 "    background-color: #C62828;\n"
 "}"));
+        listWidgetAlbums = new QListWidget(artistWindow);
+        listWidgetAlbums->setObjectName("listWidgetAlbums");
+        listWidgetAlbums->setGeometry(QRect(60, 230, 451, 311));
 
         retranslateUi(artistWindow);
 

@@ -11,14 +11,15 @@ Album::Album()
 }
 
 Album::Album(int albumId,
-             const string& name,
-             int artistId,
-             const string& coverImage)
+                   const std::string& name,
+                   int artistId,int year,
+                   const std::string& coverImage)
 {
     this->albumId = albumId;
     this->name = name;
     this->artistId = artistId;
     this->coverImage = coverImage;
+    this->year=year;
 }
 
 int Album::getAlbumId() const
@@ -49,4 +50,16 @@ void Album::setName(const string& name)
 void Album::setCoverImage(const string& coverImage)
 {
     this->coverImage = coverImage;
+}
+
+void Album::setYear(int year){
+    this->year=year;
+}
+void Album::setID(int id){
+    this->albumId=id;
+}
+
+int Album::getYear() const
+{
+    return year;
 }

@@ -266,7 +266,7 @@ QPushButton:pressed{
    <property name="geometry">
     <rect>
      <x>750</x>
-     <y>590</y>
+     <y>600</y>
      <width>101</width>
      <height>51</height>
     </rect>
@@ -292,6 +292,16 @@ QPushButton:pressed{
    </property>
    <property name="text">
     <string>Logout</string>
+   </property>
+  </widget>
+  <widget class="QListWidget" name="listWidgetAlbums">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>230</y>
+     <width>451</width>
+     <height>311</height>
+    </rect>
    </property>
   </widget>
  </widget>

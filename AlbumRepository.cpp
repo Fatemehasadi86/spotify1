@@ -1,4 +1,6 @@
 #include "AlbumRepository.h"
+#include "Album.h"
+#include <fstream>
 
 using namespace std;
 
@@ -8,6 +10,14 @@ AlbumRepository::AlbumRepository()
 
 int AlbumRepository::save(const Album& album)
 {
+    std::ofstream file("albums.txt", std::ios::app);
+
+    file << album.getAlbumId() << std::endl;
+    file << album.getName() << std::endl;
+    file << album.getYear() << std::endl;
+
+    file.close();
+
     for (int i = 0; i < albumsList.size(); i++)
     {
         if (albumsList[i].getAlbumId() == album.getAlbumId())
@@ -61,4 +71,42 @@ vector<Album> AlbumRepository::albums(int artistId)
     }
 
     return result;
+}
+vector<Album> AlbumRepository::getAllAlbum(){
+    return albumsList;
+}
+
+void AlbumRepository::loadFromFile(){
+
+    albumsList.clear();
+
+    std::ifstream file("albums.txt");
+
+    if (!file.is_open())
+        return;
+
+    int id;
+    std::string title;
+    int year;
+
+    while (file >> id)
+    {
+        file.ignore();
+
+        getline(file, title);
+
+        file >> year;
+        file.ignore();
+
+        Album album;
+
+        album.setID(id);
+        album.setName(title);
+        album.setYear(year);
+
+        albumsList.push_back(album);
+    }
+
+    file.close();
+
 }
