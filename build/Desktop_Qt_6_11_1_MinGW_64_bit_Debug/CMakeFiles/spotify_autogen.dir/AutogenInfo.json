@@ -480,6 +480,12 @@
 			null
 		],
 		[
+			"C:/Users/BLUE0409/Documents/spotify/editalbumwindow.h",
+			"MU",
+			"EWIEGA46WW/moc_editalbumwindow.cpp",
+			null
+		],
+		[
 			"C:/Users/BLUE0409/Documents/spotify/loginwindow.h",
 			"MU",
 			"EWIEGA46WW/moc_loginwindow.cpp",
@@ -495,6 +501,18 @@
 			"C:/Users/BLUE0409/Documents/spotify/registerwindow.h",
 			"MU",
 			"EWIEGA46WW/moc_registerwindow.cpp",
+			null
+		],
+		[
+			"C:/Users/BLUE0409/Documents/spotify/selectalbum2window.h",
+			"MU",
+			"EWIEGA46WW/moc_selectalbum2window.cpp",
+			null
+		],
+		[
+			"C:/Users/BLUE0409/Documents/spotify/selectalbumwindow.h",
+			"MU",
+			"EWIEGA46WW/moc_selectalbumwindow.cpp",
 			null
 		]
 	],
@@ -596,10 +614,21 @@
 		[ "C:/Users/BLUE0409/Documents/spotify/addsongwindow.cpp", "MU", null ],
 		[ "C:/Users/BLUE0409/Documents/spotify/albumwindow.cpp", "MU", null ],
 		[ "C:/Users/BLUE0409/Documents/spotify/artistwindow.cpp", "MU", null ],
+		[ "C:/Users/BLUE0409/Documents/spotify/editalbumwindow.cpp", "MU", null ],
 		[ "C:/Users/BLUE0409/Documents/spotify/loginwindow.cpp", "MU", null ],
 		[ "C:/Users/BLUE0409/Documents/spotify/main.cpp", "MU", null ],
 		[ "C:/Users/BLUE0409/Documents/spotify/mainwindow.cpp", "MU", null ],
-		[ "C:/Users/BLUE0409/Documents/spotify/registerwindow.cpp", "MU", null ]
+		[ "C:/Users/BLUE0409/Documents/spotify/registerwindow.cpp", "MU", null ],
+		[
+			"C:/Users/BLUE0409/Documents/spotify/selectalbum2window.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/BLUE0409/Documents/spotify/selectalbumwindow.cpp",
+			"MU",
+			null
+		]
 	],
 	"UIC_OPTIONS" : [],
 	"UIC_SEARCH_PATHS" : [],

@@ -5,6 +5,9 @@
 #include <vector>
 #include "addsongwindow.h"
 #include "albumwindow.h"
+#include "selectalbumwindow.h"
+#include "selectalbum2window.h"
+
 
 
 artistWindow::artistWindow(int artistId,QWidget *parent)
@@ -77,5 +80,32 @@ void artistWindow::on_listWidgetAlbums_itemDoubleClicked(QListWidgetItem *item)
     int albumId = item->data(Qt::UserRole).toInt();
     albumWindow *window2 = new albumWindow(albumId);
     window2->show();
+}
+
+
+void artistWindow::on_pushButton_3_clicked()
+{
+    selectAlbumWindow *s=new selectAlbumWindow();
+
+    connect(s, &selectAlbumWindow::albumsChanged,this, &artistWindow::loadAlbums);
+
+    s->show();
+
+}
+
+
+void artistWindow::on_pushButton_4_clicked()
+{
+    selectAlbum2Window *w = new selectAlbum2Window();
+
+    w->setAttribute(Qt::WA_DeleteOnClose);
+
+    connect(w, &QObject::destroyed, this, [=]()
+            {
+                loadAlbums();
+            });
+
+    w->show();
+
 }
 

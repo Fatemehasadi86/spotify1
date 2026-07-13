@@ -35,6 +35,7 @@ bool AlbumRepository::remove(int id)
         if (albumsList[i].getAlbumId() == id)
         {
             albumsList.erase(albumsList.begin() + i);
+            saveToFile();
             return true;
         }
     }

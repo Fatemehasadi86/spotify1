@@ -158,6 +158,7 @@ spotify_autogen/timestamp: \
 	C:/Qt/6.11.1/mingw_64/include/QtGui/qvalidator.h \
 	C:/Qt/6.11.1/mingw_64/include/QtGui/qwindowdefs.h \
 	C:/Qt/6.11.1/mingw_64/include/QtGui/qwindowdefs_win.h \
+	C:/Qt/6.11.1/mingw_64/include/QtWidgets/QDialog \
 	C:/Qt/6.11.1/mingw_64/include/QtWidgets/QListWidgetItem \
 	C:/Qt/6.11.1/mingw_64/include/QtWidgets/QMainWindow \
 	C:/Qt/6.11.1/mingw_64/include/QtWidgets/QWidget \
@@ -166,6 +167,7 @@ spotify_autogen/timestamp: \
 	C:/Qt/6.11.1/mingw_64/include/QtWidgets/qabstractscrollarea.h \
 	C:/Qt/6.11.1/mingw_64/include/QtWidgets/qabstractslider.h \
 	C:/Qt/6.11.1/mingw_64/include/QtWidgets/qabstractspinbox.h \
+	C:/Qt/6.11.1/mingw_64/include/QtWidgets/qdialog.h \
 	C:/Qt/6.11.1/mingw_64/include/QtWidgets/qframe.h \
 	C:/Qt/6.11.1/mingw_64/include/QtWidgets/qlistview.h \
 	C:/Qt/6.11.1/mingw_64/include/QtWidgets/qlistwidget.h \
@@ -669,6 +671,8 @@ spotify_autogen/timestamp: \
 	C:/Users/BLUE0409/Documents/spotify/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/CMakeFiles/3.30.5/CMakeRCCompiler.cmake \
 	C:/Users/BLUE0409/Documents/spotify/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/CMakeFiles/3.30.5/CMakeSystem.cmake \
 	C:/Users/BLUE0409/Documents/spotify/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/spotify_autogen/moc_predefs.h \
+	C:/Users/BLUE0409/Documents/spotify/editalbumwindow.cpp \
+	C:/Users/BLUE0409/Documents/spotify/editalbumwindow.h \
 	C:/Users/BLUE0409/Documents/spotify/loginwindow.cpp \
 	C:/Users/BLUE0409/Documents/spotify/loginwindow.h \
 	C:/Users/BLUE0409/Documents/spotify/main.cpp \
@@ -676,11 +680,18 @@ spotify_autogen/timestamp: \
 	C:/Users/BLUE0409/Documents/spotify/mainwindow.h \
 	C:/Users/BLUE0409/Documents/spotify/registerwindow.cpp \
 	C:/Users/BLUE0409/Documents/spotify/registerwindow.h \
+	C:/Users/BLUE0409/Documents/spotify/selectalbum2window.cpp \
+	C:/Users/BLUE0409/Documents/spotify/selectalbum2window.h \
+	C:/Users/BLUE0409/Documents/spotify/selectalbumwindow.cpp \
+	C:/Users/BLUE0409/Documents/spotify/selectalbumwindow.h \
 	C:/Users/BLUE0409/Documents/spotify/addalbumwindow.ui \
 	C:/Users/BLUE0409/Documents/spotify/addsongwindow.ui \
 	C:/Users/BLUE0409/Documents/spotify/albumwindow.ui \
 	C:/Users/BLUE0409/Documents/spotify/artistwindow.ui \
+	C:/Users/BLUE0409/Documents/spotify/editalbumwindow.ui \
 	C:/Users/BLUE0409/Documents/spotify/loginwindow.ui \
 	C:/Users/BLUE0409/Documents/spotify/mainwindow.ui \
 	C:/Users/BLUE0409/Documents/spotify/registerwindow.ui \
+	C:/Users/BLUE0409/Documents/spotify/selectalbum2window.ui \
+	C:/Users/BLUE0409/Documents/spotify/selectalbumwindow.ui \
 	C:/Qt/Tools/CMake_64/bin/cmake.exe

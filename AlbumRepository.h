@@ -25,6 +25,7 @@ public:
     std::vector<Album> getAllAlbum();
     void loadFromFile();
     void saveToFile();
+
 };
 
 #endif
