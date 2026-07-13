@@ -468,6 +468,12 @@
 			null
 		],
 		[
+			"C:/Users/BLUE0409/Documents/spotify/albumwindow.h",
+			"MU",
+			"EWIEGA46WW/moc_albumwindow.cpp",
+			null
+		],
+		[
 			"C:/Users/BLUE0409/Documents/spotify/artistwindow.h",
 			"MU",
 			"EWIEGA46WW/moc_artistwindow.cpp",
@@ -588,6 +594,7 @@
 		[ "C:/Users/BLUE0409/Documents/spotify/SongRepository.cpp", "MU", null ],
 		[ "C:/Users/BLUE0409/Documents/spotify/addalbumwindow.cpp", "MU", null ],
 		[ "C:/Users/BLUE0409/Documents/spotify/addsongwindow.cpp", "MU", null ],
+		[ "C:/Users/BLUE0409/Documents/spotify/albumwindow.cpp", "MU", null ],
 		[ "C:/Users/BLUE0409/Documents/spotify/artistwindow.cpp", "MU", null ],
 		[ "C:/Users/BLUE0409/Documents/spotify/loginwindow.cpp", "MU", null ],
 		[ "C:/Users/BLUE0409/Documents/spotify/main.cpp", "MU", null ],

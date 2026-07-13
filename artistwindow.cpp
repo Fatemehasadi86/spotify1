@@ -4,6 +4,8 @@
 #include "AlbumRepository.h"
 #include <vector>
 #include "addsongwindow.h"
+#include "albumwindow.h"
+
 
 artistWindow::artistWindow(int artistId,QWidget *parent)
     : QWidget(parent)
@@ -34,15 +36,22 @@ void artistWindow::loadAlbums()
     ui->listWidgetAlbums->clear();
 
     AlbumRepository repository;
-
     repository.loadFromFile();
+
+    QListWidgetItem *singles = new QListWidgetItem("Singles");
+    singles->setData(Qt::UserRole, 0);
+    ui->listWidgetAlbums->addItem(singles);
 
     std::vector<Album> albums = repository.getAllAlbum();
 
-    for(int i = 0; i < albums.size(); i++)
+    for (int i = 0; i < albums.size(); i++)
     {
-        ui->listWidgetAlbums->addItem(
+        QListWidgetItem *item = new QListWidgetItem(
             QString::fromStdString(albums[i].getName()));
+
+        item->setData(Qt::UserRole, albums[i].getAlbumId());
+
+        ui->listWidgetAlbums->addItem(item);
     }
 }
 
@@ -57,5 +66,16 @@ void artistWindow::on_pushButton_2_clicked()
 {
     addSongWindow *addsong=new addSongWindow(artistId);
     addsong->show();
+}
+
+
+void artistWindow::on_listWidgetAlbums_itemDoubleClicked(QListWidgetItem *item)
+{
+    if (item == nullptr)
+        return;
+
+    int albumId = item->data(Qt::UserRole).toInt();
+    albumWindow *window2 = new albumWindow(albumId);
+    window2->show();
 }
 

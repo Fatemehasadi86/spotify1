@@ -42,6 +42,13 @@ void AddAlbumWindow::on_pushButton_2_clicked()
     album.setYear(year.toInt());
 
     AlbumRepository repository;
+
+    repository.loadFromFile();
+
+    int newId = repository.getAllAlbum().size() + 1;
+
+    album.setID(newId);
+
     repository.save(album);
 
 

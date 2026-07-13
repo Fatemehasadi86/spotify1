@@ -13,11 +13,12 @@ private:
 
 public:
     SongRepository();
-
-
     int save(const Song& song) override;
+
     bool remove(int id) override;
     std::optional<Song> search(int id) override;
+    void loadFromFile();
+    void saveToFile();
 
 
     std::vector<Song> singleSongs(int artistId);
@@ -25,4 +26,5 @@ public:
     std::vector<Song> getByArtist(int artistId);
     std::vector<Song> getByPlaylist(int playlistId);
     std::vector<Song> getByLikedSongs(int listenerId);
+    std::vector<Song> getAllSongs();
 };

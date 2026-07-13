@@ -24,6 +24,7 @@ public:
     std::vector<Album> albums(int artistId);
     std::vector<Album> getAllAlbum();
     void loadFromFile();
+    void saveToFile();
 };
 
 #endif

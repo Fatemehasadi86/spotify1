@@ -201,6 +201,14 @@ build CMakeFiles/spotify.dir/addsongwindow.cpp.obj: CXX_COMPILER__spotify_unscan
   OBJECT_DIR = CMakeFiles\spotify.dir
   OBJECT_FILE_DIR = CMakeFiles\spotify.dir
 
+build CMakeFiles/spotify.dir/albumwindow.cpp.obj: CXX_COMPILER__spotify_unscanned_Debug C$:/Users/BLUE0409/Documents/spotify/albumwindow.cpp || cmake_object_order_depends_target_spotify
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_QML_DEBUG -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = CMakeFiles\spotify.dir\albumwindow.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/BLUE0409/Documents/spotify/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/spotify_autogen/include -isystem C:/Qt/6.11.1/mingw_64/include/QtCore -isystem C:/Qt/6.11.1/mingw_64/include -isystem C:/Qt/6.11.1/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.11.1/mingw_64/include/QtWidgets -isystem C:/Qt/6.11.1/mingw_64/include/QtGui
+  OBJECT_DIR = CMakeFiles\spotify.dir
+  OBJECT_FILE_DIR = CMakeFiles\spotify.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target spotify
@@ -209,7 +217,7 @@ build CMakeFiles/spotify.dir/addsongwindow.cpp.obj: CXX_COMPILER__spotify_unscan
 #############################################
 # Link the executable spotify.exe
 
-build spotify.exe: CXX_EXECUTABLE_LINKER__spotify_Debug CMakeFiles/spotify.dir/spotify_autogen/mocs_compilation.cpp.obj CMakeFiles/spotify.dir/main.cpp.obj CMakeFiles/spotify.dir/mainwindow.cpp.obj CMakeFiles/spotify.dir/Account.cpp.obj CMakeFiles/spotify.dir/Song.cpp.obj CMakeFiles/spotify.dir/PlayList.cpp.obj CMakeFiles/spotify.dir/Album.cpp.obj CMakeFiles/spotify.dir/AlbumRepository.cpp.obj CMakeFiles/spotify.dir/ArtistRepository.cpp.obj CMakeFiles/spotify.dir/ListenerRepository.cpp.obj CMakeFiles/spotify.dir/PlaylistRepository.cpp.obj CMakeFiles/spotify.dir/SongRepository.cpp.obj CMakeFiles/spotify.dir/Artist.cpp.obj CMakeFiles/spotify.dir/Listener.cpp.obj CMakeFiles/spotify.dir/registerwindow.cpp.obj CMakeFiles/spotify.dir/loginwindow.cpp.obj CMakeFiles/spotify.dir/artistwindow.cpp.obj CMakeFiles/spotify.dir/addalbumwindow.cpp.obj CMakeFiles/spotify.dir/addsongwindow.cpp.obj | C$:/Qt/6.11.1/mingw_64/lib/libQt6Widgets.a C$:/Qt/6.11.1/mingw_64/lib/libQt6Gui.a C$:/Qt/6.11.1/mingw_64/lib/libQt6Core.a C$:/Qt/6.11.1/mingw_64/lib/libQt6EntryPoint.a spotify.exe.manifest || spotify_autogen spotify_autogen_timestamp_deps
+build spotify.exe: CXX_EXECUTABLE_LINKER__spotify_Debug CMakeFiles/spotify.dir/spotify_autogen/mocs_compilation.cpp.obj CMakeFiles/spotify.dir/main.cpp.obj CMakeFiles/spotify.dir/mainwindow.cpp.obj CMakeFiles/spotify.dir/Account.cpp.obj CMakeFiles/spotify.dir/Song.cpp.obj CMakeFiles/spotify.dir/PlayList.cpp.obj CMakeFiles/spotify.dir/Album.cpp.obj CMakeFiles/spotify.dir/AlbumRepository.cpp.obj CMakeFiles/spotify.dir/ArtistRepository.cpp.obj CMakeFiles/spotify.dir/ListenerRepository.cpp.obj CMakeFiles/spotify.dir/PlaylistRepository.cpp.obj CMakeFiles/spotify.dir/SongRepository.cpp.obj CMakeFiles/spotify.dir/Artist.cpp.obj CMakeFiles/spotify.dir/Listener.cpp.obj CMakeFiles/spotify.dir/registerwindow.cpp.obj CMakeFiles/spotify.dir/loginwindow.cpp.obj CMakeFiles/spotify.dir/artistwindow.cpp.obj CMakeFiles/spotify.dir/addalbumwindow.cpp.obj CMakeFiles/spotify.dir/addsongwindow.cpp.obj CMakeFiles/spotify.dir/albumwindow.cpp.obj | C$:/Qt/6.11.1/mingw_64/lib/libQt6Widgets.a C$:/Qt/6.11.1/mingw_64/lib/libQt6Gui.a C$:/Qt/6.11.1/mingw_64/lib/libQt6Core.a C$:/Qt/6.11.1/mingw_64/lib/libQt6EntryPoint.a spotify.exe.manifest || spotify_autogen spotify_autogen_timestamp_deps
   FLAGS = -g
   LINK_FLAGS = -mwindows
   LINK_LIBRARIES = C:/Qt/6.11.1/mingw_64/lib/libQt6Widgets.a  C:/Qt/6.11.1/mingw_64/lib/libQt6Gui.a  C:/Qt/6.11.1/mingw_64/lib/libQt6Core.a  -lmpr  -luserenv  -lmingw32  C:/Qt/6.11.1/mingw_64/lib/libQt6EntryPoint.a  -lshell32  -ld3d11  -ldxgi  -ldxguid  -ld3d12  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
@@ -297,7 +305,7 @@ build spotify_autogen_timestamp_deps: phony
 #############################################
 # Utility command for spotify_autogen
 
-build spotify_autogen: phony CMakeFiles/spotify_autogen spotify_autogen/include/ui_mainwindow.h spotify_autogen/include/ui_registerwindow.h spotify_autogen/include/ui_loginwindow.h spotify_autogen/include/ui_artistwindow.h spotify_autogen/include/ui_addalbumwindow.h spotify_autogen/include/ui_addsongwindow.h spotify_autogen/timestamp spotify_autogen/mocs_compilation.cpp spotify_autogen_timestamp_deps
+build spotify_autogen: phony CMakeFiles/spotify_autogen spotify_autogen/include/ui_mainwindow.h spotify_autogen/include/ui_registerwindow.h spotify_autogen/include/ui_loginwindow.h spotify_autogen/include/ui_artistwindow.h spotify_autogen/include/ui_addalbumwindow.h spotify_autogen/include/ui_addsongwindow.h spotify_autogen/include/ui_albumwindow.h spotify_autogen/timestamp spotify_autogen/mocs_compilation.cpp spotify_autogen_timestamp_deps
 
 
 #############################################
@@ -314,7 +322,7 @@ build spotify_autogen/timestamp spotify_autogen/mocs_compilation.cpp | ${cmake_n
 #############################################
 # Phony custom command for CMakeFiles\spotify_autogen
 
-build CMakeFiles/spotify_autogen spotify_autogen/include/ui_mainwindow.h spotify_autogen/include/ui_registerwindow.h spotify_autogen/include/ui_loginwindow.h spotify_autogen/include/ui_artistwindow.h spotify_autogen/include/ui_addalbumwindow.h spotify_autogen/include/ui_addsongwindow.h | ${cmake_ninja_workdir}CMakeFiles/spotify_autogen ${cmake_ninja_workdir}spotify_autogen/include/ui_mainwindow.h ${cmake_ninja_workdir}spotify_autogen/include/ui_registerwindow.h ${cmake_ninja_workdir}spotify_autogen/include/ui_loginwindow.h ${cmake_ninja_workdir}spotify_autogen/include/ui_artistwindow.h ${cmake_ninja_workdir}spotify_autogen/include/ui_addalbumwindow.h ${cmake_ninja_workdir}spotify_autogen/include/ui_addsongwindow.h: phony spotify_autogen/timestamp || spotify_autogen_timestamp_deps
+build CMakeFiles/spotify_autogen spotify_autogen/include/ui_mainwindow.h spotify_autogen/include/ui_registerwindow.h spotify_autogen/include/ui_loginwindow.h spotify_autogen/include/ui_artistwindow.h spotify_autogen/include/ui_addalbumwindow.h spotify_autogen/include/ui_addsongwindow.h spotify_autogen/include/ui_albumwindow.h | ${cmake_ninja_workdir}CMakeFiles/spotify_autogen ${cmake_ninja_workdir}spotify_autogen/include/ui_mainwindow.h ${cmake_ninja_workdir}spotify_autogen/include/ui_registerwindow.h ${cmake_ninja_workdir}spotify_autogen/include/ui_loginwindow.h ${cmake_ninja_workdir}spotify_autogen/include/ui_artistwindow.h ${cmake_ninja_workdir}spotify_autogen/include/ui_addalbumwindow.h ${cmake_ninja_workdir}spotify_autogen/include/ui_addsongwindow.h ${cmake_ninja_workdir}spotify_autogen/include/ui_albumwindow.h: phony spotify_autogen/timestamp || spotify_autogen_timestamp_deps
 
 # =============================================================================
 # Target aliases.

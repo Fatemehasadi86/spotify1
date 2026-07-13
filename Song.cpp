@@ -18,6 +18,14 @@ Song::Song(int songId,const std::string name,
 
 Song::Song()
 {
+    songId = 0;
+    name = "";
+    releaseYear = 0;
+    genre = "";
+    filePath = "";
+    artistId = 0;
+    albumId = 0;
+    imagePath = "";
 }
 
 void Song::setReleaseYear(int year)

@@ -42,6 +42,7 @@ qt_add_executable(spotify
     resources.qrc
     addalbumwindow.h addalbumwindow.cpp addalbumwindow.ui
     addsongwindow.h addsongwindow.cpp addsongwindow.ui
+    albumwindow.h albumwindow.cpp albumwindow.ui
 
 
 )

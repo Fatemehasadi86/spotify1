@@ -10,24 +10,21 @@ AlbumRepository::AlbumRepository()
 
 int AlbumRepository::save(const Album& album)
 {
-    std::ofstream file("albums.txt", std::ios::app);
-
-    file << album.getAlbumId() << std::endl;
-    file << album.getName() << std::endl;
-    file << album.getYear() << std::endl;
-
-    file.close();
+    loadFromFile();
 
     for (int i = 0; i < albumsList.size(); i++)
     {
         if (albumsList[i].getAlbumId() == album.getAlbumId())
         {
             albumsList[i] = album;
+            saveToFile();
             return album.getAlbumId();
         }
     }
 
     albumsList.push_back(album);
+    saveToFile();
+
     return album.getAlbumId();
 }
 
@@ -109,4 +106,17 @@ void AlbumRepository::loadFromFile(){
 
     file.close();
 
+}
+void AlbumRepository::saveToFile()
+{
+    std::ofstream file("albums.txt");
+
+    for (const Album &album : albumsList)
+    {
+        file << album.getAlbumId() << std::endl;
+        file << album.getName() << std::endl;
+        file << album.getYear() << std::endl;
+    }
+
+    file.close();
 }

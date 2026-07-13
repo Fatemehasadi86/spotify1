@@ -73,11 +73,15 @@ void addSongWindow::on_pushButton_3_clicked()
     }
 
     SongRepository repository;
+    repository.loadFromFile();
+
+    int newId = repository.getAllSongs().size() + 1;
+
+    song.setId(newId);
+
     repository.save(song);
 
-    QMessageBox::information(this,
-                             "Success",
-                             "Song added successfully.");
+    QMessageBox::information(this,"Success"," Song added successfully ");
 
     close();
 }

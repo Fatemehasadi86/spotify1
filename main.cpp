@@ -4,6 +4,8 @@
 #include "registerwindow.h"
 #include "loginwindow.h"
 #include <fstream>
+
+
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
@@ -12,7 +14,7 @@ int main(int argc, char *argv[])
     registerWindow r;
     artistWindow ar(0);
     ar.show();
-    // std::ofstream file("accounts.txt", std::ios::trunc);
+    // std::ofstream file("songs.txt", std::ios::trunc);
     // file.close();
     return QApplication::exec();
 }
