@@ -46,6 +46,7 @@ qt_add_executable(spotify
     editalbumwindow.h editalbumwindow.cpp editalbumwindow.ui
     selectalbumwindow.h selectalbumwindow.cpp selectalbumwindow.ui
     selectalbum2window.h selectalbum2window.cpp selectalbum2window.ui
+    editsongwindow.h editsongwindow.cpp editsongwindow.ui
 
 
 )

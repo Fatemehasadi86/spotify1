@@ -673,6 +673,8 @@ spotify_autogen/timestamp: \
 	C:/Users/BLUE0409/Documents/spotify/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/spotify_autogen/moc_predefs.h \
 	C:/Users/BLUE0409/Documents/spotify/editalbumwindow.cpp \
 	C:/Users/BLUE0409/Documents/spotify/editalbumwindow.h \
+	C:/Users/BLUE0409/Documents/spotify/editsongwindow.cpp \
+	C:/Users/BLUE0409/Documents/spotify/editsongwindow.h \
 	C:/Users/BLUE0409/Documents/spotify/loginwindow.cpp \
 	C:/Users/BLUE0409/Documents/spotify/loginwindow.h \
 	C:/Users/BLUE0409/Documents/spotify/main.cpp \
@@ -689,6 +691,7 @@ spotify_autogen/timestamp: \
 	C:/Users/BLUE0409/Documents/spotify/albumwindow.ui \
 	C:/Users/BLUE0409/Documents/spotify/artistwindow.ui \
 	C:/Users/BLUE0409/Documents/spotify/editalbumwindow.ui \
+	C:/Users/BLUE0409/Documents/spotify/editsongwindow.ui \
 	C:/Users/BLUE0409/Documents/spotify/loginwindow.ui \
 	C:/Users/BLUE0409/Documents/spotify/mainwindow.ui \
 	C:/Users/BLUE0409/Documents/spotify/registerwindow.ui \

@@ -34,6 +34,9 @@ bool SongRepository::remove(int id)
         if (songs[i].getId() == id)
         {
             songs.erase(songs.begin() + i);
+
+            saveToFile();
+
             return true;
         }
     }

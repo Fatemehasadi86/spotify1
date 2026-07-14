@@ -24,7 +24,6 @@ public:
     QLabel *label;
     QLabel *label_2;
     QListWidget *listWidget;
-    QPushButton *pushButton;
     QPushButton *pushButton_2;
     QPushButton *pushButton_3;
     QPushButton *pushButton_4;
@@ -43,15 +42,12 @@ public:
         listWidget = new QListWidget(albumWindow);
         listWidget->setObjectName("listWidget");
         listWidget->setGeometry(QRect(180, 121, 256, 271));
-        pushButton = new QPushButton(albumWindow);
-        pushButton->setObjectName("pushButton");
-        pushButton->setGeometry(QRect(90, 460, 90, 29));
         pushButton_2 = new QPushButton(albumWindow);
         pushButton_2->setObjectName("pushButton_2");
-        pushButton_2->setGeometry(QRect(230, 460, 90, 29));
+        pushButton_2->setGeometry(QRect(160, 460, 111, 31));
         pushButton_3 = new QPushButton(albumWindow);
         pushButton_3->setObjectName("pushButton_3");
-        pushButton_3->setGeometry(QRect(350, 460, 111, 31));
+        pushButton_3->setGeometry(QRect(330, 460, 111, 31));
         pushButton_4 = new QPushButton(albumWindow);
         pushButton_4->setObjectName("pushButton_4");
         pushButton_4->setGeometry(QRect(560, 520, 90, 29));
@@ -66,7 +62,6 @@ public:
         albumWindow->setWindowTitle(QCoreApplication::translate("albumWindow", "Form", nullptr));
         label->setText(QCoreApplication::translate("albumWindow", "Album Name :", nullptr));
         label_2->setText(QCoreApplication::translate("albumWindow", "TextLabel", nullptr));
-        pushButton->setText(QCoreApplication::translate("albumWindow", "Add Song", nullptr));
         pushButton_2->setText(QCoreApplication::translate("albumWindow", "Edit Song ", nullptr));
         pushButton_3->setText(QCoreApplication::translate("albumWindow", "Delete Song", nullptr));
         pushButton_4->setText(QCoreApplication::translate("albumWindow", "Back", nullptr));

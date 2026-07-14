@@ -4,6 +4,7 @@
 #include "EWIEGA46WW/moc_albumwindow.cpp"
 #include "EWIEGA46WW/moc_artistwindow.cpp"
 #include "EWIEGA46WW/moc_editalbumwindow.cpp"
+#include "EWIEGA46WW/moc_editsongwindow.cpp"
 #include "EWIEGA46WW/moc_loginwindow.cpp"
 #include "EWIEGA46WW/moc_mainwindow.cpp"
 #include "EWIEGA46WW/moc_registerwindow.cpp"
