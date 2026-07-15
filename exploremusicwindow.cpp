@@ -2,6 +2,8 @@
 #include "ui_exploremusicwindow.h"
 #include <QListWidgetItem>
 #include "ArtistRepository.h"
+#include "AlbumRepository.h"
+#include "album_artist_window.h"
 
 
 exploreMusicwindow::exploreMusicwindow(QWidget *parent)
@@ -24,7 +26,6 @@ void exploreMusicwindow::loadArtists()
     ArtistRepository repository;
 
     std::vector<Account> artists = repository.getAll();
-    qDebug()<<"Artists count :"<<artists.size();
 
     for (int i = 0; i < artists.size(); i++)
     {
@@ -36,3 +37,43 @@ void exploreMusicwindow::loadArtists()
         ui->listWidget->addItem(item);
     }
 }
+
+
+
+void exploreMusicwindow::on_listWidget_itemClicked(QListWidgetItem *item)
+{
+    int artistId = item->data(Qt::UserRole).toInt();
+
+    album_artist_window *w = new album_artist_window(artistId);
+
+    w->show();
+}
+
+void exploreMusicwindow::loadAlbums()
+{
+    ui->listWidget->clear();
+
+    AlbumRepository repository;
+    repository.loadFromFile();
+
+    std::vector<Album> albums = repository.getAllAlbum();
+
+    for (int i = 0; i < albums.size(); i++)
+    {
+        if (albums[i].getArtistId() != selectedArtistId)
+            continue;
+
+        QListWidgetItem *item = new QListWidgetItem(
+            QString::fromStdString(albums[i].getName()));
+
+        item->setData(Qt::UserRole, albums[i].getAlbumId());
+
+        ui->listWidget->addItem(item);
+    }
+}
+
+void exploreMusicwindow::on_pushButton_2_clicked()
+{
+    close();
+}
+

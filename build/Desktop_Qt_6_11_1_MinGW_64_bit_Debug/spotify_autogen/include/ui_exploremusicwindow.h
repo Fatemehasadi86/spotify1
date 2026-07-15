@@ -36,7 +36,7 @@ public:
         label->setGeometry(QRect(72, 60, 161, 51));
         listWidget = new QListWidget(exploreMusicwindow);
         listWidget->setObjectName("listWidget");
-        listWidget->setGeometry(QRect(70, 140, 321, 251));
+        listWidget->setGeometry(QRect(30, 140, 321, 251));
         pushButton = new QPushButton(exploreMusicwindow);
         pushButton->setObjectName("pushButton");
         pushButton->setGeometry(QRect(90, 440, 111, 41));

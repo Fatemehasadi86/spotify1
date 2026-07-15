@@ -55,6 +55,8 @@ qt_add_executable(spotify
     editplaylistwindow.h editplaylistwindow.cpp editplaylistwindow.ui
     exploremusicwindow.h exploremusicwindow.cpp exploremusicwindow.ui
     AccountRepository.cpp
+    album_artist_window.h album_artist_window.cpp album_artist_window.ui
+    album_song_window.h album_song_window.cpp album_song_window.ui
 
 
 )

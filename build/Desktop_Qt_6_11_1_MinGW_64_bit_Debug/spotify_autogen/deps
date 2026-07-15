@@ -661,6 +661,10 @@ spotify_autogen/timestamp: \
 	C:/Users/BLUE0409/Documents/spotify/addalbumwindow.h \
 	C:/Users/BLUE0409/Documents/spotify/addsongwindow.cpp \
 	C:/Users/BLUE0409/Documents/spotify/addsongwindow.h \
+	C:/Users/BLUE0409/Documents/spotify/album_artist_window.cpp \
+	C:/Users/BLUE0409/Documents/spotify/album_artist_window.h \
+	C:/Users/BLUE0409/Documents/spotify/album_song_window.cpp \
+	C:/Users/BLUE0409/Documents/spotify/album_song_window.h \
 	C:/Users/BLUE0409/Documents/spotify/albumwindow.cpp \
 	C:/Users/BLUE0409/Documents/spotify/albumwindow.h \
 	C:/Users/BLUE0409/Documents/spotify/artistwindow.cpp \
@@ -701,6 +705,8 @@ spotify_autogen/timestamp: \
 	C:/Users/BLUE0409/Documents/spotify/selectplaylistwindow.h \
 	C:/Users/BLUE0409/Documents/spotify/addalbumwindow.ui \
 	C:/Users/BLUE0409/Documents/spotify/addsongwindow.ui \
+	C:/Users/BLUE0409/Documents/spotify/album_artist_window.ui \
+	C:/Users/BLUE0409/Documents/spotify/album_song_window.ui \
 	C:/Users/BLUE0409/Documents/spotify/albumwindow.ui \
 	C:/Users/BLUE0409/Documents/spotify/artistwindow.ui \
 	C:/Users/BLUE0409/Documents/spotify/createplaylistwindow.ui \
