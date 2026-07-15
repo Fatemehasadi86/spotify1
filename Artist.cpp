@@ -23,3 +23,7 @@ string Artist::getBiography() const
 void Artist::setBiography(string biography){
     this->biography=biography;
 }
+
+void Artist::getUsernam(){
+
+}

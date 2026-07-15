@@ -634,6 +634,7 @@ spotify_autogen/timestamp: \
 	C:/Users/BLUE0409/Documents/spotify/AbstractRepository.h \
 	C:/Users/BLUE0409/Documents/spotify/Account.cpp \
 	C:/Users/BLUE0409/Documents/spotify/Account.h \
+	C:/Users/BLUE0409/Documents/spotify/AccountRepository.cpp \
 	C:/Users/BLUE0409/Documents/spotify/AccountRepository.h \
 	C:/Users/BLUE0409/Documents/spotify/Album.cpp \
 	C:/Users/BLUE0409/Documents/spotify/Album.h \
@@ -671,10 +672,18 @@ spotify_autogen/timestamp: \
 	C:/Users/BLUE0409/Documents/spotify/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/CMakeFiles/3.30.5/CMakeRCCompiler.cmake \
 	C:/Users/BLUE0409/Documents/spotify/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/CMakeFiles/3.30.5/CMakeSystem.cmake \
 	C:/Users/BLUE0409/Documents/spotify/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/spotify_autogen/moc_predefs.h \
+	C:/Users/BLUE0409/Documents/spotify/createplaylistwindow.cpp \
+	C:/Users/BLUE0409/Documents/spotify/createplaylistwindow.h \
 	C:/Users/BLUE0409/Documents/spotify/editalbumwindow.cpp \
 	C:/Users/BLUE0409/Documents/spotify/editalbumwindow.h \
+	C:/Users/BLUE0409/Documents/spotify/editplaylistwindow.cpp \
+	C:/Users/BLUE0409/Documents/spotify/editplaylistwindow.h \
 	C:/Users/BLUE0409/Documents/spotify/editsongwindow.cpp \
 	C:/Users/BLUE0409/Documents/spotify/editsongwindow.h \
+	C:/Users/BLUE0409/Documents/spotify/exploremusicwindow.cpp \
+	C:/Users/BLUE0409/Documents/spotify/exploremusicwindow.h \
+	C:/Users/BLUE0409/Documents/spotify/listenerwindow.cpp \
+	C:/Users/BLUE0409/Documents/spotify/listenerwindow.h \
 	C:/Users/BLUE0409/Documents/spotify/loginwindow.cpp \
 	C:/Users/BLUE0409/Documents/spotify/loginwindow.h \
 	C:/Users/BLUE0409/Documents/spotify/main.cpp \
@@ -686,15 +695,25 @@ spotify_autogen/timestamp: \
 	C:/Users/BLUE0409/Documents/spotify/selectalbum2window.h \
 	C:/Users/BLUE0409/Documents/spotify/selectalbumwindow.cpp \
 	C:/Users/BLUE0409/Documents/spotify/selectalbumwindow.h \
+	C:/Users/BLUE0409/Documents/spotify/selectplaylist2window.cpp \
+	C:/Users/BLUE0409/Documents/spotify/selectplaylist2window.h \
+	C:/Users/BLUE0409/Documents/spotify/selectplaylistwindow.cpp \
+	C:/Users/BLUE0409/Documents/spotify/selectplaylistwindow.h \
 	C:/Users/BLUE0409/Documents/spotify/addalbumwindow.ui \
 	C:/Users/BLUE0409/Documents/spotify/addsongwindow.ui \
 	C:/Users/BLUE0409/Documents/spotify/albumwindow.ui \
 	C:/Users/BLUE0409/Documents/spotify/artistwindow.ui \
+	C:/Users/BLUE0409/Documents/spotify/createplaylistwindow.ui \
 	C:/Users/BLUE0409/Documents/spotify/editalbumwindow.ui \
+	C:/Users/BLUE0409/Documents/spotify/editplaylistwindow.ui \
 	C:/Users/BLUE0409/Documents/spotify/editsongwindow.ui \
+	C:/Users/BLUE0409/Documents/spotify/exploremusicwindow.ui \
+	C:/Users/BLUE0409/Documents/spotify/listenerwindow.ui \
 	C:/Users/BLUE0409/Documents/spotify/loginwindow.ui \
 	C:/Users/BLUE0409/Documents/spotify/mainwindow.ui \
 	C:/Users/BLUE0409/Documents/spotify/registerwindow.ui \
 	C:/Users/BLUE0409/Documents/spotify/selectalbum2window.ui \
 	C:/Users/BLUE0409/Documents/spotify/selectalbumwindow.ui \
+	C:/Users/BLUE0409/Documents/spotify/selectplaylist2window.ui \
+	C:/Users/BLUE0409/Documents/spotify/selectplaylistwindow.ui \
 	C:/Qt/Tools/CMake_64/bin/cmake.exe

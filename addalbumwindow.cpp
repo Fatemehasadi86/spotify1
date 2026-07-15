@@ -4,11 +4,12 @@
 #include "Album.h"
 #include "AlbumRepository.h"
 
-AddAlbumWindow::AddAlbumWindow(QWidget *parent)
+AddAlbumWindow::AddAlbumWindow(int artistId,QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::AddAlbumWindow)
 {
     ui->setupUi(this);
+    this->artistId=artistId;
 }
 
 AddAlbumWindow::~AddAlbumWindow()
@@ -48,6 +49,7 @@ void AddAlbumWindow::on_pushButton_2_clicked()
     int newId = repository.getAllAlbum().size() + 1;
 
     album.setID(newId);
+    album.setArtistId(artistId);
 
     repository.save(album);
 

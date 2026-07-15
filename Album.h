@@ -31,6 +31,7 @@ public:
     void setYear(int year);
     void setID(int id);
     void setCoverImage(const std::string& coverImage);
+    void setArtistId(int id);
 };
 
 #endif

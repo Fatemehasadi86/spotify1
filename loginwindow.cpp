@@ -6,6 +6,7 @@
 #include "registerwindow.h"
 #include <optional>
 #include "artistwindow.h"
+#include "listenerwindow.h"
 
 loginwindow::loginwindow(QWidget *parent)
     : QWidget(parent)
@@ -40,6 +41,7 @@ void loginwindow::on_pushButton_clicked()
     artistRepository.loadFromFile();
 
     std::optional artist = artistRepository.searchByUserName(username.toStdString());
+    std::optional listener = listenerRepository.searchByUserName(username.toStdString());
 
     if (artist.has_value())
     {
@@ -49,24 +51,31 @@ void loginwindow::on_pushButton_clicked()
             artistw1->show();
             this->close();
         }
+        else{
+
+            QMessageBox::warning(this,
+                                 "Error",
+                                 "Username or Password is incorrect.");
+        }
     }
 
-    std::optional listener = listenerRepository.searchByUserName(username.toStdString());
 
     if (listener.has_value())
     {
         if (listener->getPassword() == password.toStdString())
         {
-            QMessageBox::information(this,
-                                     "Success",
-                                     "Welcome Listener!");
-            return;
+            listenerWindow *listwin1= new listenerWindow(listener->getId());
+            listwin1->show();
+            this->close();
+        }
+        else{
+
+            QMessageBox::warning(this,
+                                 "Error",
+                                 "Username or Password is incorrect.");
         }
     }
 
-    QMessageBox::warning(this,
-                         "Error",
-                         "Username or Password is incorrect.");
 }
 
 

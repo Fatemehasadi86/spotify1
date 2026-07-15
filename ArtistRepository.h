@@ -4,6 +4,7 @@
 #include <vector>
 #include <optional>
 
+
 class ArtistRepository : public AccountRepository
 {
 private:
@@ -17,4 +18,5 @@ public:
     void loadFromFile();
     std::optional<Account> search(int id) override;
     std::optional<Account> searchByUserName(const std::string& userName) override;
+    std::vector<Account> getAll();
 };

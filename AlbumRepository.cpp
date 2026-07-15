@@ -74,8 +74,8 @@ vector<Album> AlbumRepository::getAllAlbum(){
     return albumsList;
 }
 
-void AlbumRepository::loadFromFile(){
-
+void AlbumRepository::loadFromFile()
+{
     albumsList.clear();
 
     std::ifstream file("albums.txt");
@@ -86,6 +86,7 @@ void AlbumRepository::loadFromFile(){
     int id;
     std::string title;
     int year;
+    int artistId;
 
     while (file >> id)
     {
@@ -94,6 +95,7 @@ void AlbumRepository::loadFromFile(){
         getline(file, title);
 
         file >> year;
+        file >> artistId;
         file.ignore();
 
         Album album;
@@ -101,12 +103,12 @@ void AlbumRepository::loadFromFile(){
         album.setID(id);
         album.setName(title);
         album.setYear(year);
+        album.setArtistId(artistId);
 
         albumsList.push_back(album);
     }
 
     file.close();
-
 }
 void AlbumRepository::saveToFile()
 {
@@ -117,6 +119,7 @@ void AlbumRepository::saveToFile()
         file << album.getAlbumId() << std::endl;
         file << album.getName() << std::endl;
         file << album.getYear() << std::endl;
+        file << album.getArtistId() << std::endl;
     }
 
     file.close();

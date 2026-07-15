@@ -84,13 +84,13 @@
 			{
 				"command" : 4,
 				"file" : 1,
-				"line" : 59,
+				"line" : 68,
 				"parent" : 0
 			},
 			{
 				"command" : 5,
 				"file" : 1,
-				"line" : 53,
+				"line" : 62,
 				"parent" : 0
 			},
 			{
@@ -435,18 +435,26 @@
 				46,
 				49,
 				52,
-				55
+				55,
+				58,
+				61,
+				64,
+				67,
+				70,
+				73,
+				76,
+				78
 			]
 		}
 	],
 	"dependencies" : 
 	[
 		{
-			"id" : "spotify_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
-		},
-		{
 			"backtrace" : 0,
 			"id" : "spotify_autogen::@6890427a1f51a3e7e1df"
+		},
+		{
+			"id" : "spotify_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
 		}
 	],
 	"id" : "spotify::@6890427a1f51a3e7e1df",
@@ -557,17 +565,24 @@
 			"sourceIndexes" : 
 			[
 				0,
-				58,
-				59,
-				60,
-				61,
-				62,
-				63,
-				64,
-				65,
-				66,
-				67,
-				68
+				80,
+				81,
+				82,
+				83,
+				84,
+				85,
+				86,
+				87,
+				88,
+				89,
+				90,
+				91,
+				92,
+				93,
+				94,
+				95,
+				96,
+				97
 			]
 		},
 		{
@@ -595,7 +610,15 @@
 				46,
 				49,
 				52,
-				55
+				55,
+				58,
+				61,
+				64,
+				67,
+				70,
+				73,
+				76,
+				78
 			]
 		},
 		{
@@ -624,7 +647,14 @@
 				45,
 				48,
 				51,
-				54
+				54,
+				57,
+				60,
+				63,
+				66,
+				69,
+				72,
+				75
 			]
 		},
 		{
@@ -640,7 +670,14 @@
 				47,
 				50,
 				53,
-				56
+				56,
+				59,
+				62,
+				65,
+				68,
+				71,
+				74,
+				77
 			]
 		},
 		{
@@ -654,14 +691,14 @@
 			"name" : "",
 			"sourceIndexes" : 
 			[
-				57
+				79
 			]
 		},
 		{
 			"name" : "CMake Rules",
 			"sourceIndexes" : 
 			[
-				69
+				98
 			]
 		}
 	],
@@ -977,6 +1014,124 @@
 			"sourceGroupIndex" : 3
 		},
 		{
+			"backtrace" : 4,
+			"path" : "editsongwindow.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "editsongwindow.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "editsongwindow.ui",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 4,
+			"path" : "listenerwindow.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "listenerwindow.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "listenerwindow.ui",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 4,
+			"path" : "createplaylistwindow.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "createplaylistwindow.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "createplaylistwindow.ui",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 4,
+			"path" : "selectplaylistwindow.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "selectplaylistwindow.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "selectplaylistwindow.ui",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 4,
+			"path" : "selectplaylist2window.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "selectplaylist2window.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "selectplaylist2window.ui",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 4,
+			"path" : "editplaylistwindow.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "editplaylistwindow.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "editplaylistwindow.ui",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 4,
+			"path" : "exploremusicwindow.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "exploremusicwindow.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "exploremusicwindow.ui",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "AccountRepository.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
 			"backtrace" : 47,
 			"path" : "build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/spotify.exe.manifest",
 			"sourceGroupIndex" : 5
@@ -1039,6 +1194,48 @@
 			"backtrace" : 0,
 			"isGenerated" : true,
 			"path" : "build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/spotify_autogen/include/ui_selectalbum2window.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/spotify_autogen/include/ui_editsongwindow.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/spotify_autogen/include/ui_listenerwindow.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/spotify_autogen/include/ui_createplaylistwindow.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/spotify_autogen/include/ui_selectplaylistwindow.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/spotify_autogen/include/ui_selectplaylist2window.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/spotify_autogen/include/ui_editplaylistwindow.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/spotify_autogen/include/ui_exploremusicwindow.h",
 			"sourceGroupIndex" : 0
 		},
 		{

@@ -2,7 +2,7 @@
 #include "Artist.h"
 #include <fstream>
 #include <QDebug>
-#include "AlbumRepository.h"
+
 
 
 using namespace std;
@@ -110,4 +110,11 @@ void ArtistRepository::loadFromFile(){
     }
 
     file.close();
+}
+
+std::vector<Account> ArtistRepository::getAll()
+{
+    loadFromFile();
+
+    return artists;
 }

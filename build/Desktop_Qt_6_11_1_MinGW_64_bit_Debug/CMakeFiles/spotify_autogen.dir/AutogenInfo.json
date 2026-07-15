@@ -480,15 +480,39 @@
 			null
 		],
 		[
+			"C:/Users/BLUE0409/Documents/spotify/createplaylistwindow.h",
+			"MU",
+			"EWIEGA46WW/moc_createplaylistwindow.cpp",
+			null
+		],
+		[
 			"C:/Users/BLUE0409/Documents/spotify/editalbumwindow.h",
 			"MU",
 			"EWIEGA46WW/moc_editalbumwindow.cpp",
 			null
 		],
 		[
+			"C:/Users/BLUE0409/Documents/spotify/editplaylistwindow.h",
+			"MU",
+			"EWIEGA46WW/moc_editplaylistwindow.cpp",
+			null
+		],
+		[
 			"C:/Users/BLUE0409/Documents/spotify/editsongwindow.h",
 			"MU",
 			"EWIEGA46WW/moc_editsongwindow.cpp",
+			null
+		],
+		[
+			"C:/Users/BLUE0409/Documents/spotify/exploremusicwindow.h",
+			"MU",
+			"EWIEGA46WW/moc_exploremusicwindow.cpp",
+			null
+		],
+		[
+			"C:/Users/BLUE0409/Documents/spotify/listenerwindow.h",
+			"MU",
+			"EWIEGA46WW/moc_listenerwindow.cpp",
 			null
 		],
 		[
@@ -519,6 +543,18 @@
 			"C:/Users/BLUE0409/Documents/spotify/selectalbumwindow.h",
 			"MU",
 			"EWIEGA46WW/moc_selectalbumwindow.cpp",
+			null
+		],
+		[
+			"C:/Users/BLUE0409/Documents/spotify/selectplaylist2window.h",
+			"MU",
+			"EWIEGA46WW/moc_selectplaylist2window.cpp",
+			null
+		],
+		[
+			"C:/Users/BLUE0409/Documents/spotify/selectplaylistwindow.h",
+			"MU",
+			"EWIEGA46WW/moc_selectplaylistwindow.cpp",
 			null
 		]
 	],
@@ -594,6 +630,11 @@
 	"SOURCES" : 
 	[
 		[ "C:/Users/BLUE0409/Documents/spotify/Account.cpp", "MU", null ],
+		[
+			"C:/Users/BLUE0409/Documents/spotify/AccountRepository.cpp",
+			"MU",
+			null
+		],
 		[ "C:/Users/BLUE0409/Documents/spotify/Album.cpp", "MU", null ],
 		[ "C:/Users/BLUE0409/Documents/spotify/AlbumRepository.cpp", "MU", null ],
 		[ "C:/Users/BLUE0409/Documents/spotify/Artist.cpp", "MU", null ],
@@ -620,8 +661,24 @@
 		[ "C:/Users/BLUE0409/Documents/spotify/addsongwindow.cpp", "MU", null ],
 		[ "C:/Users/BLUE0409/Documents/spotify/albumwindow.cpp", "MU", null ],
 		[ "C:/Users/BLUE0409/Documents/spotify/artistwindow.cpp", "MU", null ],
+		[
+			"C:/Users/BLUE0409/Documents/spotify/createplaylistwindow.cpp",
+			"MU",
+			null
+		],
 		[ "C:/Users/BLUE0409/Documents/spotify/editalbumwindow.cpp", "MU", null ],
+		[
+			"C:/Users/BLUE0409/Documents/spotify/editplaylistwindow.cpp",
+			"MU",
+			null
+		],
 		[ "C:/Users/BLUE0409/Documents/spotify/editsongwindow.cpp", "MU", null ],
+		[
+			"C:/Users/BLUE0409/Documents/spotify/exploremusicwindow.cpp",
+			"MU",
+			null
+		],
+		[ "C:/Users/BLUE0409/Documents/spotify/listenerwindow.cpp", "MU", null ],
 		[ "C:/Users/BLUE0409/Documents/spotify/loginwindow.cpp", "MU", null ],
 		[ "C:/Users/BLUE0409/Documents/spotify/main.cpp", "MU", null ],
 		[ "C:/Users/BLUE0409/Documents/spotify/mainwindow.cpp", "MU", null ],
@@ -633,6 +690,16 @@
 		],
 		[
 			"C:/Users/BLUE0409/Documents/spotify/selectalbumwindow.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/BLUE0409/Documents/spotify/selectplaylist2window.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/BLUE0409/Documents/spotify/selectplaylistwindow.cpp",
 			"MU",
 			null
 		]

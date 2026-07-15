@@ -27,12 +27,13 @@ artistWindow::~artistWindow()
 void artistWindow::on_pushButton_clicked()
 {
 
-    AddAlbumWindow *window = new AddAlbumWindow();
+    AddAlbumWindow *window = new AddAlbumWindow(artistId);
 
     connect(window,&AddAlbumWindow::albumAdded,this, &artistWindow::loadAlbums);
 
     window->show();
 }
+
 
 void artistWindow::loadAlbums()
 {
@@ -49,6 +50,9 @@ void artistWindow::loadAlbums()
 
     for (int i = 0; i < albums.size(); i++)
     {
+        if (albums[i].getArtistId() != artistId)
+            continue;
+
         QListWidgetItem *item = new QListWidgetItem(
             QString::fromStdString(albums[i].getName()));
 

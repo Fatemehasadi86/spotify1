@@ -23,7 +23,10 @@ public:
 
     bool insertSong(int playlistId, int songId);
     bool removeSong(int playlistId, int songId);
+    void loadFromFile();
+    void saveToFile();
     std::vector<Playlist> playlistsByListener(int listenerId);
+    std::vector<Playlist> getAllPlaylist();
 };
 
 #endif

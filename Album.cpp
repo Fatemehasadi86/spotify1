@@ -63,3 +63,7 @@ int Album::getYear() const
 {
     return year;
 }
+
+void Album::setArtistId(int id){
+    this->artistId=id;
+}

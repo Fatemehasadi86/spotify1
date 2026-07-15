@@ -22,6 +22,7 @@ public:
 
     void setBiography(string biography);
     string getBiography() const;
+    void getUsernam();
 };
 
 #endif // ARTIST_H

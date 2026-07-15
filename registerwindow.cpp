@@ -64,6 +64,8 @@ void registerWindow::on_pushButton_clicked()
     {
         Listener listener;
 
+        listener.setId(listenerRepository.generateNewId());
+
         listener.setFullName(fullName.toStdString());
         listener.setUsername(userName.toStdString());
         listener.setPassword(password.toStdString());
@@ -75,6 +77,8 @@ void registerWindow::on_pushButton_clicked()
     if(ui->radioButton_4->isChecked())
     {
         Artist artist;
+
+        artist.setId(artistRepository.generateNewId());
 
         artist.setFullName(fullName.toStdString());
         artist.setUsername(userName.toStdString());

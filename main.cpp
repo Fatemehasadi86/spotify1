@@ -3,6 +3,7 @@
 #include "artistwindow.h"
 #include "registerwindow.h"
 #include "loginwindow.h"
+#include "listenerwindow.h"
 #include <fstream>
 
 
@@ -13,8 +14,9 @@ int main(int argc, char *argv[])
     loginwindow l;
     registerWindow r;
     artistWindow ar(0);
-    ar.show();
-    // std::ofstream file("songs.txt", std::ios::trunc);
+    listenerWindow l2(0);
+    l.show();
+    // std::ofstream file("playlists.txt", std::ios::trunc);
     // file.close();
     return QApplication::exec();
 }

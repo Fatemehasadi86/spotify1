@@ -12,7 +12,7 @@ class AddAlbumWindow : public QWidget
     Q_OBJECT
 
 public:
-    explicit AddAlbumWindow(QWidget *parent = nullptr);
+    explicit AddAlbumWindow(int artistId,QWidget *parent = nullptr);
     ~AddAlbumWindow();
 
 private slots:
@@ -22,6 +22,7 @@ private slots:
 
 private:
     Ui::AddAlbumWindow *ui;
+    int artistId;
 signals:
     void albumAdded();
 };
