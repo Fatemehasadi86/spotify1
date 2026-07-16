@@ -13,7 +13,7 @@ class album_artist_window : public QWidget
     Q_OBJECT
 
 public:
-    explicit album_artist_window(int artistId,QWidget *parent = nullptr);
+    explicit album_artist_window(int artistId,int listenerId,QWidget *parent = nullptr);
     ~album_artist_window();
 
 private slots:
@@ -23,6 +23,7 @@ private:
     Ui::album_artist_window *ui;
     int artistId;
     void loadAlbums();
+    int listenerId;
 };
 
 #endif // ALBUM_ARTIST_WINDOW_H

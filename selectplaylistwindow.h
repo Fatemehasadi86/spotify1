@@ -24,6 +24,7 @@ private:
     int listenerId;
 signals:
     void playlistEdited();
+
 };
 
 #endif // SELECTPLAYLISTWINDOW_H

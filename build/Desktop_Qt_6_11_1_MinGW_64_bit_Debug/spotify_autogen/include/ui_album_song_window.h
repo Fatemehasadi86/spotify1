@@ -30,7 +30,7 @@ public:
     {
         if (album_song_window->objectName().isEmpty())
             album_song_window->setObjectName("album_song_window");
-        album_song_window->resize(575, 403);
+        album_song_window->resize(622, 460);
         listWidget = new QListWidget(album_song_window);
         listWidget->setObjectName("listWidget");
         listWidget->setGeometry(QRect(120, 90, 281, 211));

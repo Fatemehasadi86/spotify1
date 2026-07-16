@@ -2,14 +2,18 @@
 #include "ui_album_song_window.h"
 #include "SongRepository.h"
 #include <QListWidgetItem>
+#include <QMessageBox>
+#include "selectplaylistforsongwindow.h"
+#include "likedSongsRepository.h"
 
-album_song_window::album_song_window(int albumId,QWidget *parent)
+album_song_window::album_song_window(int albumId,int listenerId,QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::album_song_window)
 {
     ui->setupUi(this);
 
     this->albumId = albumId;
+    this->listenerId = listenerId;
 
     loadSongs();
 }
@@ -41,3 +45,60 @@ void album_song_window::loadSongs()
         ui->listWidget->addItem(item);
     }
 }
+void album_song_window::on_listWidget_itemClicked(QListWidgetItem *item)
+{
+
+    selectedId = item->data(Qt::UserRole).toInt();
+}
+
+
+void album_song_window::on_pushButton_clicked()
+{
+    if(selectedId == -1)
+    {
+        QMessageBox::warning(this,
+                             "Error",
+                             "Please select a song.");
+        return;
+    }
+
+    selectPlaylistforsongwindow *w =
+        new selectPlaylistforsongwindow(listenerId,
+                                        selectedId);
+
+    w->show();
+}
+
+
+void album_song_window::on_pushButton_2_clicked()
+{
+    if (selectedId == -1)
+    {
+        QMessageBox::warning(this,
+                             "Error",
+                             "Please select a song.");
+        return;
+    }
+
+    qDebug() << "selectedId =" << selectedId;
+
+    LikedSongsRepository repository;
+
+    if (repository.isLiked(listenerId, selectedId))
+    {
+        repository.removeSong(listenerId, selectedId);
+
+        QMessageBox::information(this,
+                                 "Success",
+                                 "Song removed from liked songs.");
+    }
+    else
+    {
+        repository.addSong(listenerId, selectedId);
+
+        QMessageBox::information(this,
+                                 "Success",
+                                 "Song added to liked songs.");
+    }
+}
+

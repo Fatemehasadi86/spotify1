@@ -3,12 +3,15 @@
 #include "AlbumRepository.h"
 #include "album_song_window.h"
 
-album_artist_window::album_artist_window(int artistId,QWidget *parent)
+album_artist_window::album_artist_window(int artistId,int listenerId,QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::album_artist_window)
 {
     ui->setupUi(this);
-    this->artistId=artistId;
+
+    this->artistId = artistId;
+    this->listenerId = listenerId;
+
     loadAlbums();
 }
 
@@ -43,7 +46,7 @@ void album_artist_window::on_listWidget_itemClicked(QListWidgetItem *item)
 {
     int albumId = item->data(Qt::UserRole).toInt();
 
-    album_song_window *w = new album_song_window(albumId);
+    album_song_window *w = new album_song_window(albumId,listenerId);
 
     w->show();
 

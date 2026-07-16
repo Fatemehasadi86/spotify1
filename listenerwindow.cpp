@@ -6,6 +6,7 @@
 #include "selectplaylistwindow.h"
 #include "selectplaylist2window.h"
 #include "exploremusicwindow.h"
+#include "playlistsongswindow.h"
 
 listenerWindow::listenerWindow(int listenerId,QWidget *parent)
     : QWidget(parent)
@@ -43,6 +44,7 @@ void listenerWindow::loadplaylist()
         ui->listWidget->addItem(item);
     }
 }
+
 void listenerWindow::on_pushButton_clicked()
 {
     createPlaylistWindow *w = new createPlaylistWindow(listenerId);
@@ -86,8 +88,19 @@ void listenerWindow::on_pushButton_3_clicked()
 
 void listenerWindow::on_pushButton_4_clicked()
 {
-    exploreMusicwindow *e= new exploreMusicwindow ();
+    exploreMusicwindow *e= new exploreMusicwindow (listenerId);
 
     e->show();
+}
+
+
+void listenerWindow::on_listWidget_itemClicked(QListWidgetItem *item)
+{
+    int playlistId = item->data(Qt::UserRole).toInt();
+
+    PlaylistSongsWindow *window =
+        new PlaylistSongsWindow(playlistId);
+
+    window->show();
 }
 

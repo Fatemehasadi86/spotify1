@@ -686,6 +686,8 @@ spotify_autogen/timestamp: \
 	C:/Users/BLUE0409/Documents/spotify/editsongwindow.h \
 	C:/Users/BLUE0409/Documents/spotify/exploremusicwindow.cpp \
 	C:/Users/BLUE0409/Documents/spotify/exploremusicwindow.h \
+	C:/Users/BLUE0409/Documents/spotify/likedSongsRepository.cpp \
+	C:/Users/BLUE0409/Documents/spotify/likedSongsRepository.h \
 	C:/Users/BLUE0409/Documents/spotify/listenerwindow.cpp \
 	C:/Users/BLUE0409/Documents/spotify/listenerwindow.h \
 	C:/Users/BLUE0409/Documents/spotify/loginwindow.cpp \
@@ -693,6 +695,8 @@ spotify_autogen/timestamp: \
 	C:/Users/BLUE0409/Documents/spotify/main.cpp \
 	C:/Users/BLUE0409/Documents/spotify/mainwindow.cpp \
 	C:/Users/BLUE0409/Documents/spotify/mainwindow.h \
+	C:/Users/BLUE0409/Documents/spotify/playlistsongswindow.cpp \
+	C:/Users/BLUE0409/Documents/spotify/playlistsongswindow.h \
 	C:/Users/BLUE0409/Documents/spotify/registerwindow.cpp \
 	C:/Users/BLUE0409/Documents/spotify/registerwindow.h \
 	C:/Users/BLUE0409/Documents/spotify/selectalbum2window.cpp \
@@ -701,6 +705,8 @@ spotify_autogen/timestamp: \
 	C:/Users/BLUE0409/Documents/spotify/selectalbumwindow.h \
 	C:/Users/BLUE0409/Documents/spotify/selectplaylist2window.cpp \
 	C:/Users/BLUE0409/Documents/spotify/selectplaylist2window.h \
+	C:/Users/BLUE0409/Documents/spotify/selectplaylistforsongwindow.cpp \
+	C:/Users/BLUE0409/Documents/spotify/selectplaylistforsongwindow.h \
 	C:/Users/BLUE0409/Documents/spotify/selectplaylistwindow.cpp \
 	C:/Users/BLUE0409/Documents/spotify/selectplaylistwindow.h \
 	C:/Users/BLUE0409/Documents/spotify/addalbumwindow.ui \
@@ -717,9 +723,11 @@ spotify_autogen/timestamp: \
 	C:/Users/BLUE0409/Documents/spotify/listenerwindow.ui \
 	C:/Users/BLUE0409/Documents/spotify/loginwindow.ui \
 	C:/Users/BLUE0409/Documents/spotify/mainwindow.ui \
+	C:/Users/BLUE0409/Documents/spotify/playlistsongswindow.ui \
 	C:/Users/BLUE0409/Documents/spotify/registerwindow.ui \
 	C:/Users/BLUE0409/Documents/spotify/selectalbum2window.ui \
 	C:/Users/BLUE0409/Documents/spotify/selectalbumwindow.ui \
 	C:/Users/BLUE0409/Documents/spotify/selectplaylist2window.ui \
+	C:/Users/BLUE0409/Documents/spotify/selectplaylistforsongwindow.ui \
 	C:/Users/BLUE0409/Documents/spotify/selectplaylistwindow.ui \
 	C:/Qt/Tools/CMake_64/bin/cmake.exe

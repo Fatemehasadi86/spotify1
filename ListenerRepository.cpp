@@ -75,17 +75,6 @@ std::optional<Account> ListenerRepository::searchByUserName(const std::string& u
     return std::nullopt;
 }
 
-void ListenerRepository::updateLiked(int listenerId, int songId, bool liked)
-{
-
-}
-
-bool ListenerRepository::isLiked(int listenerId, int songId)
-{
-
-    return false;
-}
-
 void ListenerRepository::loadFromFile(){
     listeners.clear();
 
@@ -121,4 +110,14 @@ void ListenerRepository::loadFromFile(){
     }
 
     file.close();
+}
+
+void ListenerRepository::updateLiked(int listenerId, int songId, bool liked)
+{
+
+}
+
+bool ListenerRepository::isLiked(int listenerId, int songId)
+{
+    return false;
 }

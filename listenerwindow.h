@@ -2,6 +2,7 @@
 #define LISTENERWINDOW_H
 
 #include <QWidget>
+#include <QListWidgetItem>
 
 namespace Ui {
 class listenerWindow;
@@ -26,6 +27,8 @@ private slots:
     void on_pushButton_3_clicked();
 
     void on_pushButton_4_clicked();
+
+    void on_listWidget_itemClicked(QListWidgetItem *item);
 
 private:
     Ui::listenerWindow *ui;

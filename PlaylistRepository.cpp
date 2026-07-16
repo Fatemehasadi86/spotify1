@@ -85,11 +85,6 @@ bool PlaylistRepository::insertSong(int playlistId, int songId)
     return false;
 }
 
-bool PlaylistRepository::removeSong(int playlistId, int songId)
-{
-
-    return false;
-}
 
 vector<Playlist> PlaylistRepository::playlistsByListener(int listenerId)
 {
@@ -182,4 +177,26 @@ std::vector<Playlist> PlaylistRepository::getAllPlaylist()
 {
     loadFromFile();
     return playlists;
+}
+
+bool PlaylistRepository::removeSong(int playlistId, int songId)
+{
+    loadFromFile();
+
+    for (int i = 0; i < playlists.size(); i++)
+    {
+        if (playlists[i].getPlaylistId() == playlistId)
+        {
+            bool removed = playlists[i].removeSong(songId);
+
+            if (removed)
+            {
+                saveToFile();
+            }
+
+            return removed;
+        }
+    }
+
+    return false;
 }

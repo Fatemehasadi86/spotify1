@@ -13,7 +13,7 @@ class exploreMusicwindow : public QWidget
     Q_OBJECT
 
 public:
-    explicit exploreMusicwindow(QWidget *parent = nullptr);
+    explicit exploreMusicwindow(int listenerId,QWidget *parent = nullptr);
     ~exploreMusicwindow();
     void loadArtists();
 
@@ -27,6 +27,7 @@ private:
     Ui::exploreMusicwindow *ui;
     int selectedArtistId=-1;
     void loadAlbums();
+    int listenerId;
 
 };
 

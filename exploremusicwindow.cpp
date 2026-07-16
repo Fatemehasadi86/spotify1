@@ -6,12 +6,16 @@
 #include "album_artist_window.h"
 
 
-exploreMusicwindow::exploreMusicwindow(QWidget *parent)
+exploreMusicwindow::exploreMusicwindow(int listenerId,QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::exploreMusicwindow)
 {
     ui->setupUi(this);
+
+    this->listenerId = listenerId;
+
     loadArtists();
+
 }
 
 exploreMusicwindow::~exploreMusicwindow()
@@ -44,7 +48,7 @@ void exploreMusicwindow::on_listWidget_itemClicked(QListWidgetItem *item)
 {
     int artistId = item->data(Qt::UserRole).toInt();
 
-    album_artist_window *w = new album_artist_window(artistId);
+    album_artist_window *w = new album_artist_window(artistId,listenerId);
 
     w->show();
 }
