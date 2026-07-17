@@ -5,11 +5,12 @@
 #include "editalbumwindow.h"
 #include <QMessageBox>
 
-selectAlbumWindow::selectAlbumWindow(QWidget *parent)
+selectAlbumWindow::selectAlbumWindow(int artistId,QWidget *parent)
     : QDialog(parent),
     ui(new Ui::selectAlbumWindow)
 {
     ui->setupUi(this);
+    this->artistId=artistId;
     AlbumRepository repository;
     repository.loadFromFile();
 
@@ -17,6 +18,9 @@ selectAlbumWindow::selectAlbumWindow(QWidget *parent)
 
     for (int i = 0; i < albums.size(); i++)
     {
+        if (albums[i].getArtistId() != artistId)
+            continue;
+
         QListWidgetItem *item = new QListWidgetItem(
             QString::fromStdString(albums[i].getName()));
 
@@ -24,6 +28,8 @@ selectAlbumWindow::selectAlbumWindow(QWidget *parent)
 
         ui->listWidget->addItem(item);
     }
+    ui->listWidget->clearSelection();
+    ui->listWidget->setCurrentRow(-1);
 }
 
 selectAlbumWindow::~selectAlbumWindow()
@@ -33,15 +39,15 @@ selectAlbumWindow::~selectAlbumWindow()
 
 void selectAlbumWindow::on_pushButton_clicked()
 {
-    QListWidgetItem *item = ui->listWidget->currentItem();
-
-    if (item == nullptr)
+    if (ui->listWidget->selectedItems().isEmpty())
     {
         QMessageBox::warning(this,
                              "Error",
                              "Please select an album.");
         return;
     }
+
+    QListWidgetItem *item = ui->listWidget->selectedItems().first();
 
     int albumId = item->data(Qt::UserRole).toInt();
 

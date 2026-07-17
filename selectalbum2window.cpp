@@ -5,11 +5,12 @@
 #include <QMessageBox>
 
 
-selectAlbum2Window::selectAlbum2Window(QWidget *parent)
+selectAlbum2Window::selectAlbum2Window(int artistId,QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::selectAlbum2Window)
 {
     ui->setupUi(this);
+    this->artistId=artistId;
     AlbumRepository repository;
     repository.loadFromFile();
 
@@ -17,6 +18,9 @@ selectAlbum2Window::selectAlbum2Window(QWidget *parent)
 
     for (int i = 0; i < albums.size(); i++)
     {
+        if (albums[i].getArtistId() != artistId)
+            continue;
+
         QListWidgetItem *item = new QListWidgetItem(
             QString::fromStdString(albums[i].getName()));
 
@@ -24,6 +28,9 @@ selectAlbum2Window::selectAlbum2Window(QWidget *parent)
 
         ui->listWidget->addItem(item);
     }
+
+    ui->listWidget->clearSelection();
+    ui->listWidget->setCurrentRow(-1);
 }
 
 selectAlbum2Window::~selectAlbum2Window()
@@ -33,15 +40,15 @@ selectAlbum2Window::~selectAlbum2Window()
 
 void selectAlbum2Window::on_pushButton_clicked()
 {
-    QListWidgetItem *item = ui->listWidget->currentItem();
-
-    if (item == nullptr)
+    if (ui->listWidget->selectedItems().isEmpty())
     {
         QMessageBox::warning(this,
                              "Error",
                              "Please select an album.");
         return;
     }
+
+    QListWidgetItem *item = ui->listWidget->selectedItems().first();
 
     int albumId = item->data(Qt::UserRole).toInt();
 

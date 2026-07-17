@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
     artistWindow ar(0);
     listenerWindow l2(0);
     l.show();
-    // std::ofstream file("likedSongs.txt", std::ios::trunc);
+    // std::ofstream file("albums.txt", std::ios::trunc);
     // file.close();
     return QApplication::exec();
 }

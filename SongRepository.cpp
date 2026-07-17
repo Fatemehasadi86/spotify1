@@ -1,5 +1,6 @@
 #include "SongRepository.h"
 #include <fstream>
+#include <algorithm>
 
 using namespace std;
 
@@ -70,6 +71,12 @@ vector<Song> SongRepository::singleSongs(int artistId)
         }
     }
 
+    std::sort(result.begin(), result.end(),
+              [](const Song &a, const Song &b)
+              {
+                  return a.getName() < b.getName();
+              });
+
     return result;
 }
 
@@ -85,6 +92,12 @@ vector<Song> SongRepository::getByAlbum(int albumId)
         }
     }
 
+    std::sort(result.begin(), result.end(),
+              [](const Song &a, const Song &b)
+              {
+                  return a.getName() < b.getName();
+              });
+
     return result;
 }
 
@@ -99,6 +112,12 @@ vector<Song> SongRepository::getByArtist(int artistId)
             result.push_back(songs[i]);
         }
     }
+
+    std::sort(result.begin(), result.end(),
+              [](const Song &a, const Song &b)
+              {
+                  return a.getName() < b.getName();
+              });
 
     return result;
 }

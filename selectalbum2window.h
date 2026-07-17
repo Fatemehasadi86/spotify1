@@ -12,7 +12,7 @@ class selectAlbum2Window : public QWidget
     Q_OBJECT
 
 public:
-    explicit selectAlbum2Window(QWidget *parent = nullptr);
+    explicit selectAlbum2Window(int artistId,QWidget *parent = nullptr);
     ~selectAlbum2Window();
 
 private slots:
@@ -20,6 +20,7 @@ private slots:
 
 private:
     Ui::selectAlbum2Window *ui;
+    int artistId;
 };
 
 #endif // SELECTALBUM2WINDOW_H

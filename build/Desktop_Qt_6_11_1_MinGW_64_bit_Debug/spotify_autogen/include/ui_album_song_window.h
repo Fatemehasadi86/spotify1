@@ -31,6 +31,38 @@ public:
         if (album_song_window->objectName().isEmpty())
             album_song_window->setObjectName("album_song_window");
         album_song_window->resize(622, 460);
+        album_song_window->setStyleSheet(QString::fromUtf8("QListWidget{\n"
+"    background:#181818;\n"
+"    border:2px solid #1DB954;\n"
+"    border-radius:8px;\n"
+"    color:white;\n"
+"}\n"
+"\n"
+"QListWidget::item{\n"
+"    padding:8px;\n"
+"}\n"
+"\n"
+"QListWidget::item:selected{\n"
+"    background:#1DB954;\n"
+"}  QLabel{\n"
+"    color:white;\n"
+"    font-weight:bold;\n"
+"}  QPushButton{\n"
+"    background-color:#1DB954;\n"
+"    color:white;\n"
+"    border:none;\n"
+"    border-radius:10px;\n"
+"    padding:8px;\n"
+"    font-weight:bold;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"    background:#1ED760;\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"    background:#169C46;\n"
+"}"));
         listWidget = new QListWidget(album_song_window);
         listWidget->setObjectName("listWidget");
         listWidget->setGeometry(QRect(120, 90, 281, 211));

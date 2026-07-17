@@ -35,6 +35,31 @@ public:
         if (AddAlbumWindow->objectName().isEmpty())
             AddAlbumWindow->setObjectName("AddAlbumWindow");
         AddAlbumWindow->resize(498, 496);
+        AddAlbumWindow->setStyleSheet(QString::fromUtf8("QLineEdit{\n"
+"    background:#282828;\n"
+"    border:2px solid #1DB954;\n"
+"    border-radius:8px;\n"
+"    color:white;\n"
+"    padding:6px;\n"
+"} QLabel{\n"
+"    color:white;\n"
+"    font-weight:bold;\n"
+"}  QPushButton{\n"
+"    background-color:#1DB954;\n"
+"    color:white;\n"
+"    border:none;\n"
+"    border-radius:10px;\n"
+"    padding:8px;\n"
+"    font-weight:bold;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"    background:#1ED760;\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"    background:#169C46;\n"
+"}"));
         label = new QLabel(AddAlbumWindow);
         label->setObjectName("label");
         label->setGeometry(QRect(40, 100, 161, 61));
@@ -47,6 +72,20 @@ public:
         lineEdit_2 = new QLineEdit(AddAlbumWindow);
         lineEdit_2->setObjectName("lineEdit_2");
         lineEdit_2->setGeometry(QRect(190, 200, 113, 28));
+        lineEdit_2->setStyleSheet(QString::fromUtf8("QListWidget{\n"
+"    background:#181818;\n"
+"    border:2px solid #1DB954;\n"
+"    border-radius:8px;\n"
+"    color:white;\n"
+"}\n"
+"\n"
+"QListWidget::item{\n"
+"    padding:8px;\n"
+"}\n"
+"\n"
+"QListWidget::item:selected{\n"
+"    background:#1DB954;\n"
+"}"));
         label_3 = new QLabel(AddAlbumWindow);
         label_3->setObjectName("label_3");
         label_3->setGeometry(QRect(60, 280, 131, 16));

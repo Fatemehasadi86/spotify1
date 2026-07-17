@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>LikedSongWindow</class>
+ <widget class="QWidget" name="LikedSongWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>685</width>
+    <height>603</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QLineEdit{
+    background:#282828;
+    border:2px solid #1DB954;
+    border-radius:8px;
+    color:white;
+    padding:6px;
+} QLabel{
+    color:white;
+    font-weight:bold;
+}  QPushButton{
+    background-color:#1DB954;
+    color:white;
+    border:none;
+    border-radius:10px;
+    padding:8px;
+    font-weight:bold;
+}
+
+QPushButton:hover{
+    background:#1ED760;
+}
+
+QPushButton:pressed{
+    background:#169C46;
+}
+QComboBox{
+    background:#282828;
+    color:white;
+    border:2px solid #1DB954;
+    border-radius:8px;
+    padding:6px;
+} QListWidget{
+    background:#181818;
+    border:2px solid #1DB954;
+    border-radius:8px;
+    color:white;
+}
+
+QListWidget::item{
+    padding:8px;
+}
+
+QListWidget::item:selected{
+    background:#1DB954;
+}</string>
+  </property>
+  <widget class="QListWidget" name="listWidget">
+   <property name="geometry">
+    <rect>
+     <x>175</x>
+     <y>120</y>
+     <width>271</width>
+     <height>281</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>460</y>
+     <width>90</width>
+     <height>29</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Back</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

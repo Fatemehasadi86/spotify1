@@ -1,7 +1,6 @@
 #include "ArtistRepository.h"
 #include "Artist.h"
 #include <fstream>
-#include <QDebug>
 
 
 

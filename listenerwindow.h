@@ -28,7 +28,7 @@ private slots:
 
     void on_pushButton_4_clicked();
 
-    void on_listWidget_itemClicked(QListWidgetItem *item);
+    void on_listWidget_itemDoubleClicked(QListWidgetItem *item);
 
 private:
     Ui::listenerWindow *ui;

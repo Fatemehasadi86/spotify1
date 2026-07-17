@@ -6,21 +6,60 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>671</width>
-    <height>626</height>
+    <width>570</width>
+    <height>448</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">QLineEdit{
+    background:#282828;
+    border:2px solid #1DB954;
+    border-radius:8px;
+    color:white;
+    padding:6px;
+} QLabel{
+    color:white;
+    font-weight:bold;
+}  QPushButton{
+    background-color:#1DB954;
+    color:white;
+    border:none;
+    border-radius:10px;
+    padding:8px;
+    font-weight:bold;
+}
+
+QPushButton:hover{
+    background:#1ED760;
+}
+
+QPushButton:pressed{
+    background:#169C46;
+}</string>
+  </property>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>110</x>
-     <y>20</y>
+     <x>70</x>
+     <y>40</y>
      <width>201</width>
      <height>81</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+    color:qlineargradient(
+        x1:0,y1:0,x2:1,y2:0,
+        stop:0 #1DB954,
+        stop:0.5 #5CFF9D,
+        stop:1 #1DB954);
+    font-size:10pt;
+    font-weight:900;
+    font-family:&quot;Segoe UI&quot;;
+}</string>
    </property>
    <property name="text">
     <string>Playlist Name:</string>
@@ -29,18 +68,21 @@
   <widget class="QLineEdit" name="lineEdit">
    <property name="geometry">
     <rect>
-     <x>110</x>
-     <y>90</y>
+     <x>130</x>
+     <y>140</y>
      <width>241</width>
      <height>51</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>100</x>
-     <y>180</y>
+     <x>80</x>
+     <y>250</y>
      <width>101</width>
      <height>41</height>
     </rect>
@@ -52,8 +94,8 @@
   <widget class="QPushButton" name="pushButton_2">
    <property name="geometry">
     <rect>
-     <x>250</x>
-     <y>180</y>
+     <x>280</x>
+     <y>250</y>
      <width>101</width>
      <height>41</height>
     </rect>

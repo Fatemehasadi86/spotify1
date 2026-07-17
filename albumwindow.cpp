@@ -3,14 +3,35 @@
 #include "SongRepository.h"
 #include <QMessageBox>
 #include "editsongwindow.h"
+#include "AlbumRepository.h"
 
-albumWindow::albumWindow(int albumId,QWidget *parent)
+albumWindow::albumWindow(int albumId,int artistId,QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::albumWindow)
 {
     ui->setupUi(this);
     this->albumId=albumId;
+    this->artistId=artistId;
+    if (albumId == 0)
+    {
+        ui->label_2->setText("Singles");
+    }
+    else
+    {
+        AlbumRepository repository;
+        repository.loadFromFile();
+
+        std::optional<Album> album = repository.search(albumId);
+
+        if (album.has_value())
+        {
+            ui->label_2->setText(QString::fromStdString(album->getName()));
+        }
+    }
+
     loadSong();
+    ui->listWidget->clearSelection();
+    ui->listWidget->setCurrentRow(-1);
 }
 
 albumWindow::~albumWindow()
@@ -44,9 +65,7 @@ void albumWindow::loadSong()
 }
 void albumWindow::on_pushButton_3_clicked()
 {
-    QListWidgetItem *item = ui->listWidget->currentItem();
-
-    if (item == nullptr)
+    if (ui->listWidget->selectedItems().isEmpty())
     {
         QMessageBox::warning(this,
                              "Error",
@@ -54,11 +73,9 @@ void albumWindow::on_pushButton_3_clicked()
         return;
     }
 
-    int songId = item->data(Qt::UserRole).toInt();
+    QListWidgetItem *item = ui->listWidget->selectedItems().first();
 
-    QMessageBox::information(this,
-                             "Song ID",
-                             QString::number(songId));
+    int songId = item->data(Qt::UserRole).toInt();
 
     int reply = QMessageBox::question(
         this,
@@ -86,9 +103,7 @@ void albumWindow::on_pushButton_3_clicked()
 
 void albumWindow::on_pushButton_2_clicked()
 {
-    QListWidgetItem *item = ui->listWidget->currentItem();
-
-    if (item == nullptr)
+    if (ui->listWidget->selectedItems().isEmpty())
     {
         QMessageBox::warning(this,
                              "Error",
@@ -96,9 +111,11 @@ void albumWindow::on_pushButton_2_clicked()
         return;
     }
 
+    QListWidgetItem *item = ui->listWidget->selectedItems().first();
+
     int songId = item->data(Qt::UserRole).toInt();
 
-    editsongWindow *w = new editsongWindow(songId);
+    editsongWindow *w = new editsongWindow(songId,artistId);
 
     w->setAttribute(Qt::WA_DeleteOnClose);
 

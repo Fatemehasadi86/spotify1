@@ -10,6 +10,7 @@
 #include "EWIEGA46WW/moc_editplaylistwindow.cpp"
 #include "EWIEGA46WW/moc_editsongwindow.cpp"
 #include "EWIEGA46WW/moc_exploremusicwindow.cpp"
+#include "EWIEGA46WW/moc_likedsongwindow.cpp"
 #include "EWIEGA46WW/moc_listenerwindow.cpp"
 #include "EWIEGA46WW/moc_loginwindow.cpp"
 #include "EWIEGA46WW/moc_mainwindow.cpp"

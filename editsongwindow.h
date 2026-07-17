@@ -12,7 +12,7 @@ class editsongWindow : public QWidget
     Q_OBJECT
 
 public:
-    explicit editsongWindow(int songId,QWidget *parent = nullptr);
+    explicit editsongWindow(int songId,int artistId,QWidget *parent = nullptr);
     ~editsongWindow();
 
 private slots:

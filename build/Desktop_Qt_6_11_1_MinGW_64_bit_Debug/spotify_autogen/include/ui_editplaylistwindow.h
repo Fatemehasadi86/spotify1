@@ -30,6 +30,31 @@ public:
         if (editPlaylistWindow->objectName().isEmpty())
             editPlaylistWindow->setObjectName("editPlaylistWindow");
         editPlaylistWindow->resize(586, 508);
+        editPlaylistWindow->setStyleSheet(QString::fromUtf8("QLineEdit{\n"
+"    background:#282828;\n"
+"    border:2px solid #1DB954;\n"
+"    border-radius:8px;\n"
+"    color:white;\n"
+"    padding:6px;\n"
+"} QLabel{\n"
+"    color:white;\n"
+"    font-weight:bold;\n"
+"}  QPushButton{\n"
+"    background-color:#1DB954;\n"
+"    color:white;\n"
+"    border:none;\n"
+"    border-radius:10px;\n"
+"    padding:8px;\n"
+"    font-weight:bold;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"    background:#1ED760;\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"    background:#169C46;\n"
+"}"));
         lineEdit = new QLineEdit(editPlaylistWindow);
         lineEdit->setObjectName("lineEdit");
         lineEdit->setGeometry(QRect(280, 80, 181, 31));

@@ -52,6 +52,9 @@ void AddAlbumWindow::on_pushButton_2_clicked()
     album.setArtistId(artistId);
 
     repository.save(album);
+    qDebug() << "Saving album:"
+             << album.getName().c_str()
+             << "artistId =" << album.getArtistId();
 
 
     QMessageBox::information(this,

@@ -13,6 +13,9 @@ selectPlaylistforsongwindow::selectPlaylistforsongwindow(int listenerId,int song
     this->songId=songId;
     loadPlaylist();
 
+    ui->listWidget->clearSelection();
+    ui->listWidget->setCurrentRow(-1);
+
 }
 
 selectPlaylistforsongwindow::~selectPlaylistforsongwindow()
@@ -22,8 +25,6 @@ selectPlaylistforsongwindow::~selectPlaylistforsongwindow()
 
 void selectPlaylistforsongwindow::loadPlaylist()
 {
-    qDebug()<<"listener id :"<<listenerId;
-
     ui->listWidget->clear();
 
     PlaylistRepository repository;
@@ -31,8 +32,6 @@ void selectPlaylistforsongwindow::loadPlaylist()
 
     std::vector<Playlist> playlists =
         repository.playlistsByListener(listenerId);
-
-    qDebug()<<"playlists count "<<playlists.size();
 
     for (int i = 0; i < playlists.size(); i++)
     {
@@ -47,15 +46,15 @@ void selectPlaylistforsongwindow::loadPlaylist()
 }
 void selectPlaylistforsongwindow::on_pushButton_clicked()
 {
-    QListWidgetItem *item = ui->listWidget->currentItem();
-
-    if(item == nullptr)
+    if (ui->listWidget->selectedItems().isEmpty())
     {
         QMessageBox::warning(this,
                              "Error",
                              "Please select a playlist.");
         return;
     }
+
+    QListWidgetItem *item = ui->listWidget->selectedItems().first();
 
     int playlistId = item->data(Qt::UserRole).toInt();
 
@@ -66,7 +65,7 @@ void selectPlaylistforsongwindow::on_pushButton_clicked()
                              "Success",
                              "Song added successfully.");
 
-
     close();
+
 }
 

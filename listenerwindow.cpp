@@ -7,6 +7,9 @@
 #include "selectplaylist2window.h"
 #include "exploremusicwindow.h"
 #include "playlistsongswindow.h"
+#include "likedsongwindow.h"
+#include "ListenerRepository.h"
+
 
 listenerWindow::listenerWindow(int listenerId,QWidget *parent)
     : QWidget(parent)
@@ -14,6 +17,18 @@ listenerWindow::listenerWindow(int listenerId,QWidget *parent)
 {
     ui->setupUi(this);
     this->listenerId=listenerId;
+
+    ListenerRepository repository;
+    repository.loadFromFile();
+
+    std::optional<Account> listener = repository.search(listenerId);
+
+    if (listener.has_value())
+    {
+        ui->label_3->setText(
+            QString::fromStdString(listener->getFullName()));
+    }
+
     loadplaylist();
 }
 
@@ -25,6 +40,12 @@ listenerWindow::~listenerWindow()
 void listenerWindow::loadplaylist()
 {
     ui->listWidget->clear();
+
+    QListWidgetItem *favorite = new QListWidgetItem("Favorite Songs");
+
+    favorite->setData(Qt::UserRole, -1);
+
+    ui->listWidget->addItem(favorite);
 
     PlaylistRepository repository;
     repository.loadFromFile();
@@ -94,9 +115,17 @@ void listenerWindow::on_pushButton_4_clicked()
 }
 
 
-void listenerWindow::on_listWidget_itemClicked(QListWidgetItem *item)
+
+void listenerWindow::on_listWidget_itemDoubleClicked(QListWidgetItem *item)
 {
     int playlistId = item->data(Qt::UserRole).toInt();
+
+    if (playlistId == -1)
+    {
+        LikedSongWindow *w = new LikedSongWindow(listenerId);
+        w->show();
+        return;
+    }
 
     PlaylistSongsWindow *window =
         new PlaylistSongsWindow(playlistId);

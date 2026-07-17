@@ -31,12 +31,44 @@ public:
         if (exploreMusicwindow->objectName().isEmpty())
             exploreMusicwindow->setObjectName("exploreMusicwindow");
         exploreMusicwindow->resize(678, 603);
+        exploreMusicwindow->setStyleSheet(QString::fromUtf8("QLineEdit{\n"
+"    background:#282828;\n"
+"    border:2px solid #1DB954;\n"
+"    border-radius:8px;\n"
+"    color:white;\n"
+"    padding:6px;\n"
+"} QLabel{\n"
+"    color:white;\n"
+"    font-weight:bold;\n"
+"}  QPushButton{\n"
+"    background-color:#1DB954;\n"
+"    color:white;\n"
+"    border:none;\n"
+"    border-radius:10px;\n"
+"    padding:8px;\n"
+"    font-weight:bold;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"    background:#1ED760;\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"    background:#169C46;\n"
+"}\n"
+"QComboBox{\n"
+"    background:#282828;\n"
+"    color:white;\n"
+"    border:2px solid #1DB954;\n"
+"    border-radius:8px;\n"
+"    padding:6px;\n"
+"}"));
         label = new QLabel(exploreMusicwindow);
         label->setObjectName("label");
         label->setGeometry(QRect(72, 60, 161, 51));
         listWidget = new QListWidget(exploreMusicwindow);
         listWidget->setObjectName("listWidget");
-        listWidget->setGeometry(QRect(30, 140, 321, 251));
+        listWidget->setGeometry(QRect(70, 120, 321, 251));
         pushButton = new QPushButton(exploreMusicwindow);
         pushButton->setObjectName("pushButton");
         pushButton->setGeometry(QRect(90, 440, 111, 41));

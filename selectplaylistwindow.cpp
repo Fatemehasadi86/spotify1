@@ -11,6 +11,9 @@ selectPlaylistWindow::selectPlaylistWindow(int listenerId, QWidget *parent)
     ui->setupUi(this);
     this->listenerId = listenerId;
     loadPlaylists();
+
+    ui->listWidget->clearSelection();
+    ui->listWidget->setCurrentRow(-1);
 }
 
 selectPlaylistWindow::~selectPlaylistWindow()
@@ -20,15 +23,15 @@ selectPlaylistWindow::~selectPlaylistWindow()
 
 void selectPlaylistWindow::on_pushButton_clicked() {
 
-    QListWidgetItem *item = ui->listWidget->currentItem();
-
-    if (item == nullptr)
+    if (ui->listWidget->selectedItems().isEmpty())
     {
         QMessageBox::warning(this,
                              "Error",
                              "Please select a playlist.");
         return;
     }
+
+    QListWidgetItem *item = ui->listWidget->selectedItems().first();
 
     int playlistId = item->data(Qt::UserRole).toInt();
 

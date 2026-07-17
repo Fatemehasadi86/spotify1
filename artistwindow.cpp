@@ -7,6 +7,7 @@
 #include "albumwindow.h"
 #include "selectalbumwindow.h"
 #include "selectalbum2window.h"
+#include "ArtistRepository.h"
 
 
 
@@ -16,6 +17,18 @@ artistWindow::artistWindow(int artistId,QWidget *parent)
 {
     this->artistId=artistId;
     ui->setupUi(this);
+
+    ArtistRepository repository;
+    repository.loadFromFile();
+
+    std::optional<Account> artist = repository.search(artistId);
+
+    if (artist.has_value())
+    {
+        ui->label_3->setText(
+            QString::fromStdString(artist->getFullName()));
+    }
+
     loadAlbums();
 }
 
@@ -46,7 +59,7 @@ void artistWindow::loadAlbums()
     singles->setData(Qt::UserRole, 0);
     ui->listWidgetAlbums->addItem(singles);
 
-    std::vector<Album> albums = repository.getAllAlbum();
+    std::vector<Album> albums = repository.albums(artistId);
 
     for (int i = 0; i < albums.size(); i++)
     {
@@ -82,14 +95,14 @@ void artistWindow::on_listWidgetAlbums_itemDoubleClicked(QListWidgetItem *item)
         return;
 
     int albumId = item->data(Qt::UserRole).toInt();
-    albumWindow *window2 = new albumWindow(albumId);
+    albumWindow *window2 = new albumWindow(albumId,artistId);
     window2->show();
 }
 
 
 void artistWindow::on_pushButton_3_clicked()
 {
-    selectAlbumWindow *s=new selectAlbumWindow();
+    selectAlbumWindow *s=new selectAlbumWindow(artistId);
 
     connect(s, &selectAlbumWindow::albumsChanged,this, &artistWindow::loadAlbums);
 
@@ -100,7 +113,7 @@ void artistWindow::on_pushButton_3_clicked()
 
 void artistWindow::on_pushButton_4_clicked()
 {
-    selectAlbum2Window *w = new selectAlbum2Window();
+    selectAlbum2Window *w = new selectAlbum2Window(artistId);
 
     w->setAttribute(Qt::WA_DeleteOnClose);
 

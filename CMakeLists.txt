@@ -61,6 +61,7 @@ qt_add_executable(spotify
     playlistsongswindow.h playlistsongswindow.cpp playlistsongswindow.ui
     likedSongsRepository.h
     likedSongsRepository.cpp
+    likedsongwindow.h likedsongwindow.cpp likedsongwindow.ui
 
 
 )

@@ -1,7 +1,6 @@
 #include "ListenerRepository.h"
 #include <fstream>
 #include "Listener.h"
-#include <QDebug>
 
 using namespace std;
 

@@ -4,7 +4,7 @@
 #include "AlbumRepository.h"
 #include <QMessageBox>
 
-editsongWindow::editsongWindow(int songId,QWidget *parent)
+editsongWindow::editsongWindow(int songId,int artistId,QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::editsongWindow)
 {
@@ -34,6 +34,9 @@ editsongWindow::editsongWindow(int songId,QWidget *parent)
 
     for (int i = 0; i < albums.size(); i++)
     {
+        if (albums[i].getArtistId() != artistId)
+            continue;
+
         ui->comboBox->addItem(QString::fromStdString(albums[i].getName()));
     }
 }
@@ -72,7 +75,21 @@ void editsongWindow::on_pushButton_clicked()
     }
     else
     {
-        editedSong.setAlbumId(albums[index - 1].getAlbumId());
+        int count = 0;
+
+        for (int i = 0; i < albums.size(); i++)
+        {
+            if (albums[i].getArtistId() != artistId)
+                continue;
+
+            count++;
+
+            if (count == index)
+            {
+                editedSong.setAlbumId(albums[i].getAlbumId());
+                break;
+            }
+        }
     }
 
     repository.save(editedSong);

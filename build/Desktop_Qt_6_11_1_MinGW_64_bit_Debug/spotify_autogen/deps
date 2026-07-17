@@ -688,6 +688,8 @@ spotify_autogen/timestamp: \
 	C:/Users/BLUE0409/Documents/spotify/exploremusicwindow.h \
 	C:/Users/BLUE0409/Documents/spotify/likedSongsRepository.cpp \
 	C:/Users/BLUE0409/Documents/spotify/likedSongsRepository.h \
+	C:/Users/BLUE0409/Documents/spotify/likedsongwindow.cpp \
+	C:/Users/BLUE0409/Documents/spotify/likedsongwindow.h \
 	C:/Users/BLUE0409/Documents/spotify/listenerwindow.cpp \
 	C:/Users/BLUE0409/Documents/spotify/listenerwindow.h \
 	C:/Users/BLUE0409/Documents/spotify/loginwindow.cpp \
@@ -720,6 +722,7 @@ spotify_autogen/timestamp: \
 	C:/Users/BLUE0409/Documents/spotify/editplaylistwindow.ui \
 	C:/Users/BLUE0409/Documents/spotify/editsongwindow.ui \
 	C:/Users/BLUE0409/Documents/spotify/exploremusicwindow.ui \
+	C:/Users/BLUE0409/Documents/spotify/likedsongwindow.ui \
 	C:/Users/BLUE0409/Documents/spotify/listenerwindow.ui \
 	C:/Users/BLUE0409/Documents/spotify/loginwindow.ui \
 	C:/Users/BLUE0409/Documents/spotify/mainwindow.ui \

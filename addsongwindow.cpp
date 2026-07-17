@@ -10,6 +10,7 @@ addSongWindow::addSongWindow(int artistId,QWidget *parent)
     , ui(new Ui::addSongWindow)
 {
     ui->setupUi(this);
+    this->artistId=artistId;
 
     AlbumRepository repository;
     repository.loadFromFile();
@@ -18,8 +19,20 @@ addSongWindow::addSongWindow(int artistId,QWidget *parent)
 
     std::vector<Album> albums = repository.getAllAlbum();
 
-    for(int i = 0; i < albums.size(); i++)
+    for (const auto &album : albums)
     {
+        qDebug() << "Album:"
+                 << album.getAlbumId()
+                 << QString::fromStdString(album.getName())
+                 << "Artist:"
+                 << album.getArtistId();
+    }
+
+    for (int i = 0; i < albums.size(); i++)
+    {
+           if (albums[i].getArtistId() != artistId)
+            continue;
+
         ui->comboBox->addItem(QString::fromStdString(albums[i].getName()));
     }
 }
@@ -68,9 +81,23 @@ void addSongWindow::on_pushButton_3_clicked()
     }
     else
     {
-        song.setAlbumId(albums[index - 1].getAlbumId());
-        song.setArtistId(artistId);
+        int count = 0;
+
+        for (int i = 0; i < albums.size(); i++)
+        {
+            if (albums[i].getArtistId() != artistId)
+                continue;
+
+            count++;
+
+            if (count == index)
+            {
+                song.setAlbumId(albums[i].getAlbumId());
+                break;
+            }
+        }
     }
+    song.setArtistId(artistId);
 
     SongRepository repository;
     repository.loadFromFile();
@@ -78,6 +105,10 @@ void addSongWindow::on_pushButton_3_clicked()
     int newId = repository.getAllSongs().size() + 1;
 
     song.setId(newId);
+
+    qDebug() << "Selected index =" << index;
+    qDebug() << "AlbumId =" << song.getAlbumId();
+    qDebug() << "ArtistId =" << song.getArtistId();
 
     repository.save(song);
 

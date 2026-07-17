@@ -1,6 +1,7 @@
 #include "PlaylistRepository.h"
 #include <fstream>
 #include "SongRepository.h"
+#include <algorithm>
 
 using namespace std;
 
@@ -85,7 +86,6 @@ bool PlaylistRepository::insertSong(int playlistId, int songId)
     return false;
 }
 
-
 vector<Playlist> PlaylistRepository::playlistsByListener(int listenerId)
 {
     vector<Playlist> result;
@@ -97,6 +97,12 @@ vector<Playlist> PlaylistRepository::playlistsByListener(int listenerId)
             result.push_back(playlists[i]);
         }
     }
+
+    std::sort(result.begin(), result.end(),
+              [](const Playlist &a, const Playlist &b)
+              {
+                  return a.getName() < b.getName();
+              });
 
     return result;
 }

@@ -37,6 +37,38 @@ public:
         if (editsongWindow->objectName().isEmpty())
             editsongWindow->setObjectName("editsongWindow");
         editsongWindow->resize(620, 530);
+        editsongWindow->setStyleSheet(QString::fromUtf8("QLineEdit{\n"
+"    background:#282828;\n"
+"    border:2px solid #1DB954;\n"
+"    border-radius:8px;\n"
+"    color:white;\n"
+"    padding:6px;\n"
+"} QLabel{\n"
+"    color:white;\n"
+"    font-weight:bold;\n"
+"}  QPushButton{\n"
+"    background-color:#1DB954;\n"
+"    color:white;\n"
+"    border:none;\n"
+"    border-radius:10px;\n"
+"    padding:8px;\n"
+"    font-weight:bold;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"    background:#1ED760;\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"    background:#169C46;\n"
+"}\n"
+"QComboBox{\n"
+"    background:#282828;\n"
+"    color:white;\n"
+"    border:2px solid #1DB954;\n"
+"    border-radius:8px;\n"
+"    padding:6px;\n"
+"}"));
         lineEdit = new QLineEdit(editsongWindow);
         lineEdit->setObjectName("lineEdit");
         lineEdit->setGeometry(QRect(210, 70, 113, 28));

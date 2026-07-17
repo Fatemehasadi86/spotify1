@@ -12,7 +12,7 @@ class selectAlbumWindow : public QDialog
     Q_OBJECT
 
 public:
-    explicit selectAlbumWindow(QWidget *parent = nullptr);
+    explicit selectAlbumWindow(int artistId,QWidget *parent = nullptr);
     ~selectAlbumWindow();
 
 private slots:
@@ -20,6 +20,7 @@ private slots:
 
 private:
     Ui::selectAlbumWindow *ui;
+    int artistId;
 signals:
     void albumsChanged();
 };

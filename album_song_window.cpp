@@ -80,8 +80,6 @@ void album_song_window::on_pushButton_2_clicked()
         return;
     }
 
-    qDebug() << "selectedId =" << selectedId;
-
     LikedSongsRepository repository;
 
     if (repository.isLiked(listenerId, selectedId))

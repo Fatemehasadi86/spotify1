@@ -33,12 +33,44 @@ public:
         if (albumWindow->objectName().isEmpty())
             albumWindow->setObjectName("albumWindow");
         albumWindow->resize(710, 592);
+        albumWindow->setStyleSheet(QString::fromUtf8("QListWidget{\n"
+"    background:#181818;\n"
+"    border:2px solid #1DB954;\n"
+"    border-radius:8px;\n"
+"    color:white;\n"
+"}\n"
+"\n"
+"QListWidget::item{\n"
+"    padding:8px;\n"
+"}\n"
+"\n"
+"QListWidget::item:selected{\n"
+"    background:#1DB954;\n"
+"}  QLabel{\n"
+"    color:white;\n"
+"    font-weight:bold;\n"
+"}  QPushButton{\n"
+"    background-color:#1DB954;\n"
+"    color:white;\n"
+"    border:none;\n"
+"    border-radius:10px;\n"
+"    padding:8px;\n"
+"    font-weight:bold;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"    background:#1ED760;\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"    background:#169C46;\n"
+"}"));
         label = new QLabel(albumWindow);
         label->setObjectName("label");
-        label->setGeometry(QRect(162, 50, 191, 41));
+        label->setGeometry(QRect(190, 50, 191, 41));
         label_2 = new QLabel(albumWindow);
         label_2->setObjectName("label_2");
-        label_2->setGeometry(QRect(440, 60, 63, 20));
+        label_2->setGeometry(QRect(320, 60, 81, 21));
         listWidget = new QListWidget(albumWindow);
         listWidget->setObjectName("listWidget");
         listWidget->setGeometry(QRect(180, 121, 256, 271));

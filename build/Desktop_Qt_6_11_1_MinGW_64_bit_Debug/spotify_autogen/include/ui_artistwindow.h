@@ -12,6 +12,7 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QFrame>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QListWidget>
 #include <QtWidgets/QPushButton>
@@ -24,6 +25,8 @@ class Ui_artistWindow
 public:
     QFrame *frame;
     QLabel *label;
+    QWidget *widget;
+    QHBoxLayout *horizontalLayout;
     QLabel *label_2;
     QLabel *label_3;
     QLabel *label_4;
@@ -62,15 +65,55 @@ public:
 "}"));
         label->setPixmap(QPixmap(QString::fromUtf8(":/images/124.png")));
         label->setScaledContents(true);
-        label_2 = new QLabel(frame);
+        widget = new QWidget(frame);
+        widget->setObjectName("widget");
+        widget->setGeometry(QRect(120, 19, 157, 42));
+        horizontalLayout = new QHBoxLayout(widget);
+        horizontalLayout->setObjectName("horizontalLayout");
+        horizontalLayout->setContentsMargins(0, 0, 0, 0);
+        label_2 = new QLabel(widget);
         label_2->setObjectName("label_2");
-        label_2->setGeometry(QRect(160, 30, 161, 20));
-        label_3 = new QLabel(frame);
+        label_2->setStyleSheet(QString::fromUtf8("QLabel{\n"
+"    color:qlineargradient(\n"
+"        x1:0,y1:0,x2:1,y2:0,\n"
+"        stop:0 #1DB954,\n"
+"        stop:0.5 #5CFF9D,\n"
+"        stop:1 #1DB954);\n"
+"    font-size:18pt;\n"
+"    font-weight:900;\n"
+"    font-family:\"Segoe UI\";\n"
+"}"));
+
+        horizontalLayout->addWidget(label_2);
+
+        label_3 = new QLabel(widget);
         label_3->setObjectName("label_3");
-        label_3->setGeometry(QRect(280, 30, 63, 20));
+        label_3->setStyleSheet(QString::fromUtf8("QLabel{\n"
+"    color:qlineargradient(\n"
+"        x1:0,y1:0,x2:1,y2:0,\n"
+"        stop:0 #1DB954,\n"
+"        stop:0.5 #5CFF9D,\n"
+"        stop:1 #1DB954);\n"
+"    font-size:18pt;\n"
+"    font-weight:900;\n"
+"    font-family:\"Segoe UI\";\n"
+"}"));
+
+        horizontalLayout->addWidget(label_3);
+
         label_4 = new QLabel(artistWindow);
         label_4->setObjectName("label_4");
-        label_4->setGeometry(QRect(50, 150, 141, 41));
+        label_4->setGeometry(QRect(50, 110, 211, 51));
+        label_4->setStyleSheet(QString::fromUtf8("QLabel{\n"
+"    color:qlineargradient(\n"
+"        x1:0,y1:0,x2:1,y2:0,\n"
+"        stop:0 #1DB954,\n"
+"        stop:0.5 #5CFF9D,\n"
+"        stop:1 #1DB954);\n"
+"    font-size:10pt;\n"
+"    font-weight:900;\n"
+"    font-family:\"Segoe UI\";\n"
+"}"));
         pushButton = new QPushButton(artistWindow);
         pushButton->setObjectName("pushButton");
         pushButton->setGeometry(QRect(20, 600, 131, 51));
@@ -189,7 +232,21 @@ public:
 "}"));
         listWidgetAlbums = new QListWidget(artistWindow);
         listWidgetAlbums->setObjectName("listWidgetAlbums");
-        listWidgetAlbums->setGeometry(QRect(60, 230, 451, 311));
+        listWidgetAlbums->setGeometry(QRect(40, 180, 551, 381));
+        listWidgetAlbums->setStyleSheet(QString::fromUtf8("QListWidget{\n"
+"    background:#181818;\n"
+"    border:2px solid #1DB954;\n"
+"    border-radius:8px;\n"
+"    color:white;\n"
+"}\n"
+"\n"
+"QListWidget::item{\n"
+"    padding:8px;\n"
+"}\n"
+"\n"
+"QListWidget::item:selected{\n"
+"    background:#1DB954;\n"
+"}"));
 
         retranslateUi(artistWindow);
 
@@ -200,7 +257,7 @@ public:
     {
         artistWindow->setWindowTitle(QCoreApplication::translate("artistWindow", "Form", nullptr));
         label->setText(QString());
-        label_2->setText(QCoreApplication::translate("artistWindow", "Welcome back", nullptr));
+        label_2->setText(QCoreApplication::translate("artistWindow", "Welcome", nullptr));
         label_3->setText(QCoreApplication::translate("artistWindow", ".", nullptr));
         label_4->setText(QCoreApplication::translate("artistWindow", "My Albums", nullptr));
         pushButton->setText(QCoreApplication::translate("artistWindow", "Add Album", nullptr));

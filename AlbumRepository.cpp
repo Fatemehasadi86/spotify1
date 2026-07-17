@@ -1,6 +1,7 @@
 #include "AlbumRepository.h"
 #include "Album.h"
 #include <fstream>
+#include <algorithm>
 
 using namespace std;
 
@@ -56,6 +57,7 @@ std::optional<Album> AlbumRepository::search(int id)
     return std::nullopt;
 }
 
+
 vector<Album> AlbumRepository::albums(int artistId)
 {
     vector<Album> result;
@@ -68,8 +70,16 @@ vector<Album> AlbumRepository::albums(int artistId)
         }
     }
 
+    std::sort(result.begin(), result.end(),
+              [](const Album &a, const Album &b)
+              {
+                  return a.getName() < b.getName();
+              });
+
     return result;
 }
+
+
 vector<Album> AlbumRepository::getAllAlbum(){
     return albumsList;
 }

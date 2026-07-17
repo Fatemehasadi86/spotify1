@@ -78,41 +78,77 @@
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QLabel" name="label_2">
+   <widget class="QWidget" name="">
     <property name="geometry">
      <rect>
-      <x>160</x>
-      <y>30</y>
-      <width>161</width>
-      <height>20</height>
+      <x>120</x>
+      <y>19</y>
+      <width>157</width>
+      <height>42</height>
      </rect>
     </property>
-    <property name="text">
-     <string>Welcome back</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_3">
-    <property name="geometry">
-     <rect>
-      <x>280</x>
-      <y>30</y>
-      <width>63</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>.</string>
-    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QLabel" name="label_2">
+       <property name="styleSheet">
+        <string notr="true">QLabel{
+    color:qlineargradient(
+        x1:0,y1:0,x2:1,y2:0,
+        stop:0 #1DB954,
+        stop:0.5 #5CFF9D,
+        stop:1 #1DB954);
+    font-size:18pt;
+    font-weight:900;
+    font-family:&quot;Segoe UI&quot;;
+}</string>
+       </property>
+       <property name="text">
+        <string>Welcome</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_3">
+       <property name="styleSheet">
+        <string notr="true">QLabel{
+    color:qlineargradient(
+        x1:0,y1:0,x2:1,y2:0,
+        stop:0 #1DB954,
+        stop:0.5 #5CFF9D,
+        stop:1 #1DB954);
+    font-size:18pt;
+    font-weight:900;
+    font-family:&quot;Segoe UI&quot;;
+}</string>
+       </property>
+       <property name="text">
+        <string>.</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
      <x>50</x>
-     <y>150</y>
-     <width>141</width>
-     <height>41</height>
+     <y>110</y>
+     <width>211</width>
+     <height>51</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+    color:qlineargradient(
+        x1:0,y1:0,x2:1,y2:0,
+        stop:0 #1DB954,
+        stop:0.5 #5CFF9D,
+        stop:1 #1DB954);
+    font-size:10pt;
+    font-weight:900;
+    font-family:&quot;Segoe UI&quot;;
+}</string>
    </property>
    <property name="text">
     <string>My Albums</string>
@@ -297,11 +333,27 @@ QPushButton:pressed{
   <widget class="QListWidget" name="listWidgetAlbums">
    <property name="geometry">
     <rect>
-     <x>60</x>
-     <y>230</y>
-     <width>451</width>
-     <height>311</height>
+     <x>40</x>
+     <y>180</y>
+     <width>551</width>
+     <height>381</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QListWidget{
+    background:#181818;
+    border:2px solid #1DB954;
+    border-radius:8px;
+    color:white;
+}
+
+QListWidget::item{
+    padding:8px;
+}
+
+QListWidget::item:selected{
+    background:#1DB954;
+}</string>
    </property>
   </widget>
  </widget>
