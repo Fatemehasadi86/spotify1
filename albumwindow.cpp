@@ -44,6 +44,7 @@ void albumWindow::on_pushButton_4_clicked()
     close();
 }
 
+
 void albumWindow::loadSong()
 {
     ui->listWidget->clear();
@@ -55,14 +56,27 @@ void albumWindow::loadSong()
 
     for (int i = 0; i < songs.size(); i++)
     {
-        QListWidgetItem *item = new QListWidgetItem(
-            QString::fromStdString(songs[i].getName()));
+        QString name = QString::fromStdString(songs[i].getName());
+        QString genre = QString::fromStdString(songs[i].getGenre());
+        QString year = QString::number(songs[i].getReleaseYear());
 
+        if (!name.contains(searchText, Qt::CaseInsensitive))
+            continue;
+
+        if (genreFilter != "All" && genre != genreFilter)
+            continue;
+
+        if (yearFilter != "All" && year != yearFilter)
+            continue;
+
+        QListWidgetItem *item = new QListWidgetItem(name);
         item->setData(Qt::UserRole, songs[i].getId());
 
         ui->listWidget->addItem(item);
     }
 }
+
+
 void albumWindow::on_pushButton_3_clicked()
 {
     if (ui->listWidget->selectedItems().isEmpty())
@@ -125,5 +139,45 @@ void albumWindow::on_pushButton_2_clicked()
             });
 
     w->show();
+}
+
+
+void albumWindow::on_lineEdit_textChanged(const QString &text)
+{
+    ui->listWidget->clear();
+
+    SongRepository repository;
+    repository.loadFromFile();
+
+    std::vector<Song> songs = repository.getByAlbum(albumId);
+
+    for (int i = 0; i < songs.size(); i++)
+    {
+        if (QString::fromStdString(songs[i].getName()).contains(text))
+        {
+            QListWidgetItem *item = new QListWidgetItem(
+                QString::fromStdString(songs[i].getName()));
+
+            item->setData(Qt::UserRole, songs[i].getId());
+
+            ui->listWidget->addItem(item);
+        }
+    }
+}
+
+void albumWindow::on_comboBox_currentTextChanged(const QString &arg1)
+{
+    qDebug()<<"genre";
+    genreFilter = arg1;
+    loadSong();
+}
+
+
+
+
+void albumWindow::on_comboBox_2_currentTextChanged(const QString &arg1)
+{
+    yearFilter = arg1;
+    loadSong();
 }
 

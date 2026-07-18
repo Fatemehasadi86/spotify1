@@ -42,7 +42,12 @@ template <> constexpr inline auto albumWindow::qt_create_metaobjectdata<qt_meta_
         "on_pushButton_4_clicked",
         "",
         "on_pushButton_3_clicked",
-        "on_pushButton_2_clicked"
+        "on_pushButton_2_clicked",
+        "on_lineEdit_textChanged",
+        "text",
+        "on_comboBox_currentTextChanged",
+        "arg1",
+        "on_comboBox_2_currentTextChanged"
     };
 
     QtMocHelpers::UintData qt_methods {
@@ -52,6 +57,18 @@ template <> constexpr inline auto albumWindow::qt_create_metaobjectdata<qt_meta_
         QtMocHelpers::SlotData<void()>(3, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'on_pushButton_2_clicked'
         QtMocHelpers::SlotData<void()>(4, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_lineEdit_textChanged'
+        QtMocHelpers::SlotData<void(const QString &)>(5, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::QString, 6 },
+        }}),
+        // Slot 'on_comboBox_currentTextChanged'
+        QtMocHelpers::SlotData<void(const QString &)>(7, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::QString, 8 },
+        }}),
+        // Slot 'on_comboBox_2_currentTextChanged'
+        QtMocHelpers::SlotData<void(const QString &)>(9, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::QString, 8 },
+        }}),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -78,10 +95,12 @@ void albumWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         case 0: _t->on_pushButton_4_clicked(); break;
         case 1: _t->on_pushButton_3_clicked(); break;
         case 2: _t->on_pushButton_2_clicked(); break;
+        case 3: _t->on_lineEdit_textChanged((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
+        case 4: _t->on_comboBox_currentTextChanged((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
+        case 5: _t->on_comboBox_2_currentTextChanged((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
         default: ;
         }
     }
-    (void)_a;
 }
 
 const QMetaObject *albumWindow::metaObject() const
@@ -103,14 +122,14 @@ int albumWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 3)
+        if (_id < 6)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 3;
+        _id -= 6;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 3)
+        if (_id < 6)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 3;
+        _id -= 6;
     }
     return _id;
 }

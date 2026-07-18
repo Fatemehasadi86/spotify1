@@ -51,7 +51,8 @@ void addSongWindow::on_pushButton_4_clicked()
 void addSongWindow::on_pushButton_3_clicked()
 {
     QString name = ui->lineEdit->text();
-    QString genre = ui->lineEdit_2->text();
+    QString genre =ui->comboBox_2->currentText();
+
     QString year = ui->lineEdit_3->text();
 
     if(name.isEmpty() || genre.isEmpty() || year.isEmpty())

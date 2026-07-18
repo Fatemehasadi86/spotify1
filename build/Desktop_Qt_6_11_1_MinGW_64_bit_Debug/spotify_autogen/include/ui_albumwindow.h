@@ -11,7 +11,9 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QComboBox>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QListWidget>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QWidget>
@@ -27,6 +29,12 @@ public:
     QPushButton *pushButton_2;
     QPushButton *pushButton_3;
     QPushButton *pushButton_4;
+    QLineEdit *lineEdit;
+    QLabel *label_3;
+    QComboBox *comboBox;
+    QLabel *label_4;
+    QLabel *label_5;
+    QComboBox *comboBox_2;
 
     void setupUi(QWidget *albumWindow)
     {
@@ -67,22 +75,58 @@ public:
 "}"));
         label = new QLabel(albumWindow);
         label->setObjectName("label");
-        label->setGeometry(QRect(190, 50, 191, 41));
+        label->setGeometry(QRect(190, 130, 191, 41));
         label_2 = new QLabel(albumWindow);
         label_2->setObjectName("label_2");
-        label_2->setGeometry(QRect(320, 60, 81, 21));
+        label_2->setGeometry(QRect(320, 140, 81, 21));
         listWidget = new QListWidget(albumWindow);
         listWidget->setObjectName("listWidget");
-        listWidget->setGeometry(QRect(180, 121, 256, 271));
+        listWidget->setGeometry(QRect(180, 190, 256, 271));
         pushButton_2 = new QPushButton(albumWindow);
         pushButton_2->setObjectName("pushButton_2");
-        pushButton_2->setGeometry(QRect(160, 460, 111, 31));
+        pushButton_2->setGeometry(QRect(160, 490, 111, 31));
         pushButton_3 = new QPushButton(albumWindow);
         pushButton_3->setObjectName("pushButton_3");
-        pushButton_3->setGeometry(QRect(330, 460, 111, 31));
+        pushButton_3->setGeometry(QRect(330, 490, 111, 31));
         pushButton_4 = new QPushButton(albumWindow);
         pushButton_4->setObjectName("pushButton_4");
         pushButton_4->setGeometry(QRect(560, 520, 90, 29));
+        lineEdit = new QLineEdit(albumWindow);
+        lineEdit->setObjectName("lineEdit");
+        lineEdit->setGeometry(QRect(70, 80, 311, 31));
+        label_3 = new QLabel(albumWindow);
+        label_3->setObjectName("label_3");
+        label_3->setGeometry(QRect(10, 80, 63, 20));
+        comboBox = new QComboBox(albumWindow);
+        comboBox->addItem(QString());
+        comboBox->addItem(QString());
+        comboBox->addItem(QString());
+        comboBox->addItem(QString());
+        comboBox->addItem(QString());
+        comboBox->addItem(QString());
+        comboBox->addItem(QString());
+        comboBox->addItem(QString());
+        comboBox->addItem(QString());
+        comboBox->addItem(QString());
+        comboBox->setObjectName("comboBox");
+        comboBox->setGeometry(QRect(540, 90, 121, 31));
+        label_4 = new QLabel(albumWindow);
+        label_4->setObjectName("label_4");
+        label_4->setGeometry(QRect(420, 90, 101, 21));
+        label_5 = new QLabel(albumWindow);
+        label_5->setObjectName("label_5");
+        label_5->setGeometry(QRect(420, 40, 111, 31));
+        comboBox_2 = new QComboBox(albumWindow);
+        comboBox_2->addItem(QString());
+        comboBox_2->addItem(QString());
+        comboBox_2->addItem(QString());
+        comboBox_2->addItem(QString());
+        comboBox_2->addItem(QString());
+        comboBox_2->addItem(QString());
+        comboBox_2->addItem(QString());
+        comboBox_2->addItem(QString());
+        comboBox_2->setObjectName("comboBox_2");
+        comboBox_2->setGeometry(QRect(540, 40, 121, 31));
 
         retranslateUi(albumWindow);
 
@@ -97,6 +141,29 @@ public:
         pushButton_2->setText(QCoreApplication::translate("albumWindow", "Edit Song ", nullptr));
         pushButton_3->setText(QCoreApplication::translate("albumWindow", "Delete Song", nullptr));
         pushButton_4->setText(QCoreApplication::translate("albumWindow", "Back", nullptr));
+        label_3->setText(QCoreApplication::translate("albumWindow", "Search:", nullptr));
+        comboBox->setItemText(0, QCoreApplication::translate("albumWindow", "All", nullptr));
+        comboBox->setItemText(1, QCoreApplication::translate("albumWindow", "Pop", nullptr));
+        comboBox->setItemText(2, QCoreApplication::translate("albumWindow", "Rock", nullptr));
+        comboBox->setItemText(3, QCoreApplication::translate("albumWindow", "Rap", nullptr));
+        comboBox->setItemText(4, QCoreApplication::translate("albumWindow", "Hip Hop", nullptr));
+        comboBox->setItemText(5, QCoreApplication::translate("albumWindow", "Jazz", nullptr));
+        comboBox->setItemText(6, QCoreApplication::translate("albumWindow", "Classical", nullptr));
+        comboBox->setItemText(7, QCoreApplication::translate("albumWindow", "Metal", nullptr));
+        comboBox->setItemText(8, QCoreApplication::translate("albumWindow", "Electronic", nullptr));
+        comboBox->setItemText(9, QCoreApplication::translate("albumWindow", "Country", nullptr));
+
+        label_4->setText(QCoreApplication::translate("albumWindow", "Filter by gener", nullptr));
+        label_5->setText(QCoreApplication::translate("albumWindow", "Filter by year", nullptr));
+        comboBox_2->setItemText(0, QCoreApplication::translate("albumWindow", "All", nullptr));
+        comboBox_2->setItemText(1, QCoreApplication::translate("albumWindow", "2020", nullptr));
+        comboBox_2->setItemText(2, QCoreApplication::translate("albumWindow", "2021", nullptr));
+        comboBox_2->setItemText(3, QCoreApplication::translate("albumWindow", "2022", nullptr));
+        comboBox_2->setItemText(4, QCoreApplication::translate("albumWindow", "2023", nullptr));
+        comboBox_2->setItemText(5, QCoreApplication::translate("albumWindow", "2024", nullptr));
+        comboBox_2->setItemText(6, QCoreApplication::translate("albumWindow", "2025", nullptr));
+        comboBox_2->setItemText(7, QCoreApplication::translate("albumWindow", "2026", nullptr));
+
     } // retranslateUi
 
 };

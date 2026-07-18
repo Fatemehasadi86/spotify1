@@ -23,10 +23,20 @@ private slots:
 
     void on_pushButton_2_clicked();
 
+    void on_lineEdit_textChanged(const QString &text);
+
+    void on_comboBox_currentTextChanged(const QString &arg1);
+
+    void on_comboBox_2_currentTextChanged(const QString &arg1);
+
 private:
     Ui::albumWindow *ui;
     int albumId;
     int artistId;
+    QString searchText;
+    QString genreFilter = "All";
+    QString searchText2;
+    QString yearFilter = "All";
 };
 
 #endif // ALBUMWINDOW_H

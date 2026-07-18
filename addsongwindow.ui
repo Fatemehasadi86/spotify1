@@ -96,16 +96,6 @@ QListWidget::item:selected{
     <string>Genre</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_2">
-   <property name="geometry">
-    <rect>
-     <x>250</x>
-     <y>100</y>
-     <width>113</width>
-     <height>28</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
@@ -229,6 +219,66 @@ QListWidget::item:selected{
    <property name="text">
     <string>Album Name</string>
    </property>
+  </widget>
+  <widget class="QComboBox" name="comboBox_2">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>100</y>
+     <width>181</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>Pop</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Rock</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Rap</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Hip Hop</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Jazz</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Classical</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Metal</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Country</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Electoronic</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string/>
+    </property>
+   </item>
   </widget>
  </widget>
  <resources/>

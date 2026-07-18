@@ -23,7 +23,6 @@ class Ui_editsongWindow
 {
 public:
     QLineEdit *lineEdit;
-    QLineEdit *lineEdit_2;
     QLineEdit *lineEdit_3;
     QComboBox *comboBox;
     QPushButton *pushButton;
@@ -31,6 +30,7 @@ public:
     QLabel *label_2;
     QLabel *label_3;
     QLabel *label_4;
+    QComboBox *comboBox_2;
 
     void setupUi(QWidget *editsongWindow)
     {
@@ -72,9 +72,6 @@ public:
         lineEdit = new QLineEdit(editsongWindow);
         lineEdit->setObjectName("lineEdit");
         lineEdit->setGeometry(QRect(210, 70, 113, 28));
-        lineEdit_2 = new QLineEdit(editsongWindow);
-        lineEdit_2->setObjectName("lineEdit_2");
-        lineEdit_2->setGeometry(QRect(210, 140, 113, 28));
         lineEdit_3 = new QLineEdit(editsongWindow);
         lineEdit_3->setObjectName("lineEdit_3");
         lineEdit_3->setGeometry(QRect(210, 220, 113, 28));
@@ -96,6 +93,18 @@ public:
         label_4 = new QLabel(editsongWindow);
         label_4->setObjectName("label_4");
         label_4->setGeometry(QRect(60, 300, 63, 20));
+        comboBox_2 = new QComboBox(editsongWindow);
+        comboBox_2->addItem(QString());
+        comboBox_2->addItem(QString());
+        comboBox_2->addItem(QString());
+        comboBox_2->addItem(QString());
+        comboBox_2->addItem(QString());
+        comboBox_2->addItem(QString());
+        comboBox_2->addItem(QString());
+        comboBox_2->addItem(QString());
+        comboBox_2->addItem(QString());
+        comboBox_2->setObjectName("comboBox_2");
+        comboBox_2->setGeometry(QRect(210, 140, 141, 31));
 
         retranslateUi(editsongWindow);
 
@@ -110,6 +119,16 @@ public:
         label_2->setText(QCoreApplication::translate("editsongWindow", "Genre", nullptr));
         label_3->setText(QCoreApplication::translate("editsongWindow", "Release Year", nullptr));
         label_4->setText(QCoreApplication::translate("editsongWindow", "Album", nullptr));
+        comboBox_2->setItemText(0, QCoreApplication::translate("editsongWindow", "Pop", nullptr));
+        comboBox_2->setItemText(1, QCoreApplication::translate("editsongWindow", "Rock", nullptr));
+        comboBox_2->setItemText(2, QCoreApplication::translate("editsongWindow", "Rap", nullptr));
+        comboBox_2->setItemText(3, QCoreApplication::translate("editsongWindow", "Hip Hop", nullptr));
+        comboBox_2->setItemText(4, QCoreApplication::translate("editsongWindow", "Jazz", nullptr));
+        comboBox_2->setItemText(5, QCoreApplication::translate("editsongWindow", "Classical", nullptr));
+        comboBox_2->setItemText(6, QCoreApplication::translate("editsongWindow", "Metal", nullptr));
+        comboBox_2->setItemText(7, QCoreApplication::translate("editsongWindow", "Country", nullptr));
+        comboBox_2->setItemText(8, QCoreApplication::translate("editsongWindow", "Electronic", nullptr));
+
     } // retranslateUi
 
 };

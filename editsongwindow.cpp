@@ -22,7 +22,7 @@ editsongWindow::editsongWindow(int songId,int artistId,QWidget *parent)
 
 
     ui->lineEdit->setText(QString::fromStdString(song->getName()));
-    ui->lineEdit_2->setText(QString::fromStdString(song->getGenre()));
+    ui->comboBox_2->setCurrentText(QString::fromStdString(song->getGenre()));
     ui->lineEdit_3->setText(QString::number(song->getReleaseYear()));
 
     AlbumRepository albumRepository;
@@ -59,7 +59,7 @@ void editsongWindow::on_pushButton_clicked()
     Song editedSong = song.value();
 
     editedSong.setName(ui->lineEdit->text().toStdString());
-    editedSong.setGenre(ui->lineEdit_2->text().toStdString());
+    editedSong.setGenre(ui->comboBox_2->currentText().toStdString());
     editedSong.setReleaseYear(ui->lineEdit_3->text().toInt());
 
     AlbumRepository albumRepository;

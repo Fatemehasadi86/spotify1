@@ -25,7 +25,7 @@ class Ui_artistWindow
 public:
     QFrame *frame;
     QLabel *label;
-    QWidget *widget;
+    QWidget *layoutWidget;
     QHBoxLayout *horizontalLayout;
     QLabel *label_2;
     QLabel *label_3;
@@ -65,13 +65,13 @@ public:
 "}"));
         label->setPixmap(QPixmap(QString::fromUtf8(":/images/124.png")));
         label->setScaledContents(true);
-        widget = new QWidget(frame);
-        widget->setObjectName("widget");
-        widget->setGeometry(QRect(120, 19, 157, 42));
-        horizontalLayout = new QHBoxLayout(widget);
+        layoutWidget = new QWidget(frame);
+        layoutWidget->setObjectName("layoutWidget");
+        layoutWidget->setGeometry(QRect(120, 19, 157, 42));
+        horizontalLayout = new QHBoxLayout(layoutWidget);
         horizontalLayout->setObjectName("horizontalLayout");
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
-        label_2 = new QLabel(widget);
+        label_2 = new QLabel(layoutWidget);
         label_2->setObjectName("label_2");
         label_2->setStyleSheet(QString::fromUtf8("QLabel{\n"
 "    color:qlineargradient(\n"
@@ -86,8 +86,9 @@ public:
 
         horizontalLayout->addWidget(label_2);
 
-        label_3 = new QLabel(widget);
+        label_3 = new QLabel(frame);
         label_3->setObjectName("label_3");
+        label_3->setGeometry(QRect(279, 20, 161, 40));
         label_3->setStyleSheet(QString::fromUtf8("QLabel{\n"
 "    color:qlineargradient(\n"
 "        x1:0,y1:0,x2:1,y2:0,\n"
@@ -98,9 +99,6 @@ public:
 "    font-weight:900;\n"
 "    font-family:\"Segoe UI\";\n"
 "}"));
-
-        horizontalLayout->addWidget(label_3);
-
         label_4 = new QLabel(artistWindow);
         label_4->setObjectName("label_4");
         label_4->setGeometry(QRect(50, 110, 211, 51));

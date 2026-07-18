@@ -57,16 +57,6 @@ QComboBox{
     </rect>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_2">
-   <property name="geometry">
-    <rect>
-     <x>210</x>
-     <y>140</y>
-     <width>113</width>
-     <height>28</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QLineEdit" name="lineEdit_3">
    <property name="geometry">
     <rect>
@@ -151,6 +141,61 @@ QComboBox{
    <property name="text">
     <string>Album</string>
    </property>
+  </widget>
+  <widget class="QComboBox" name="comboBox_2">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>140</y>
+     <width>141</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>Pop</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Rock</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Rap</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Hip Hop</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Jazz</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Classical</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Metal</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Country</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Electronic</string>
+    </property>
+   </item>
   </widget>
  </widget>
  <resources/>

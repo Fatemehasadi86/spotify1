@@ -25,7 +25,6 @@ public:
     QLabel *label;
     QLineEdit *lineEdit;
     QLabel *label_2;
-    QLineEdit *lineEdit_2;
     QLabel *label_3;
     QLineEdit *lineEdit_3;
     QLabel *label_4;
@@ -36,6 +35,7 @@ public:
     QPushButton *pushButton_4;
     QComboBox *comboBox;
     QLabel *label_6;
+    QComboBox *comboBox_2;
 
     void setupUi(QWidget *addSongWindow)
     {
@@ -96,9 +96,6 @@ public:
         label_2 = new QLabel(addSongWindow);
         label_2->setObjectName("label_2");
         label_2->setGeometry(QRect(120, 100, 63, 20));
-        lineEdit_2 = new QLineEdit(addSongWindow);
-        lineEdit_2->setObjectName("lineEdit_2");
-        lineEdit_2->setGeometry(QRect(250, 100, 113, 28));
         label_3 = new QLabel(addSongWindow);
         label_3->setObjectName("label_3");
         label_3->setGeometry(QRect(100, 160, 101, 21));
@@ -129,6 +126,19 @@ public:
         label_6 = new QLabel(addSongWindow);
         label_6->setObjectName("label_6");
         label_6->setGeometry(QRect(90, 220, 101, 31));
+        comboBox_2 = new QComboBox(addSongWindow);
+        comboBox_2->addItem(QString());
+        comboBox_2->addItem(QString());
+        comboBox_2->addItem(QString());
+        comboBox_2->addItem(QString());
+        comboBox_2->addItem(QString());
+        comboBox_2->addItem(QString());
+        comboBox_2->addItem(QString());
+        comboBox_2->addItem(QString());
+        comboBox_2->addItem(QString());
+        comboBox_2->addItem(QString());
+        comboBox_2->setObjectName("comboBox_2");
+        comboBox_2->setGeometry(QRect(250, 100, 181, 31));
 
         retranslateUi(addSongWindow);
 
@@ -148,6 +158,17 @@ public:
         pushButton_3->setText(QCoreApplication::translate("addSongWindow", "Save", nullptr));
         pushButton_4->setText(QCoreApplication::translate("addSongWindow", "Cancel", nullptr));
         label_6->setText(QCoreApplication::translate("addSongWindow", "Album Name", nullptr));
+        comboBox_2->setItemText(0, QCoreApplication::translate("addSongWindow", "Pop", nullptr));
+        comboBox_2->setItemText(1, QCoreApplication::translate("addSongWindow", "Rock", nullptr));
+        comboBox_2->setItemText(2, QCoreApplication::translate("addSongWindow", "Rap", nullptr));
+        comboBox_2->setItemText(3, QCoreApplication::translate("addSongWindow", "Hip Hop", nullptr));
+        comboBox_2->setItemText(4, QCoreApplication::translate("addSongWindow", "Jazz", nullptr));
+        comboBox_2->setItemText(5, QCoreApplication::translate("addSongWindow", "Classical", nullptr));
+        comboBox_2->setItemText(6, QCoreApplication::translate("addSongWindow", "Metal", nullptr));
+        comboBox_2->setItemText(7, QCoreApplication::translate("addSongWindow", "Country", nullptr));
+        comboBox_2->setItemText(8, QCoreApplication::translate("addSongWindow", "Electoronic", nullptr));
+        comboBox_2->setItemText(9, QString());
+
     } // retranslateUi
 
 };
