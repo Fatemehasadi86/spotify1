@@ -56,7 +56,6 @@ void artistWindow::loadAlbums()
     repository.loadFromFile();
 
     QListWidgetItem *singles = new QListWidgetItem("Singles");
-    singles->setData(Qt::UserRole, 0);
     ui->listWidgetAlbums->addItem(singles);
 
     std::vector<Album> albums = repository.albums(artistId);
@@ -68,8 +67,6 @@ void artistWindow::loadAlbums()
 
         QListWidgetItem *item = new QListWidgetItem(
             QString::fromStdString(albums[i].getName()));
-
-        item->setData(Qt::UserRole, albums[i].getAlbumId());
 
         ui->listWidgetAlbums->addItem(item);
     }
@@ -94,8 +91,28 @@ void artistWindow::on_listWidgetAlbums_itemDoubleClicked(QListWidgetItem *item)
     if (item == nullptr)
         return;
 
-    int albumId = item->data(Qt::UserRole).toInt();
-    albumWindow *window2 = new albumWindow(albumId,artistId);
+    QString albumName = item->text();
+
+    int albumId = 0;
+
+    if (albumName != "Singles")
+    {
+        AlbumRepository repository;
+        repository.loadFromFile();
+
+        std::vector<Album> albums = repository.albums(artistId);
+
+        for (int i = 0; i < albums.size(); i++)
+        {
+            if (albums[i].getName() == albumName.toStdString())
+            {
+                albumId = albums[i].getAlbumId();
+                break;
+            }
+        }
+    }
+
+    albumWindow *window2 = new albumWindow(albumId, artistId);
     window2->show();
 }
 

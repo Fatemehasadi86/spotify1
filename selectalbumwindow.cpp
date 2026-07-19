@@ -5,12 +5,14 @@
 #include "editalbumwindow.h"
 #include <QMessageBox>
 
-selectAlbumWindow::selectAlbumWindow(int artistId,QWidget *parent)
+selectAlbumWindow::selectAlbumWindow(int artistId, QWidget *parent)
     : QDialog(parent),
     ui(new Ui::selectAlbumWindow)
 {
     ui->setupUi(this);
-    this->artistId=artistId;
+
+    this->artistId = artistId;
+
     AlbumRepository repository;
     repository.loadFromFile();
 
@@ -24,10 +26,9 @@ selectAlbumWindow::selectAlbumWindow(int artistId,QWidget *parent)
         QListWidgetItem *item = new QListWidgetItem(
             QString::fromStdString(albums[i].getName()));
 
-        item->setData(Qt::UserRole, albums[i].getAlbumId());
-
         ui->listWidget->addItem(item);
     }
+
     ui->listWidget->clearSelection();
     ui->listWidget->setCurrentRow(-1);
 }
@@ -49,13 +50,36 @@ void selectAlbumWindow::on_pushButton_clicked()
 
     QListWidgetItem *item = ui->listWidget->selectedItems().first();
 
-    int albumId = item->data(Qt::UserRole).toInt();
+    QString albumName = item->text();
+
+    AlbumRepository repository;
+    repository.loadFromFile();
+
+    std::vector<Album> albums = repository.getAllAlbum();
+
+    int albumId = 0;
+
+    for (int i = 0; i < albums.size(); i++)
+    {
+        if (albums[i].getArtistId() != artistId)
+            continue;
+
+        if (albums[i].getName() == albumName.toStdString())
+        {
+            albumId = albums[i].getAlbumId();
+            break;
+        }
+    }
 
     editAlbumWindow *w = new editAlbumWindow(albumId);
 
-    connect(w, &editAlbumWindow::albumEdited, this, [=](){this->close();emit albumsChanged();});
+    connect(w, &editAlbumWindow::albumEdited,
+            this,
+            [=]()
+            {
+                this->close();
+                emit albumsChanged();
+            });
 
     w->show();
 }
-
-

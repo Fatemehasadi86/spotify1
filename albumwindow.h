@@ -29,14 +29,16 @@ private slots:
 
     void on_comboBox_2_currentTextChanged(const QString &arg1);
 
+    void on_comboBox_3_currentTextChanged(const QString &arg1);
+
 private:
     Ui::albumWindow *ui;
     int albumId;
     int artistId;
     QString searchText;
     QString genreFilter = "All";
-    QString searchText2;
     QString yearFilter = "All";
+    QString sortType= "Default";
 };
 
 #endif // ALBUMWINDOW_H

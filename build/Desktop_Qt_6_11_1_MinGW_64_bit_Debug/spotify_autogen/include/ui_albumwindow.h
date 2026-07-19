@@ -35,6 +35,7 @@ public:
     QLabel *label_4;
     QLabel *label_5;
     QComboBox *comboBox_2;
+    QComboBox *comboBox_3;
 
     void setupUi(QWidget *albumWindow)
     {
@@ -75,28 +76,28 @@ public:
 "}"));
         label = new QLabel(albumWindow);
         label->setObjectName("label");
-        label->setGeometry(QRect(190, 130, 191, 41));
+        label->setGeometry(QRect(200, 120, 191, 41));
         label_2 = new QLabel(albumWindow);
         label_2->setObjectName("label_2");
-        label_2->setGeometry(QRect(320, 140, 81, 21));
+        label_2->setGeometry(QRect(360, 130, 81, 21));
         listWidget = new QListWidget(albumWindow);
         listWidget->setObjectName("listWidget");
-        listWidget->setGeometry(QRect(180, 190, 256, 271));
+        listWidget->setGeometry(QRect(130, 170, 421, 351));
         pushButton_2 = new QPushButton(albumWindow);
         pushButton_2->setObjectName("pushButton_2");
-        pushButton_2->setGeometry(QRect(160, 490, 111, 31));
+        pushButton_2->setGeometry(QRect(200, 540, 111, 31));
         pushButton_3 = new QPushButton(albumWindow);
         pushButton_3->setObjectName("pushButton_3");
-        pushButton_3->setGeometry(QRect(330, 490, 111, 31));
+        pushButton_3->setGeometry(QRect(370, 540, 111, 31));
         pushButton_4 = new QPushButton(albumWindow);
         pushButton_4->setObjectName("pushButton_4");
-        pushButton_4->setGeometry(QRect(560, 520, 90, 29));
+        pushButton_4->setGeometry(QRect(590, 540, 90, 29));
         lineEdit = new QLineEdit(albumWindow);
         lineEdit->setObjectName("lineEdit");
-        lineEdit->setGeometry(QRect(70, 80, 311, 31));
+        lineEdit->setGeometry(QRect(80, 30, 311, 31));
         label_3 = new QLabel(albumWindow);
         label_3->setObjectName("label_3");
-        label_3->setGeometry(QRect(10, 80, 63, 20));
+        label_3->setGeometry(QRect(10, 30, 63, 20));
         comboBox = new QComboBox(albumWindow);
         comboBox->addItem(QString());
         comboBox->addItem(QString());
@@ -109,13 +110,13 @@ public:
         comboBox->addItem(QString());
         comboBox->addItem(QString());
         comboBox->setObjectName("comboBox");
-        comboBox->setGeometry(QRect(540, 90, 121, 31));
+        comboBox->setGeometry(QRect(530, 80, 121, 31));
         label_4 = new QLabel(albumWindow);
         label_4->setObjectName("label_4");
-        label_4->setGeometry(QRect(420, 90, 101, 21));
+        label_4->setGeometry(QRect(410, 80, 101, 21));
         label_5 = new QLabel(albumWindow);
         label_5->setObjectName("label_5");
-        label_5->setGeometry(QRect(420, 40, 111, 31));
+        label_5->setGeometry(QRect(420, 30, 111, 31));
         comboBox_2 = new QComboBox(albumWindow);
         comboBox_2->addItem(QString());
         comboBox_2->addItem(QString());
@@ -126,7 +127,13 @@ public:
         comboBox_2->addItem(QString());
         comboBox_2->addItem(QString());
         comboBox_2->setObjectName("comboBox_2");
-        comboBox_2->setGeometry(QRect(540, 40, 121, 31));
+        comboBox_2->setGeometry(QRect(530, 30, 121, 31));
+        comboBox_3 = new QComboBox(albumWindow);
+        comboBox_3->addItem(QString());
+        comboBox_3->addItem(QString());
+        comboBox_3->addItem(QString());
+        comboBox_3->setObjectName("comboBox_3");
+        comboBox_3->setGeometry(QRect(100, 80, 261, 28));
 
         retranslateUi(albumWindow);
 
@@ -163,6 +170,10 @@ public:
         comboBox_2->setItemText(5, QCoreApplication::translate("albumWindow", "2024", nullptr));
         comboBox_2->setItemText(6, QCoreApplication::translate("albumWindow", "2025", nullptr));
         comboBox_2->setItemText(7, QCoreApplication::translate("albumWindow", "2026", nullptr));
+
+        comboBox_3->setItemText(0, QCoreApplication::translate("albumWindow", "Default", nullptr));
+        comboBox_3->setItemText(1, QCoreApplication::translate("albumWindow", "Name (A_Z)", nullptr));
+        comboBox_3->setItemText(2, QCoreApplication::translate("albumWindow", "Year (New_old)", nullptr));
 
     } // retranslateUi
 

@@ -63,10 +63,10 @@ QListWidget::item:selected{
   <widget class="QListWidget" name="listWidget">
    <property name="geometry">
     <rect>
-     <x>145</x>
-     <y>51</y>
+     <x>140</x>
+     <y>170</y>
      <width>281</width>
-     <height>281</height>
+     <height>301</height>
     </rect>
    </property>
   </widget>
@@ -74,13 +74,36 @@ QListWidget::item:selected{
    <property name="geometry">
     <rect>
      <x>230</x>
-     <y>390</y>
+     <y>500</y>
      <width>141</width>
      <height>41</height>
     </rect>
    </property>
    <property name="text">
     <string>Remove Song</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>110</y>
+     <width>341</width>
+     <height>31</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>110</y>
+     <width>63</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Search:</string>
    </property>
   </widget>
  </widget>

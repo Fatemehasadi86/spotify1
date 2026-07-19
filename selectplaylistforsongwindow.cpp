@@ -4,18 +4,21 @@
 #include "PlaylistRepository.h"
 #include <QMessageBox>
 
-selectPlaylistforsongwindow::selectPlaylistforsongwindow(int listenerId,int songId,QWidget *parent)
+selectPlaylistforsongwindow::selectPlaylistforsongwindow(int listenerId,
+                                                         int songId,
+                                                         QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::selectPlaylistforsongwindow)
 {
     ui->setupUi(this);
-    this->listenerId=listenerId;
-    this->songId=songId;
+
+    this->listenerId = listenerId;
+    this->songId = songId;
+
     loadPlaylist();
 
     ui->listWidget->clearSelection();
     ui->listWidget->setCurrentRow(-1);
-
 }
 
 selectPlaylistforsongwindow::~selectPlaylistforsongwindow()
@@ -38,12 +41,10 @@ void selectPlaylistforsongwindow::loadPlaylist()
         QListWidgetItem *item = new QListWidgetItem(
             QString::fromStdString(playlists[i].getName()));
 
-        item->setData(Qt::UserRole,
-                      playlists[i].getPlaylistId());
-
         ui->listWidget->addItem(item);
     }
 }
+
 void selectPlaylistforsongwindow::on_pushButton_clicked()
 {
     if (ui->listWidget->selectedItems().isEmpty())
@@ -56,9 +57,25 @@ void selectPlaylistforsongwindow::on_pushButton_clicked()
 
     QListWidgetItem *item = ui->listWidget->selectedItems().first();
 
-    int playlistId = item->data(Qt::UserRole).toInt();
+    QString playlistName = item->text();
 
     PlaylistRepository repository;
+    repository.loadFromFile();
+
+    std::vector<Playlist> playlists =
+        repository.playlistsByListener(listenerId);
+
+    int playlistId = 0;
+
+    for (int i = 0; i < playlists.size(); i++)
+    {
+        if (playlists[i].getName() == playlistName.toStdString())
+        {
+            playlistId = playlists[i].getPlaylistId();
+            break;
+        }
+    }
+
     repository.insertSong(playlistId, songId);
 
     QMessageBox::information(this,
@@ -66,6 +83,4 @@ void selectPlaylistforsongwindow::on_pushButton_clicked()
                              "Song added successfully.");
 
     close();
-
 }
-

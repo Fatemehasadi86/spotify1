@@ -19,11 +19,11 @@ void Listener::addLikedSong(int songId)
 
 void Listener::removeLikedSong(int songId)
 {
-    for(auto it = likedSongs.begin(); it != likedSongs.end(); ++it)
+    for (int i = 0; i < likedSongs.size(); i++)
     {
-        if(*it == songId)
+        if (likedSongs[i] == songId)
         {
-            likedSongs.erase(it);
+            likedSongs.erase(likedSongs.begin() + i);
             return;
         }
     }

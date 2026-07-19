@@ -498,6 +498,12 @@
 			null
 		],
 		[
+			"C:/Users/BLUE0409/Documents/spotify/editaccountwindow.h",
+			"MU",
+			"EWIEGA46WW/moc_editaccountwindow.cpp",
+			null
+		],
+		[
 			"C:/Users/BLUE0409/Documents/spotify/editalbumwindow.h",
 			"MU",
 			"EWIEGA46WW/moc_editalbumwindow.cpp",
@@ -709,6 +715,11 @@
 		[ "C:/Users/BLUE0409/Documents/spotify/artistwindow.cpp", "MU", null ],
 		[
 			"C:/Users/BLUE0409/Documents/spotify/createplaylistwindow.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/BLUE0409/Documents/spotify/editaccountwindow.cpp",
 			"MU",
 			null
 		],

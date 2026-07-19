@@ -37,16 +37,31 @@ void album_artist_window::loadAlbums()
         QListWidgetItem *item = new QListWidgetItem(
             QString::fromStdString(albums[i].getName()));
 
-        item->setData(Qt::UserRole, albums[i].getAlbumId());
-
         ui->listWidget->addItem(item);
     }
 }
+
 void album_artist_window::on_listWidget_itemClicked(QListWidgetItem *item)
 {
-    int albumId = item->data(Qt::UserRole).toInt();
+    QString albumName = item->text();
 
-    album_song_window *w = new album_song_window(albumId,listenerId);
+    AlbumRepository repository;
+    repository.loadFromFile();
+
+    std::vector<Album> albums = repository.getAllAlbum();
+
+    int albumId = 0;
+
+    for (int i = 0; i < albums.size(); i++)
+    {
+        if (albums[i].getName() == albumName.toStdString())
+        {
+            albumId = albums[i].getAlbumId();
+            break;
+        }
+    }
+
+    album_song_window *w = new album_song_window(albumId, listenerId);
 
     w->show();
 

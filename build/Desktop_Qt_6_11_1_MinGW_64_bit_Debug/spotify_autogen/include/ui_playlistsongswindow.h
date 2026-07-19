@@ -11,6 +11,8 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QListWidget>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QWidget>
@@ -22,6 +24,8 @@ class Ui_PlaylistSongsWindow
 public:
     QListWidget *listWidget;
     QPushButton *pushButton;
+    QLineEdit *lineEdit;
+    QLabel *label;
 
     void setupUi(QWidget *PlaylistSongsWindow)
     {
@@ -75,10 +79,16 @@ public:
 "}"));
         listWidget = new QListWidget(PlaylistSongsWindow);
         listWidget->setObjectName("listWidget");
-        listWidget->setGeometry(QRect(145, 51, 281, 281));
+        listWidget->setGeometry(QRect(140, 170, 281, 301));
         pushButton = new QPushButton(PlaylistSongsWindow);
         pushButton->setObjectName("pushButton");
-        pushButton->setGeometry(QRect(230, 390, 141, 41));
+        pushButton->setGeometry(QRect(230, 500, 141, 41));
+        lineEdit = new QLineEdit(PlaylistSongsWindow);
+        lineEdit->setObjectName("lineEdit");
+        lineEdit->setGeometry(QRect(120, 110, 341, 31));
+        label = new QLabel(PlaylistSongsWindow);
+        label->setObjectName("label");
+        label->setGeometry(QRect(30, 110, 63, 20));
 
         retranslateUi(PlaylistSongsWindow);
 
@@ -89,6 +99,7 @@ public:
     {
         PlaylistSongsWindow->setWindowTitle(QCoreApplication::translate("PlaylistSongsWindow", "Form", nullptr));
         pushButton->setText(QCoreApplication::translate("PlaylistSongsWindow", "Remove Song", nullptr));
+        label->setText(QCoreApplication::translate("PlaylistSongsWindow", "Search:", nullptr));
     } // retranslateUi
 
 };

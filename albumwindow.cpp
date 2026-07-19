@@ -54,13 +54,30 @@ void albumWindow::loadSong()
 
     std::vector<Song> songs = repository.getByAlbum(albumId);
 
+    if (sortType == "Name (A_Z)")
+    {
+        std::sort(songs.begin(), songs.end(),
+                  [](Song a, Song b)
+                  {
+                      return a.getName() < b.getName();
+                  });
+    }
+    else if (sortType == "Year (New_old)")
+    {
+        std::sort(songs.begin(), songs.end(),
+                  [](Song a, Song b)
+                  {
+                      return a.getReleaseYear() > b.getReleaseYear();
+                  });
+    }
+
     for (int i = 0; i < songs.size(); i++)
     {
         QString name = QString::fromStdString(songs[i].getName());
         QString genre = QString::fromStdString(songs[i].getGenre());
         QString year = QString::number(songs[i].getReleaseYear());
 
-        if (!name.contains(searchText, Qt::CaseInsensitive))
+        if (!name.contains(searchText))
             continue;
 
         if (genreFilter != "All" && genre != genreFilter)
@@ -70,7 +87,6 @@ void albumWindow::loadSong()
             continue;
 
         QListWidgetItem *item = new QListWidgetItem(name);
-        item->setData(Qt::UserRole, songs[i].getId());
 
         ui->listWidget->addItem(item);
     }
@@ -89,7 +105,24 @@ void albumWindow::on_pushButton_3_clicked()
 
     QListWidgetItem *item = ui->listWidget->selectedItems().first();
 
-    int songId = item->data(Qt::UserRole).toInt();
+    QString songName = item->text();
+
+    SongRepository repository;
+
+    repository.loadFromFile();
+
+    std::vector<Song> songs = repository.getAllSongs();
+
+    int songId = 0;
+
+    for (int i = 0; i < songs.size(); i++)
+    {
+        if (songs[i].getName() == songName.toStdString())
+        {
+            songId = songs[i].getId();
+            break;
+        }
+    }
 
     int reply = QMessageBox::question(
         this,
@@ -100,8 +133,6 @@ void albumWindow::on_pushButton_3_clicked()
     if (reply == QMessageBox::No)
         return;
 
-    SongRepository repository;
-    repository.loadFromFile();
 
     if (repository.remove(songId))
     {
@@ -127,7 +158,23 @@ void albumWindow::on_pushButton_2_clicked()
 
     QListWidgetItem *item = ui->listWidget->selectedItems().first();
 
-    int songId = item->data(Qt::UserRole).toInt();
+    QString songName = item->text();
+
+    SongRepository repository;
+    repository.loadFromFile();
+
+    std::vector<Song> songs = repository.getAllSongs();
+
+    int songId = 0;
+
+    for (int i = 0; i < songs.size(); i++)
+    {
+        if (songs[i].getName() == songName.toStdString())
+        {
+            songId = songs[i].getId();
+            break;
+        }
+    }
 
     editsongWindow *w = new editsongWindow(songId,artistId);
 
@@ -155,10 +202,7 @@ void albumWindow::on_lineEdit_textChanged(const QString &text)
     {
         if (QString::fromStdString(songs[i].getName()).contains(text))
         {
-            QListWidgetItem *item = new QListWidgetItem(
-                QString::fromStdString(songs[i].getName()));
-
-            item->setData(Qt::UserRole, songs[i].getId());
+            QListWidgetItem *item = new QListWidgetItem(QString::fromStdString(songs[i].getName()));
 
             ui->listWidget->addItem(item);
         }
@@ -167,7 +211,6 @@ void albumWindow::on_lineEdit_textChanged(const QString &text)
 
 void albumWindow::on_comboBox_currentTextChanged(const QString &arg1)
 {
-    qDebug()<<"genre";
     genreFilter = arg1;
     loadSong();
 }
@@ -178,6 +221,13 @@ void albumWindow::on_comboBox_currentTextChanged(const QString &arg1)
 void albumWindow::on_comboBox_2_currentTextChanged(const QString &arg1)
 {
     yearFilter = arg1;
+    loadSong();
+}
+
+
+void albumWindow::on_comboBox_3_currentTextChanged(const QString &arg1)
+{
+    sortType=arg1;
     loadSong();
 }
 

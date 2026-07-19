@@ -66,7 +66,7 @@ bool PlaylistRepository::insertSong(int playlistId, int songId)
     SongRepository songRepository;
     songRepository.loadFromFile();
 
-    auto song = songRepository.search(songId);
+    std::optional<Song> song = songRepository.search(songId);
 
     if (!song.has_value())
         return false;
@@ -129,6 +129,7 @@ void PlaylistRepository::saveToFile()
     file.close();
 }
 
+
 void PlaylistRepository::loadFromFile()
 {
     playlists.clear();
@@ -164,7 +165,7 @@ void PlaylistRepository::loadFromFile()
             file >> songId;
             file.ignore();
 
-            auto song = songRepository.search(songId);
+            std::optional<Song> song = songRepository.search(songId);
 
             if (song.has_value())
             {
@@ -177,6 +178,7 @@ void PlaylistRepository::loadFromFile()
 
     file.close();
 }
+
 
 
 std::vector<Playlist> PlaylistRepository::getAllPlaylist()

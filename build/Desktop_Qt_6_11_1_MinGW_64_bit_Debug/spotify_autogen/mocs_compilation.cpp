@@ -6,6 +6,7 @@
 #include "EWIEGA46WW/moc_albumwindow.cpp"
 #include "EWIEGA46WW/moc_artistwindow.cpp"
 #include "EWIEGA46WW/moc_createplaylistwindow.cpp"
+#include "EWIEGA46WW/moc_editaccountwindow.cpp"
 #include "EWIEGA46WW/moc_editalbumwindow.cpp"
 #include "EWIEGA46WW/moc_editplaylistwindow.cpp"
 #include "EWIEGA46WW/moc_editsongwindow.cpp"

@@ -43,11 +43,11 @@ void Playlist::addSong(const Song& song)
 
 bool Playlist::removeSong(int songId)
 {
-    for(auto it = songs.begin(); it != songs.end(); ++it)
+    for (int i = 0; i < songs.size(); i++)
     {
-        if(it->getId() == songId)
+        if (songs[i].getId() == songId)
         {
-            songs.erase(it);
+            songs.erase(songs.begin() + i);
             return true;
         }
     }

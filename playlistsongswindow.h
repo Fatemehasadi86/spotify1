@@ -22,10 +22,14 @@ private slots:
 
     void on_pushButton_clicked();
 
+    void on_lineEdit_textChanged(const QString &arg1);
+
 private:
     Ui::PlaylistSongsWindow *ui;
     int playlistId;
     int selectedSongId=-1;
+    QString searchText;
+
 };
 
 #endif // PLAYLISTSONGSWINDOW_H

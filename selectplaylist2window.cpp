@@ -2,12 +2,15 @@
 #include "ui_selectplaylist2window.h"
 #include "PlaylistRepository.h"
 #include <QMessageBox>
-selectplaylist2window::selectplaylist2window(int listenerId,QWidget *parent)
+
+selectplaylist2window::selectplaylist2window(int listenerId, QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::selectplaylist2window)
 {
     ui->setupUi(this);
-    this->listenerId=listenerId;
+
+    this->listenerId = listenerId;
+
     loadPlaylists();
 
     ui->listWidget->clearSelection();
@@ -26,16 +29,18 @@ void selectplaylist2window::loadPlaylists()
     PlaylistRepository repository;
     repository.loadFromFile();
 
-    std::vector<Playlist> playlists = repository.playlistsByListener(listenerId);
+    std::vector<Playlist> playlists =
+        repository.playlistsByListener(listenerId);
 
-    for (int i = 0; i < playlists.size(); i++) {
-        QListWidgetItem *item = new QListWidgetItem(QString::fromStdString(playlists[i].getName()));
-
-        item->setData(Qt::UserRole, playlists[i].getPlaylistId());
+    for (int i = 0; i < playlists.size(); i++)
+    {
+        QListWidgetItem *item = new QListWidgetItem(
+            QString::fromStdString(playlists[i].getName()));
 
         ui->listWidget->addItem(item);
     }
 }
+
 void selectplaylist2window::on_pushButton_clicked()
 {
     if (ui->listWidget->selectedItems().isEmpty())
@@ -48,20 +53,35 @@ void selectplaylist2window::on_pushButton_clicked()
 
     QListWidgetItem *item = ui->listWidget->selectedItems().first();
 
-    int playlistId = item->data(Qt::UserRole).toInt();
+    QString playlistName = item->text();
+
+    PlaylistRepository repository;
+    repository.loadFromFile();
+
+    std::vector<Playlist> playlists =
+        repository.playlistsByListener(listenerId);
+
+    int playlistId = 0;
+
+    for (int i = 0; i < playlists.size(); i++)
+    {
+        if (playlists[i].getName() == playlistName.toStdString())
+        {
+            playlistId = playlists[i].getPlaylistId();
+            break;
+        }
+    }
 
     QMessageBox::StandardButton reply;
 
-    reply = QMessageBox::question(this,
-                                  "Delete Playlist",
-                                  "Are you sure you want to delete this playlist?",
-                                  QMessageBox::Yes | QMessageBox::No);
+    reply = QMessageBox::question(
+        this,
+        "Delete Playlist",
+        "Are you sure you want to delete this playlist?",
+        QMessageBox::Yes | QMessageBox::No);
 
     if (reply == QMessageBox::Yes)
     {
-        PlaylistRepository repository;
-        repository.loadFromFile();
-
         repository.remove(playlistId);
 
         QMessageBox::information(this,
@@ -73,4 +93,3 @@ void selectplaylist2window::on_pushButton_clicked()
         close();
     }
 }
-

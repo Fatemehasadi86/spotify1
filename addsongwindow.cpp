@@ -19,15 +19,6 @@ addSongWindow::addSongWindow(int artistId,QWidget *parent)
 
     std::vector<Album> albums = repository.getAllAlbum();
 
-    for (const auto &album : albums)
-    {
-        qDebug() << "Album:"
-                 << album.getAlbumId()
-                 << QString::fromStdString(album.getName())
-                 << "Artist:"
-                 << album.getArtistId();
-    }
-
     for (int i = 0; i < albums.size(); i++)
     {
            if (albums[i].getArtistId() != artistId)
@@ -106,10 +97,6 @@ void addSongWindow::on_pushButton_3_clicked()
     int newId = repository.getAllSongs().size() + 1;
 
     song.setId(newId);
-
-    qDebug() << "Selected index =" << index;
-    qDebug() << "AlbumId =" << song.getAlbumId();
-    qDebug() << "ArtistId =" << song.getArtistId();
 
     repository.save(song);
 

@@ -36,8 +36,6 @@ void exploreMusicwindow::loadArtists()
         QListWidgetItem *item = new QListWidgetItem(
             QString::fromStdString(artists[i].getUsername()));
 
-        item->setData(Qt::UserRole, artists[i].getId());
-
         ui->listWidget->addItem(item);
     }
 }
@@ -46,11 +44,7 @@ void exploreMusicwindow::loadArtists()
 
 void exploreMusicwindow::on_listWidget_itemClicked(QListWidgetItem *item)
 {
-    int artistId = item->data(Qt::UserRole).toInt();
 
-    album_artist_window *w = new album_artist_window(artistId,listenerId);
-
-    w->show();
 }
 
 void exploreMusicwindow::loadAlbums()
@@ -70,8 +64,6 @@ void exploreMusicwindow::loadAlbums()
         QListWidgetItem *item = new QListWidgetItem(
             QString::fromStdString(albums[i].getName()));
 
-        item->setData(Qt::UserRole, albums[i].getAlbumId());
-
         ui->listWidget->addItem(item);
     }
 }
@@ -79,5 +71,32 @@ void exploreMusicwindow::loadAlbums()
 void exploreMusicwindow::on_pushButton_2_clicked()
 {
     close();
+}
+
+
+void exploreMusicwindow::on_listWidget_itemDoubleClicked(QListWidgetItem *item)
+{
+    QString username = item->text();
+
+    ArtistRepository repository;
+    repository.loadFromFile();
+
+    std::vector<Account> artists = repository.getAll();
+
+    int artistId = 0;
+
+    for (int i = 0; i < artists.size(); i++)
+    {
+        if (artists[i].getUsername() == username.toStdString())
+        {
+            artistId = artists[i].getId();
+            break;
+        }
+    }
+
+    album_artist_window *w =
+        new album_artist_window(artistId, listenerId);
+
+    w->show();
 }
 

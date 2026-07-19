@@ -21,8 +21,8 @@ selectPlaylistWindow::~selectPlaylistWindow()
     delete ui;
 }
 
-void selectPlaylistWindow::on_pushButton_clicked() {
-
+void selectPlaylistWindow::on_pushButton_clicked()
+{
     if (ui->listWidget->selectedItems().isEmpty())
     {
         QMessageBox::warning(this,
@@ -33,7 +33,23 @@ void selectPlaylistWindow::on_pushButton_clicked() {
 
     QListWidgetItem *item = ui->listWidget->selectedItems().first();
 
-    int playlistId = item->data(Qt::UserRole).toInt();
+    QString playlistName = item->text();
+
+    PlaylistRepository repository;
+    repository.loadFromFile();
+
+    std::vector<Playlist> playlists = repository.getAllPlaylist();
+
+    int playlistId = 0;
+
+    for (int i = 0; i < playlists.size(); i++)
+    {
+        if (playlists[i].getName() == playlistName.toStdString())
+        {
+            playlistId = playlists[i].getPlaylistId();
+            break;
+        }
+    }
 
     editPlaylistWindow *w = new editPlaylistWindow(playlistId);
 
@@ -54,12 +70,14 @@ void selectPlaylistWindow::loadPlaylists()
     PlaylistRepository repository;
     repository.loadFromFile();
 
-    std::vector<Playlist> playlists = repository.playlistsByListener(listenerId);
+    std::vector<Playlist> playlists =
+        repository.playlistsByListener(listenerId);
 
-    for (int i = 0; i < playlists.size(); i++) {
-        QListWidgetItem *item = new QListWidgetItem(QString::fromStdString(playlists[i].getName()));
-
-        item->setData(Qt::UserRole, playlists[i].getPlaylistId());
+    for (int i = 0; i < playlists.size(); i++)
+    {
+        QListWidgetItem *item =
+            new QListWidgetItem(
+                QString::fromStdString(playlists[i].getName()));
 
         ui->listWidget->addItem(item);
     }

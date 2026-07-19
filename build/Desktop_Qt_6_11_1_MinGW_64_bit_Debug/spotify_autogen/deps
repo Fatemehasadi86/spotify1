@@ -678,6 +678,8 @@ spotify_autogen/timestamp: \
 	C:/Users/BLUE0409/Documents/spotify/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/spotify_autogen/moc_predefs.h \
 	C:/Users/BLUE0409/Documents/spotify/createplaylistwindow.cpp \
 	C:/Users/BLUE0409/Documents/spotify/createplaylistwindow.h \
+	C:/Users/BLUE0409/Documents/spotify/editaccountwindow.cpp \
+	C:/Users/BLUE0409/Documents/spotify/editaccountwindow.h \
 	C:/Users/BLUE0409/Documents/spotify/editalbumwindow.cpp \
 	C:/Users/BLUE0409/Documents/spotify/editalbumwindow.h \
 	C:/Users/BLUE0409/Documents/spotify/editplaylistwindow.cpp \
@@ -718,6 +720,7 @@ spotify_autogen/timestamp: \
 	C:/Users/BLUE0409/Documents/spotify/albumwindow.ui \
 	C:/Users/BLUE0409/Documents/spotify/artistwindow.ui \
 	C:/Users/BLUE0409/Documents/spotify/createplaylistwindow.ui \
+	C:/Users/BLUE0409/Documents/spotify/editaccountwindow.ui \
 	C:/Users/BLUE0409/Documents/spotify/editalbumwindow.ui \
 	C:/Users/BLUE0409/Documents/spotify/editplaylistwindow.ui \
 	C:/Users/BLUE0409/Documents/spotify/editsongwindow.ui \

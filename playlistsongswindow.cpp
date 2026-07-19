@@ -20,6 +20,7 @@ PlaylistSongsWindow::~PlaylistSongsWindow()
     delete ui;
 }
 
+
 void PlaylistSongsWindow::loadSongs()
 {
     ui->listWidget->clear();
@@ -27,7 +28,7 @@ void PlaylistSongsWindow::loadSongs()
     PlaylistRepository repository;
     repository.loadFromFile();
 
-    auto playlist = repository.search(playlistId);
+    std::optional<Playlist> playlist = repository.search(playlistId);
 
     if (!playlist.has_value())
         return;
@@ -36,18 +37,39 @@ void PlaylistSongsWindow::loadSongs()
 
     for (int i = 0; i < songs.size(); i++)
     {
-        QListWidgetItem *item = new QListWidgetItem(
-            QString::fromStdString(songs[i].getName()));
+        QString name = QString::fromStdString(songs[i].getName());
 
-        item->setData(Qt::UserRole, songs[i].getId());
+        if (!name.contains(searchText))
+            continue;
+
+        QListWidgetItem *item = new QListWidgetItem(name);
 
         ui->listWidget->addItem(item);
     }
 }
+
 void PlaylistSongsWindow::on_listWidget_itemClicked(QListWidgetItem *item)
 {
+    QString songName = item->text();
 
-    selectedSongId = item->data(Qt::UserRole).toInt();
+    PlaylistRepository repository;
+    repository.loadFromFile();
+
+    std::optional<Playlist> playlist = repository.search(playlistId);
+
+    if (!playlist.has_value())
+        return;
+
+    std::vector<Song> songs = playlist->getSongs();
+
+    for (int i = 0; i < songs.size(); i++)
+    {
+        if (songs[i].getName() == songName.toStdString())
+        {
+            selectedSongId = songs[i].getId();
+            break;
+        }
+    }
 }
 
 
@@ -71,5 +93,12 @@ void PlaylistSongsWindow::on_pushButton_clicked()
     QMessageBox::information(this,
                              "Success",
                              "Song removed successfully.");
+}
+
+
+void PlaylistSongsWindow::on_lineEdit_textChanged(const QString &arg1)
+{
+    searchText=arg1;
+    loadSongs();
 }
 

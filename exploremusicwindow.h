@@ -23,6 +23,8 @@ private slots:
 
     void on_pushButton_2_clicked();
 
+    void on_listWidget_itemDoubleClicked(QListWidgetItem *item);
+
 private:
     Ui::exploreMusicwindow *ui;
     int selectedArtistId=-1;

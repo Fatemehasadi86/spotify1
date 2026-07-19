@@ -1,15 +1,17 @@
 #include "likedsongwindow.h"
 #include "ui_likedsongwindow.h"
-#include<QListWidgetItem>
+#include <QListWidgetItem>
 #include "likedSongsRepository.h"
 #include "SongRepository.h"
 
-LikedSongWindow::LikedSongWindow(int listenerId,QWidget *parent)
+LikedSongWindow::LikedSongWindow(int listenerId, QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::LikedSongWindow)
 {
     ui->setupUi(this);
-    this->listenerId=listenerId;
+
+    this->listenerId = listenerId;
+
     loadSongs();
 }
 
@@ -32,18 +34,44 @@ void LikedSongWindow::loadSongs()
 
     for (int i = 0; i < likedSongs.size(); i++)
     {
-        auto song = songRepository.search(likedSongs[i]);
+        std::optional<Song> song =
+            songRepository.search(likedSongs[i]);
 
         if (!song.has_value())
             continue;
 
-        QListWidgetItem *item =
-            new QListWidgetItem(
-                QString::fromStdString(song->getName()));
+        QString name = QString::fromStdString(song->getName());
 
-        item->setData(Qt::UserRole,
-                      song->getId());
+        if (!name.contains(searchText))
+            continue;
+
+        QListWidgetItem *item =new QListWidgetItem(name);
 
         ui->listWidget->addItem(item);
     }
+}
+
+void LikedSongWindow::on_listWidget_itemClicked(QListWidgetItem *item)
+{
+    QString songName = item->text();
+
+    SongRepository repository;
+    repository.loadFromFile();
+
+    std::vector<Song> songs = repository.getAllSongs();
+
+    for (int i = 0; i < songs.size(); i++)
+    {
+        if (songs[i].getName() == songName.toStdString())
+        {
+            selectedSongId = songs[i].getId();
+            break;
+        }
+    }
+}
+
+void LikedSongWindow::on_lineEdit_textChanged(const QString &arg1)
+{
+    searchText = arg1;
+    loadSongs();
 }

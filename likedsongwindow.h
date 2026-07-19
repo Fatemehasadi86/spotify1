@@ -2,6 +2,7 @@
 #define LIKEDSONGWINDOW_H
 
 #include <QWidget>
+#include <QListWidgetItem>
 
 namespace Ui {
 class LikedSongWindow;
@@ -16,9 +17,16 @@ public:
     ~LikedSongWindow();
     void loadSongs();
 
+private slots:
+    void on_lineEdit_textChanged(const QString &arg1);
+
+    void on_listWidget_itemClicked(QListWidgetItem *item);
+
 private:
     Ui::LikedSongWindow *ui;
     int listenerId;
+    QString searchText;
+    int selectedSongId =-1;
 };
 
 #endif // LIKEDSONGWINDOW_H

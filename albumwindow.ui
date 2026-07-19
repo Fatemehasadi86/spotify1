@@ -50,8 +50,8 @@ QPushButton:pressed{
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>190</x>
-     <y>130</y>
+     <x>200</x>
+     <y>120</y>
      <width>191</width>
      <height>41</height>
     </rect>
@@ -63,8 +63,8 @@ QPushButton:pressed{
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>320</x>
-     <y>140</y>
+     <x>360</x>
+     <y>130</y>
      <width>81</width>
      <height>21</height>
     </rect>
@@ -76,18 +76,18 @@ QPushButton:pressed{
   <widget class="QListWidget" name="listWidget">
    <property name="geometry">
     <rect>
-     <x>180</x>
-     <y>190</y>
-     <width>256</width>
-     <height>271</height>
+     <x>130</x>
+     <y>170</y>
+     <width>421</width>
+     <height>351</height>
     </rect>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_2">
    <property name="geometry">
     <rect>
-     <x>160</x>
-     <y>490</y>
+     <x>200</x>
+     <y>540</y>
      <width>111</width>
      <height>31</height>
     </rect>
@@ -99,8 +99,8 @@ QPushButton:pressed{
   <widget class="QPushButton" name="pushButton_3">
    <property name="geometry">
     <rect>
-     <x>330</x>
-     <y>490</y>
+     <x>370</x>
+     <y>540</y>
      <width>111</width>
      <height>31</height>
     </rect>
@@ -112,8 +112,8 @@ QPushButton:pressed{
   <widget class="QPushButton" name="pushButton_4">
    <property name="geometry">
     <rect>
-     <x>560</x>
-     <y>520</y>
+     <x>590</x>
+     <y>540</y>
      <width>90</width>
      <height>29</height>
     </rect>
@@ -125,8 +125,8 @@ QPushButton:pressed{
   <widget class="QLineEdit" name="lineEdit">
    <property name="geometry">
     <rect>
-     <x>70</x>
-     <y>80</y>
+     <x>80</x>
+     <y>30</y>
      <width>311</width>
      <height>31</height>
     </rect>
@@ -136,7 +136,7 @@ QPushButton:pressed{
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>80</y>
+     <y>30</y>
      <width>63</width>
      <height>20</height>
     </rect>
@@ -148,8 +148,8 @@ QPushButton:pressed{
   <widget class="QComboBox" name="comboBox">
    <property name="geometry">
     <rect>
-     <x>540</x>
-     <y>90</y>
+     <x>530</x>
+     <y>80</y>
      <width>121</width>
      <height>31</height>
     </rect>
@@ -208,8 +208,8 @@ QPushButton:pressed{
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>420</x>
-     <y>90</y>
+     <x>410</x>
+     <y>80</y>
      <width>101</width>
      <height>21</height>
     </rect>
@@ -222,7 +222,7 @@ QPushButton:pressed{
    <property name="geometry">
     <rect>
      <x>420</x>
-     <y>40</y>
+     <y>30</y>
      <width>111</width>
      <height>31</height>
     </rect>
@@ -234,8 +234,8 @@ QPushButton:pressed{
   <widget class="QComboBox" name="comboBox_2">
    <property name="geometry">
     <rect>
-     <x>540</x>
-     <y>40</y>
+     <x>530</x>
+     <y>30</y>
      <width>121</width>
      <height>31</height>
     </rect>
@@ -278,6 +278,31 @@ QPushButton:pressed{
    <item>
     <property name="text">
      <string>2026</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QComboBox" name="comboBox_3">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>80</y>
+     <width>261</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>Default</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Name (A_Z)</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Year (New_old)</string>
     </property>
    </item>
   </widget>

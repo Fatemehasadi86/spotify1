@@ -11,6 +11,8 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QListWidget>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QWidget>
@@ -22,6 +24,8 @@ class Ui_LikedSongWindow
 public:
     QListWidget *listWidget;
     QPushButton *pushButton;
+    QLineEdit *lineEdit;
+    QLabel *label;
 
     void setupUi(QWidget *LikedSongWindow)
     {
@@ -75,10 +79,16 @@ public:
 "}"));
         listWidget = new QListWidget(LikedSongWindow);
         listWidget->setObjectName("listWidget");
-        listWidget->setGeometry(QRect(175, 120, 271, 281));
+        listWidget->setGeometry(QRect(160, 160, 271, 281));
         pushButton = new QPushButton(LikedSongWindow);
         pushButton->setObjectName("pushButton");
-        pushButton->setGeometry(QRect(260, 460, 90, 29));
+        pushButton->setGeometry(QRect(250, 490, 90, 29));
+        lineEdit = new QLineEdit(LikedSongWindow);
+        lineEdit->setObjectName("lineEdit");
+        lineEdit->setGeometry(QRect(130, 80, 371, 31));
+        label = new QLabel(LikedSongWindow);
+        label->setObjectName("label");
+        label->setGeometry(QRect(40, 80, 63, 20));
 
         retranslateUi(LikedSongWindow);
 
@@ -89,6 +99,7 @@ public:
     {
         LikedSongWindow->setWindowTitle(QCoreApplication::translate("LikedSongWindow", "Form", nullptr));
         pushButton->setText(QCoreApplication::translate("LikedSongWindow", "Back", nullptr));
+        label->setText(QCoreApplication::translate("LikedSongWindow", "Search:", nullptr));
     } // retranslateUi
 
 };
