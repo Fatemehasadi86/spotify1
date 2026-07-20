@@ -67,3 +67,9 @@ void album_artist_window::on_listWidget_itemClicked(QListWidgetItem *item)
 
 }
 
+
+void album_artist_window::on_pushButton_clicked()
+{
+    close();
+}
+

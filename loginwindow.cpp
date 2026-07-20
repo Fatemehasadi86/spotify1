@@ -21,63 +21,63 @@ loginwindow::~loginwindow()
 }
 
 
+#include <stdexcept>
+
 void loginwindow::on_pushButton_clicked()
 {
     QString username = ui->lineEdit_4->text();
     QString password = ui->lineEdit_3->text();
 
-    if (username.isEmpty() || password.isEmpty())
+    try
     {
-        QMessageBox::warning(this,
-                             "Error",
-                             "Please enter username and password.");
-        return;
-    }
+        if (username.isEmpty() || password.isEmpty())
+            throw std::runtime_error("Please enter username and password.");
 
-    ArtistRepository artistRepository;
-    ListenerRepository listenerRepository;
+        ArtistRepository artistRepository;
+        ListenerRepository listenerRepository;
 
-    listenerRepository.loadFromFile();
-    artistRepository.loadFromFile();
+        listenerRepository.loadFromFile();
+        artistRepository.loadFromFile();
 
-    std::optional artist = artistRepository.searchByUserName(username.toStdString());
-    std::optional listener = listenerRepository.searchByUserName(username.toStdString());
+        std::optional<Account> artist =
+            artistRepository.searchByUserName(username.toStdString());
 
-    if (artist.has_value())
-    {
-        if (artist->getPassword() == password.toStdString())
+        std::optional<Account> listener =
+            listenerRepository.searchByUserName(username.toStdString());
+
+        if (artist.has_value())
         {
-            artistWindow *artistw1 = new artistWindow(artist->getId());
-            artistw1->show();
-            this->close();
+            if (artist->getPassword() == password.toStdString())
+            {
+                artistWindow *artistw1 = new artistWindow(artist->getId());
+                artistw1->show();
+                close();
+                return;
+            }
+
+            throw std::runtime_error("Username or Password is incorrect.");
         }
-        else{
 
-            QMessageBox::warning(this,
-                                 "Error",
-                                 "Username or Password is incorrect.");
-        }
-    }
-
-
-    if (listener.has_value())
-    {
-        if (listener->getPassword() == password.toStdString())
+        if (listener.has_value())
         {
-            listenerWindow *listwin1= new listenerWindow(listener->getId());
-            listwin1->show();
-            this->close();
-        }
-        else{
+            if (listener->getPassword() == password.toStdString())
+            {
+                listenerWindow *listwin1 = new listenerWindow(listener->getId());
+                listwin1->show();
+                close();
+                return;
+            }
 
-            QMessageBox::warning(this,
-                                 "Error",
-                                 "Username or Password is incorrect.");
+            throw std::runtime_error("Username or Password is incorrect.");
         }
+
+        throw std::runtime_error("Username or Password is incorrect.");
     }
-
+    catch (const std::exception &e)
+    {
+        QMessageBox::warning(this,"Error", e.what());
+    }
 }
-
 
 void loginwindow::on_pushButton_2_clicked()
 {

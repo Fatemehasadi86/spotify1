@@ -1,12 +1,50 @@
 #include "ListenerRepository.h"
 #include <fstream>
 #include "Listener.h"
+#include "ArtistRepository.h"
 
 using namespace std;
 
 ListenerRepository::ListenerRepository()
 {
 }
+
+
+void ListenerRepository::saveToFile()
+{
+    ArtistRepository artistRepository;
+    artistRepository.loadFromFile();
+
+    std::vector<Account> artists = artistRepository.getAll();
+
+    std::ofstream file("accounts.txt");
+
+    if (!file.is_open())
+        return;
+
+    // اول Artist ها
+    for (int i = 0; i < artists.size(); i++)
+    {
+        file << artists[i].getId() << std::endl;
+        file << artists[i].getFullName() << std::endl;
+        file << artists[i].getUsername() << std::endl;
+        file << artists[i].getPassword() << std::endl;
+        file << "Artist" << std::endl;
+    }
+
+    // بعد Listener ها
+    for (int i = 0; i < listeners.size(); i++)
+    {
+        file << listeners[i].getId() << std::endl;
+        file << listeners[i].getFullName() << std::endl;
+        file << listeners[i].getUsername() << std::endl;
+        file << listeners[i].getPassword() << std::endl;
+        file << "Listener" << std::endl;
+    }
+
+    file.close();
+}
+
 
 int ListenerRepository::save(const Account& account)
 {
@@ -15,21 +53,14 @@ int ListenerRepository::save(const Account& account)
         if (listeners[i].getId() == account.getId())
         {
             listeners[i] = account;
+            saveToFile();
             return account.getId();
         }
     }
 
     listeners.push_back(account);
 
-    std::ofstream file("accounts.txt", std::ios::app);
-
-    file << account.getId() << std::endl;
-    file << account.getFullName() << std::endl;
-    file << account.getUsername() << std::endl;
-    file << account.getPassword() << std::endl;
-    file << "Listener" << std::endl;
-
-    file.close();
+    saveToFile();
 
     return account.getId();
 }
@@ -41,6 +72,7 @@ bool ListenerRepository::remove(int id)
         if (listeners[i].getId() == id)
         {
             listeners.erase(listeners.begin() + i);
+            saveToFile();
             return true;
         }
     }
@@ -119,4 +151,11 @@ void ListenerRepository::updateLiked(int listenerId, int songId, bool liked)
 bool ListenerRepository::isLiked(int listenerId, int songId)
 {
     return false;
+}
+
+std::vector<Account> ListenerRepository::getAll()
+{
+    loadFromFile();
+
+    return listeners;
 }

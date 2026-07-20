@@ -75,3 +75,8 @@ void LikedSongWindow::on_lineEdit_textChanged(const QString &arg1)
     searchText = arg1;
     loadSongs();
 }
+void LikedSongWindow::on_pushButton_clicked()
+{
+    close();
+}
+

@@ -47,7 +47,9 @@ template <> constexpr inline auto listenerWindow::qt_create_metaobjectdata<qt_me
         "on_pushButton_4_clicked",
         "on_listWidget_itemDoubleClicked",
         "QListWidgetItem*",
-        "item"
+        "item",
+        "on_pushButton_6_clicked",
+        "on_pushButton_7_clicked"
     };
 
     QtMocHelpers::UintData qt_methods {
@@ -65,6 +67,10 @@ template <> constexpr inline auto listenerWindow::qt_create_metaobjectdata<qt_me
         QtMocHelpers::SlotData<void(QListWidgetItem *)>(7, 2, QMC::AccessPrivate, QMetaType::Void, {{
             { 0x80000000 | 8, 9 },
         }}),
+        // Slot 'on_pushButton_6_clicked'
+        QtMocHelpers::SlotData<void()>(10, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_pushButton_7_clicked'
+        QtMocHelpers::SlotData<void()>(11, 2, QMC::AccessPrivate, QMetaType::Void),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -94,6 +100,8 @@ void listenerWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
         case 3: _t->on_pushButton_3_clicked(); break;
         case 4: _t->on_pushButton_4_clicked(); break;
         case 5: _t->on_listWidget_itemDoubleClicked((*reinterpret_cast<std::add_pointer_t<QListWidgetItem*>>(_a[1]))); break;
+        case 6: _t->on_pushButton_6_clicked(); break;
+        case 7: _t->on_pushButton_7_clicked(); break;
         default: ;
         }
     }
@@ -118,14 +126,14 @@ int listenerWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 6)
+        if (_id < 8)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 6;
+        _id -= 8;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 6)
+        if (_id < 8)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 6;
+        _id -= 8;
     }
     return _id;
 }

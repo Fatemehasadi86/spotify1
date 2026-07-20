@@ -19,6 +19,8 @@ public:
 private slots:
     void on_listWidget_itemClicked(QListWidgetItem *item);
 
+    void on_pushButton_clicked();
+
 private:
     Ui::album_artist_window *ui;
     int artistId;

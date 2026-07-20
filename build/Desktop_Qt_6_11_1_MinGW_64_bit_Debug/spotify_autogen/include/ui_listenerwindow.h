@@ -29,10 +29,12 @@ public:
     QPushButton *pushButton_4;
     QLabel *label_2;
     QPushButton *pushButton_5;
-    QWidget *widget;
+    QWidget *layoutWidget;
     QHBoxLayout *horizontalLayout;
     QLabel *label;
     QLabel *label_3;
+    QPushButton *pushButton_6;
+    QPushButton *pushButton_7;
 
     void setupUi(QWidget *listenerWindow)
     {
@@ -129,13 +131,13 @@ public:
 "QPushButton:pressed{\n"
 "    background-color: #C62828;\n"
 "}"));
-        widget = new QWidget(listenerWindow);
-        widget->setObjectName("widget");
-        widget->setGeometry(QRect(20, 30, 293, 42));
-        horizontalLayout = new QHBoxLayout(widget);
+        layoutWidget = new QWidget(listenerWindow);
+        layoutWidget->setObjectName("layoutWidget");
+        layoutWidget->setGeometry(QRect(20, 30, 293, 42));
+        horizontalLayout = new QHBoxLayout(layoutWidget);
         horizontalLayout->setObjectName("horizontalLayout");
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
-        label = new QLabel(widget);
+        label = new QLabel(layoutWidget);
         label->setObjectName("label");
         label->setStyleSheet(QString::fromUtf8("QLabel{\n"
 "    color:qlineargradient(\n"
@@ -150,7 +152,7 @@ public:
 
         horizontalLayout->addWidget(label);
 
-        label_3 = new QLabel(widget);
+        label_3 = new QLabel(layoutWidget);
         label_3->setObjectName("label_3");
         label_3->setStyleSheet(QString::fromUtf8("QLabel{\n"
 "    color:qlineargradient(\n"
@@ -165,6 +167,12 @@ public:
 
         horizontalLayout->addWidget(label_3);
 
+        pushButton_6 = new QPushButton(listenerWindow);
+        pushButton_6->setObjectName("pushButton_6");
+        pushButton_6->setGeometry(QRect(430, 10, 111, 41));
+        pushButton_7 = new QPushButton(listenerWindow);
+        pushButton_7->setObjectName("pushButton_7");
+        pushButton_7->setGeometry(QRect(550, 10, 121, 41));
 
         retranslateUi(listenerWindow);
 
@@ -182,6 +190,8 @@ public:
         pushButton_5->setText(QCoreApplication::translate("listenerWindow", "Logout", nullptr));
         label->setText(QCoreApplication::translate("listenerWindow", "Welcome", nullptr));
         label_3->setText(QCoreApplication::translate("listenerWindow", "TextLabel", nullptr));
+        pushButton_6->setText(QCoreApplication::translate("listenerWindow", "Edit account", nullptr));
+        pushButton_7->setText(QCoreApplication::translate("listenerWindow", "Delete account", nullptr));
     } // retranslateUi
 
 };

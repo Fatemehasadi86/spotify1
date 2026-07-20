@@ -18,82 +18,70 @@ registerWindow::~registerWindow()
     delete ui;
 }
 
+
+#include <stdexcept>
+
 void registerWindow::on_pushButton_clicked()
 {
-    QString fullName = ui->lineEdit_4->text();
-    QString userName = ui->lineEdit_6->text();
-    QString password = ui->lineEdit_5->text();
-    QString biography = ui->lineEdit_7->text();
-
-    // بررسی خالی نبودن فیلدها
-    if(fullName.isEmpty() || userName.isEmpty() || password.isEmpty())
+    try
     {
-        QMessageBox::warning(this,"Error","Please fill all fields.");
-        return;
-    }
+        QString fullName = ui->lineEdit_4->text();
+        QString userName = ui->lineEdit_6->text();
+        QString password = ui->lineEdit_5->text();
+        QString biography = ui->lineEdit_7->text();
 
-    // بررسی انتخاب نقش
-    if(!ui->radioButton_3->isChecked() &&
-        !ui->radioButton_4->isChecked())
+        if(fullName.isEmpty() || userName.isEmpty() || password.isEmpty())
+            throw std::runtime_error("Please fill all fields.");
+
+        if(!ui->radioButton_3->isChecked() &&
+            !ui->radioButton_4->isChecked())
+            throw std::runtime_error("Please choose a role.");
+
+        ListenerRepository listenerRepository;
+        ArtistRepository artistRepository;
+
+        listenerRepository.loadFromFile();
+        artistRepository.loadFromFile();
+
+        if(listenerRepository.searchByUserName(userName.toStdString()).has_value() ||
+            artistRepository.searchByUserName(userName.toStdString()).has_value())
+            throw std::runtime_error("This username already exists.");
+
+        if(ui->radioButton_3->isChecked())
+        {
+            Listener listener;
+            listener.setId(listenerRepository.generateNewId());
+            listener.setFullName(fullName.toStdString());
+            listener.setUsername(userName.toStdString());
+            listener.setPassword(password.toStdString());
+
+            listenerRepository.save(listener);
+        }
+
+        if(ui->radioButton_4->isChecked())
+        {
+            Artist artist;
+
+            artist.setId(artistRepository.generateNewId());
+            artist.setFullName(fullName.toStdString());
+            artist.setUsername(userName.toStdString());
+            artist.setPassword(password.toStdString());
+            artist.setBiography(biography.toStdString());
+
+            artistRepository.save(artist);
+        }
+
+        QMessageBox::information(this, "Success","Account created successfully.");
+
+        close();
+    }
+    catch(const std::exception &e)
     {
-        QMessageBox::warning(this,
-                             "Error",
-                             "Please choose a role.");
-        return;
+        QMessageBox::warning(this,"Error",e.what());
     }
-
-    // بررسی تکراری نبودن نام کاربری
-
-    ListenerRepository listenerRepository;
-    ArtistRepository artistRepository;
-
-    listenerRepository.loadFromFile();
-    artistRepository.loadFromFile();
-
-    if(listenerRepository.searchByUserName(userName.toStdString()).has_value() ||
-        artistRepository.searchByUserName(userName.toStdString()).has_value())
-    {
-        QMessageBox::warning(this,
-                             "Error",
-                             "This username already exists.");
-        return;
-    }
-
-    // اگر Listener باشد
-    if(ui->radioButton_3->isChecked())
-    {
-        Listener listener;
-
-        listener.setId(listenerRepository.generateNewId());
-
-        listener.setFullName(fullName.toStdString());
-        listener.setUsername(userName.toStdString());
-        listener.setPassword(password.toStdString());
-
-        listenerRepository.save(listener);
-    }
-
-    // اگر Artist باشد
-    if(ui->radioButton_4->isChecked())
-    {
-        Artist artist;
-
-        artist.setId(artistRepository.generateNewId());
-
-        artist.setFullName(fullName.toStdString());
-        artist.setUsername(userName.toStdString());
-        artist.setPassword(password.toStdString());
-        artist.setBiography(biography.toStdString());
-
-        artistRepository.save(artist);
-    }
-
-    QMessageBox::information(this,
-                             "Success",
-                             "Account created successfully.");
-
-    close();
 }
+
+
 void registerWindow::on_pushButton_2_clicked()
 {
     close();

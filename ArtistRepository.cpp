@@ -1,6 +1,7 @@
 #include "ArtistRepository.h"
 #include "Artist.h"
 #include <fstream>
+#include "ListenerRepository.h"
 
 
 
@@ -10,6 +11,48 @@ ArtistRepository::ArtistRepository()
 {
 }
 
+std::vector<Account> ArtistRepository::getAll()
+{
+    loadFromFile();
+
+    return artists;
+}
+
+void ArtistRepository::saveToFile()
+{
+    ListenerRepository listenerRepository;
+    listenerRepository.loadFromFile();
+
+    std::vector<Account> listeners = listenerRepository.getAll();
+
+    std::ofstream file("accounts.txt");
+
+    if (!file.is_open())
+        return;
+
+    // اول Listener ها
+    for (int i = 0; i < listeners.size(); i++)
+    {
+        file << listeners[i].getId() << std::endl;
+        file << listeners[i].getFullName() << std::endl;
+        file << listeners[i].getUsername() << std::endl;
+        file << listeners[i].getPassword() << std::endl;
+        file << "Listener" << std::endl;
+    }
+
+    // بعد Artist ها
+    for (int i = 0; i < artists.size(); i++)
+    {
+        file << artists[i].getId() << std::endl;
+        file << artists[i].getFullName() << std::endl;
+        file << artists[i].getUsername() << std::endl;
+        file << artists[i].getPassword() << std::endl;
+        file << "Artist" << std::endl;
+    }
+
+    file.close();
+}
+
 int ArtistRepository::save(const Account& account)
 {
     for (int i = 0; i < artists.size(); i++)
@@ -17,20 +60,13 @@ int ArtistRepository::save(const Account& account)
         if (artists[i].getId() == account.getId())
         {
             artists[i] = account;
+            saveToFile();
             return account.getId();
         }
     }
 
     artists.push_back(account);
-    std::ofstream file("accounts.txt", std::ios::app);
-
-    file << account.getId() << std::endl;
-    file << account.getFullName() << std::endl;
-    file << account.getUsername() << std::endl;
-    file << account.getPassword() << std::endl;
-    file << "Artist" << std::endl;
-
-    file.close();
+    saveToFile();
     return account.getId();
 }
 
@@ -41,6 +77,9 @@ bool ArtistRepository::remove(int id)
         if (artists[i].getId() == id)
         {
             artists.erase(artists.begin() + i);
+
+            saveToFile();
+
             return true;
         }
     }
@@ -111,9 +150,3 @@ void ArtistRepository::loadFromFile(){
     file.close();
 }
 
-std::vector<Account> ArtistRepository::getAll()
-{
-    loadFromFile();
-
-    return artists;
-}

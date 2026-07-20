@@ -36,6 +36,8 @@ public:
     QPushButton *pushButton_4;
     QPushButton *pushButton_5;
     QListWidget *listWidgetAlbums;
+    QPushButton *pushButton_6;
+    QPushButton *pushButton_7;
 
     void setupUi(QWidget *artistWindow)
     {
@@ -245,6 +247,54 @@ public:
 "QListWidget::item:selected{\n"
 "    background:#1DB954;\n"
 "}"));
+        pushButton_6 = new QPushButton(artistWindow);
+        pushButton_6->setObjectName("pushButton_6");
+        pushButton_6->setGeometry(QRect(520, 110, 161, 51));
+        pushButton_6->setStyleSheet(QString::fromUtf8("QPushButton{\n"
+"    background: qlineargradient(\n"
+"        x1:0, y1:0,\n"
+"        x2:1, y2:1,\n"
+"        stop:0 #1DB954,\n"
+"        stop:1 #18a84b);\n"
+"    color: white;\n"
+"    border: none;\n"
+"    border-radius: 12px;\n"
+"    font-size: 11pt;\n"
+"    font-weight: bold;\n"
+"    padding: 5px 12px;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"    background: #28e46a;\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"    background: #12853d;\n"
+"}"));
+        pushButton_7 = new QPushButton(artistWindow);
+        pushButton_7->setObjectName("pushButton_7");
+        pushButton_7->setGeometry(QRect(700, 110, 161, 51));
+        pushButton_7->setStyleSheet(QString::fromUtf8("QPushButton{\n"
+"    background: qlineargradient(\n"
+"        x1:0, y1:0,\n"
+"        x2:1, y2:1,\n"
+"        stop:0 #1DB954,\n"
+"        stop:1 #18a84b);\n"
+"    color: white;\n"
+"    border: none;\n"
+"    border-radius: 12px;\n"
+"    font-size: 11pt;\n"
+"    font-weight: bold;\n"
+"    padding: 5px 12px;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"    background: #28e46a;\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"    background: #12853d;\n"
+"}"));
 
         retranslateUi(artistWindow);
 
@@ -263,6 +313,8 @@ public:
         pushButton_3->setText(QCoreApplication::translate("artistWindow", "Edit Album", nullptr));
         pushButton_4->setText(QCoreApplication::translate("artistWindow", "Delete Album", nullptr));
         pushButton_5->setText(QCoreApplication::translate("artistWindow", "Logout", nullptr));
+        pushButton_6->setText(QCoreApplication::translate("artistWindow", "Edit Account", nullptr));
+        pushButton_7->setText(QCoreApplication::translate("artistWindow", "Delete Account", nullptr));
     } // retranslateUi
 
 };

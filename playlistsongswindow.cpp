@@ -102,3 +102,9 @@ void PlaylistSongsWindow::on_lineEdit_textChanged(const QString &arg1)
     loadSongs();
 }
 
+
+void PlaylistSongsWindow::on_pushButton_2_clicked()
+{
+    close();
+}
+

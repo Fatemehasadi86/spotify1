@@ -8,6 +8,9 @@
 #include "selectalbumwindow.h"
 #include "selectalbum2window.h"
 #include "ArtistRepository.h"
+#include "editaccountwindow.h"
+#include <QMessageBox>
+#include "loginwindow.h"
 
 
 
@@ -141,5 +144,37 @@ void artistWindow::on_pushButton_4_clicked()
 
     w->show();
 
+}
+
+
+void artistWindow::on_pushButton_6_clicked()
+{
+    EditAccountwindow *w=new EditAccountwindow(artistId,true);
+    w->show();
+}
+
+
+void artistWindow::on_pushButton_7_clicked()
+{
+    QMessageBox::StandardButton reply;
+
+    reply = QMessageBox::question(
+        this,
+        "Delete Account",
+        "Are you sure you want to delete your account?",
+        QMessageBox::Yes | QMessageBox::No);
+
+    if (reply == QMessageBox::No)
+        return;
+
+    ArtistRepository repository;
+    repository.loadFromFile();
+
+    repository.remove(artistId);
+
+    loginwindow *login = new loginwindow();
+    login->show();
+
+    close();
 }
 

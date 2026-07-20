@@ -16,6 +16,7 @@ public:
     int save(const Account& account) override;
     bool remove(int id) override;
     void loadFromFile();
+    void saveToFile();
     std::optional<Account> search(int id) override;
     std::optional<Account> searchByUserName(const std::string& userName) override;
     std::vector<Account> getAll();

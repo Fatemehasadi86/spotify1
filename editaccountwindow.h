@@ -12,11 +12,16 @@ class EditAccountwindow : public QWidget
     Q_OBJECT
 
 public:
-    explicit EditAccountwindow(int accountId,QWidget *parent = nullptr);
+    explicit EditAccountwindow(int accountId,bool isArtist,QWidget *parent = nullptr);
     ~EditAccountwindow();
+
+private slots:
+    void on_pushButton_clicked();
 
 private:
     Ui::EditAccountwindow *ui;
+    int accountId;
+    bool isArtist;
 };
 
 #endif // EDITACCOUNTWINDOW_H

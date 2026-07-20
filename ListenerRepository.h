@@ -20,10 +20,12 @@ public:
     bool remove(int id) override;
     std::optional<Account> search(int id) override;
     std::optional<Account> searchByUserName(const std::string& userName) override;
+    std::vector<Account> getAll();
 
 
     void updateLiked(int listenerId, int songId, bool liked);
     void loadFromFile();
+    void saveToFile();
     bool isLiked(int listenerId, int songId);
 };
 

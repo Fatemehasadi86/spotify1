@@ -9,6 +9,10 @@
 #include "playlistsongswindow.h"
 #include "likedsongwindow.h"
 #include "ListenerRepository.h"
+#include "editaccountwindow.h"
+#include "loginwindow.h"
+#include <QMessageBox>
+
 
 listenerWindow::listenerWindow(int listenerId, QWidget *parent)
     : QWidget(parent)
@@ -137,3 +141,34 @@ void listenerWindow::on_listWidget_itemDoubleClicked(QListWidgetItem *item)
 
     window->show();
 }
+void listenerWindow::on_pushButton_6_clicked()
+{
+    EditAccountwindow *ew = new EditAccountwindow(listenerId,false);
+    ew->show();
+}
+
+
+void listenerWindow::on_pushButton_7_clicked()
+{
+    QMessageBox::StandardButton reply;
+
+    reply = QMessageBox::question(
+        this,
+        "Delete Account",
+        "Are you sure you want to delete your account?",
+        QMessageBox::Yes | QMessageBox::No);
+
+    if (reply == QMessageBox::No)
+        return;
+
+    ListenerRepository repository;
+    repository.loadFromFile();
+
+    repository.remove(listenerId);
+
+    loginwindow *login = new loginwindow();
+    login->show();
+
+    close();
+}
+
