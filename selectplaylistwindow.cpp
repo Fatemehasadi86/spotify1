@@ -71,7 +71,7 @@ void selectPlaylistWindow::loadPlaylists()
     repository.loadFromFile();
 
     std::vector<Playlist> playlists =
-        repository.playlistsByListener(listenerId);
+        repository.playlists(listenerId);
 
     for (int i = 0; i < playlists.size(); i++)
     {

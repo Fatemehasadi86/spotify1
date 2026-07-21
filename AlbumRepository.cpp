@@ -20,6 +20,7 @@ int AlbumRepository::save(const Album& album)
             albumsList[i] = album;
             saveToFile();
             return album.getAlbumId();
+
         }
     }
 
@@ -31,6 +32,9 @@ int AlbumRepository::save(const Album& album)
 
 bool AlbumRepository::remove(int id)
 {
+
+    loadFromFile();
+
     for (int i = 0; i < albumsList.size(); i++)
     {
         if (albumsList[i].getAlbumId() == id)
@@ -70,9 +74,7 @@ vector<Album> AlbumRepository::albums(int artistId)
         }
     }
 
-    std::sort(result.begin(), result.end(),
-              [](const Album &a, const Album &b)
-              {
+    std::sort(result.begin(), result.end(),[](const Album &a, const Album &b) {
                   return a.getName() < b.getName();
               });
 
@@ -81,8 +83,12 @@ vector<Album> AlbumRepository::albums(int artistId)
 
 
 vector<Album> AlbumRepository::getAllAlbum(){
+
+    loadFromFile();
+
     return albumsList;
 }
+
 
 void AlbumRepository::loadFromFile()
 {
@@ -120,9 +126,15 @@ void AlbumRepository::loadFromFile()
 
     file.close();
 }
+
+
 void AlbumRepository::saveToFile()
 {
     std::ofstream file("albums.txt");
+
+    if(!file.is_open()){
+        return;
+    }
 
     for (const Album &album : albumsList)
     {

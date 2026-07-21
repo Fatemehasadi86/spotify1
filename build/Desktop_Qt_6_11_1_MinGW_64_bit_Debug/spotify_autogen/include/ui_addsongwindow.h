@@ -110,7 +110,7 @@ public:
         label_5->setGeometry(QRect(110, 350, 63, 20));
         pushButton = new QPushButton(addSongWindow);
         pushButton->setObjectName("pushButton");
-        pushButton->setGeometry(QRect(260, 280, 111, 31));
+        pushButton->setGeometry(QRect(260, 280, 121, 41));
         pushButton_2 = new QPushButton(addSongWindow);
         pushButton_2->setObjectName("pushButton_2");
         pushButton_2->setGeometry(QRect(260, 340, 121, 41));
@@ -153,7 +153,7 @@ public:
         label_3->setText(QCoreApplication::translate("addSongWindow", "Release Year", nullptr));
         label_4->setText(QCoreApplication::translate("addSongWindow", "Audio File", nullptr));
         label_5->setText(QCoreApplication::translate("addSongWindow", "TextLabel", nullptr));
-        pushButton->setText(QCoreApplication::translate("addSongWindow", "Choose File", nullptr));
+        pushButton->setText(QCoreApplication::translate("addSongWindow", "Choose Song", nullptr));
         pushButton_2->setText(QCoreApplication::translate("addSongWindow", "Choose Image", nullptr));
         pushButton_3->setText(QCoreApplication::translate("addSongWindow", "Save", nullptr));
         pushButton_4->setText(QCoreApplication::translate("addSongWindow", "Cancel", nullptr));

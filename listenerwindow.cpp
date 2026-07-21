@@ -51,7 +51,7 @@ void listenerWindow::loadplaylist()
     repository.loadFromFile();
 
     std::vector<Playlist> playlists =
-        repository.playlistsByListener(listenerId);
+        repository.playlists(listenerId);
 
     for (int i = 0; i < playlists.size(); i++)
     {
@@ -123,7 +123,7 @@ void listenerWindow::on_listWidget_itemDoubleClicked(QListWidgetItem *item)
     repository.loadFromFile();
 
     std::vector<Playlist> playlists =
-        repository.playlistsByListener(listenerId);
+        repository.playlists(listenerId);
 
     int playlistId = 0;
 

@@ -2,9 +2,15 @@
 
 #include "AbstractRepository.h"
 #include "Song.h"
-
-#include <vector>
 #include <optional>
+#include <vector>
+
+
+struct LikedSongs
+{
+    int listenerId;
+    std::vector<int> songs;
+};
 
 class SongRepository : public AbstractRepository<Song>
 {
@@ -14,9 +20,9 @@ private:
 public:
     SongRepository();
     int save(const Song& song) override;
-
     bool remove(int id) override;
     std::optional<Song> search(int id) override;
+
     void loadFromFile();
     void saveToFile();
 
@@ -27,4 +33,11 @@ public:
     std::vector<Song> getByPlaylist(int playlistId);
     std::vector<Song> getByLikedSongs(int listenerId);
     std::vector<Song> getAllSongs();
+    void saveLikedSongs(std::vector <LikedSongs> likedSongsList);
+    std::vector<LikedSongs> loadLikedSongs();
+
+    void likeSong(int listenerId, int songId);
+    void unlikeSong(int listenerId, int songId);
+    bool isLiked(int listenerId, int songId);
+
 };

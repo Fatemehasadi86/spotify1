@@ -4,7 +4,7 @@
 #include <QListWidgetItem>
 #include <QMessageBox>
 #include "selectplaylistforsongwindow.h"
-#include "likedSongsRepository.h"
+
 
 album_song_window::album_song_window(int albumId,int listenerId,QWidget *parent)
     : QWidget(parent)
@@ -93,11 +93,11 @@ void album_song_window::on_pushButton_2_clicked()
         return;
     }
 
-    LikedSongsRepository repository;
+    SongRepository repository;
 
     if (repository.isLiked(listenerId, selectedId))
     {
-        repository.removeSong(listenerId, selectedId);
+        repository.unlikeSong(listenerId, selectedId);
 
         QMessageBox::information(this,
                                  "Success",
@@ -105,7 +105,7 @@ void album_song_window::on_pushButton_2_clicked()
     }
     else
     {
-        repository.addSong(listenerId, selectedId);
+        repository.likeSong(listenerId, selectedId);
 
         QMessageBox::information(this,
                                  "Success",

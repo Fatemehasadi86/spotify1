@@ -13,17 +13,17 @@ int PlaylistRepository::save(const Playlist& playlist)
 {
     loadFromFile();
 
-    for (int i = 0; i < playlists.size(); i++)
+    for (int i = 0; i < playlists2.size(); i++)
     {
-        if (playlists[i].getPlaylistId() == playlist.getPlaylistId())
+        if (playlists2[i].getPlaylistId() == playlist.getPlaylistId())
         {
-            playlists[i] = playlist;
+            playlists2[i] = playlist;
             saveToFile();
             return playlist.getPlaylistId();
         }
     }
 
-    playlists.push_back(playlist);
+    playlists2.push_back(playlist);
     saveToFile();
 
     return playlist.getPlaylistId();
@@ -33,11 +33,11 @@ bool PlaylistRepository::remove(int id)
 {
     loadFromFile();
 
-    for (int i = 0; i < playlists.size(); i++)
+    for (int i = 0; i < playlists2.size(); i++)
     {
-        if (playlists[i].getPlaylistId() == id)
+        if (playlists2[i].getPlaylistId() == id)
         {
-            playlists.erase(playlists.begin() + i);
+            playlists2.erase(playlists2.begin() + i);
             saveToFile();
             return true;
         }
@@ -48,11 +48,11 @@ bool PlaylistRepository::remove(int id)
 
 std::optional<Playlist> PlaylistRepository::search(int id)
 {
-    for (int i = 0; i < playlists.size(); i++)
+    for (int i = 0; i < playlists2.size(); i++)
     {
-        if (playlists[i].getPlaylistId() == id)
+        if (playlists2[i].getPlaylistId() == id)
         {
-            return playlists[i];
+            return playlists2[i];
         }
     }
 
@@ -71,11 +71,11 @@ bool PlaylistRepository::insertSong(int playlistId, int songId)
     if (!song.has_value())
         return false;
 
-    for (int i = 0; i < playlists.size(); i++)
+    for (int i = 0; i < playlists2.size(); i++)
     {
-        if (playlists[i].getPlaylistId() == playlistId)
+        if (playlists2[i].getPlaylistId() == playlistId)
         {
-            playlists[i].addSong(song.value());
+            playlists2[i].addSong(song.value());
 
             saveToFile();
 
@@ -86,15 +86,17 @@ bool PlaylistRepository::insertSong(int playlistId, int songId)
     return false;
 }
 
-vector<Playlist> PlaylistRepository::playlistsByListener(int listenerId)
+vector<Playlist> PlaylistRepository::playlists(int listenerId)
 {
     vector<Playlist> result;
 
-    for (int i = 0; i < playlists.size(); i++)
+    loadFromFile();
+
+    for (int i = 0; i < playlists2.size(); i++)
     {
-        if (playlists[i].getOwnerListenerId() == listenerId)
+        if (playlists2[i].getOwnerListenerId() == listenerId)
         {
-            result.push_back(playlists[i]);
+            result.push_back(playlists2[i]);
         }
     }
 
@@ -112,15 +114,15 @@ void PlaylistRepository::saveToFile()
 {
     std::ofstream file("playlists.txt");
 
-    for (int i = 0; i < playlists.size(); i++)
+    for (int i = 0; i < playlists2.size(); i++)
     {
-        file << playlists[i].getPlaylistId() << std::endl;
-        file << playlists[i].getName() << std::endl;
-        file << playlists[i].getOwnerListenerId() << std::endl;
+        file << playlists2[i].getPlaylistId() << std::endl;
+        file << playlists2[i].getName() << std::endl;
+        file << playlists2[i].getOwnerListenerId() << std::endl;
 
-        file << playlists[i].getSongs().size() << std::endl;
+        file << playlists2[i].getSongs().size() << std::endl;
 
-        for (const Song &song : playlists[i].getSongs())
+        for (const Song &song : playlists2[i].getSongs())
         {
             file << song.getId() << std::endl;
         }
@@ -132,7 +134,7 @@ void PlaylistRepository::saveToFile()
 
 void PlaylistRepository::loadFromFile()
 {
-    playlists.clear();
+    playlists2.clear();
 
     std::ifstream file("playlists.txt");
 
@@ -173,7 +175,7 @@ void PlaylistRepository::loadFromFile()
             }
         }
 
-        playlists.push_back(playlist);
+        playlists2.push_back(playlist);
     }
 
     file.close();
@@ -184,18 +186,18 @@ void PlaylistRepository::loadFromFile()
 std::vector<Playlist> PlaylistRepository::getAllPlaylist()
 {
     loadFromFile();
-    return playlists;
+    return playlists2;
 }
 
 bool PlaylistRepository::removeSong(int playlistId, int songId)
 {
     loadFromFile();
 
-    for (int i = 0; i < playlists.size(); i++)
+    for (int i = 0; i < playlists2.size(); i++)
     {
-        if (playlists[i].getPlaylistId() == playlistId)
+        if (playlists2[i].getPlaylistId() == playlistId)
         {
-            bool removed = playlists[i].removeSong(songId);
+            bool removed = playlists2[i].removeSong(songId);
 
             if (removed)
             {

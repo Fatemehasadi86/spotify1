@@ -1,152 +1,152 @@
-#include "likedSongsRepository.h"
-#include <fstream>
+// #include "likedSongsRepository.h"
+// #include <fstream>
 
-using namespace std;
+// using namespace std;
 
-LikedSongsRepository::LikedSongsRepository()
-{
+// LikedSongsRepository::LikedSongsRepository()
+// {
 
-}
-void LikedSongsRepository::loadFromFile()
-{
-    likedSongsList.clear();
+// }
+// void LikedSongsRepository::loadFromFile()
+// {
+//     likedSongsList.clear();
 
-    ifstream file("likedSongs.txt");
+//     ifstream file("likedSongs.txt");
 
-    if (!file.is_open())
-        return;
+//     if (!file.is_open())
+//         return;
 
-    int listenerId;
-    int count;
+//     int listenerId;
+//     int count;
 
-    while (file >> listenerId)
-    {
-        file >> count;
+//     while (file >> listenerId)
+//     {
+//         file >> count;
 
-        LikedSongs liked;
-        liked.listenerId = listenerId;
+//         LikedSongs liked;
+//         liked.listenerId = listenerId;
 
-        for (int i = 0; i < count; i++)
-        {
-            int songId;
-            file >> songId;
+//         for (int i = 0; i < count; i++)
+//         {
+//             int songId;
+//             file >> songId;
 
-            liked.songs.push_back(songId);
-        }
+//             liked.songs.push_back(songId);
+//         }
 
-        likedSongsList.push_back(liked);
-    }
+//         likedSongsList.push_back(liked);
+//     }
 
-    file.close();
-}
+//     file.close();
+// }
 
-void LikedSongsRepository::saveToFile()
-{
-    ofstream file("likedSongs.txt");
+// void LikedSongsRepository::saveToFile()
+// {
+//     ofstream file("likedSongs.txt");
 
-    for (int i = 0; i < likedSongsList.size(); i++)
-    {
-        file << likedSongsList[i].listenerId << endl;
+//     for (int i = 0; i < likedSongsList.size(); i++)
+//     {
+//         file << likedSongsList[i].listenerId << endl;
 
-        file << likedSongsList[i].songs.size() << endl;
+//         file << likedSongsList[i].songs.size() << endl;
 
-        for (int j = 0; j < likedSongsList[i].songs.size(); j++)
-        {
-            file << likedSongsList[i].songs[j] << endl;
-        }
-    }
+//         for (int j = 0; j < likedSongsList[i].songs.size(); j++)
+//         {
+//             file << likedSongsList[i].songs[j] << endl;
+//         }
+//     }
 
-    file.close();
-}
+//     file.close();
+// }
 
-void LikedSongsRepository::addSong(int listenerId, int songId)
-{
-    loadFromFile();
+// void LikedSongsRepository::addSong(int listenerId, int songId)
+// {
+//     loadFromFile();
 
-    for (int i = 0; i < likedSongsList.size(); i++)
-    {
-        if (likedSongsList[i].listenerId == listenerId)
-        {
-            for (int j = 0; j < likedSongsList[i].songs.size(); j++)
-            {
-                if (likedSongsList[i].songs[j] == songId)
-                    return;
-            }
+//     for (int i = 0; i < likedSongsList.size(); i++)
+//     {
+//         if (likedSongsList[i].listenerId == listenerId)
+//         {
+//             for (int j = 0; j < likedSongsList[i].songs.size(); j++)
+//             {
+//                 if (likedSongsList[i].songs[j] == songId)
+//                     return;
+//             }
 
-            likedSongsList[i].songs.push_back(songId);
+//             likedSongsList[i].songs.push_back(songId);
 
-            saveToFile();
+//             saveToFile();
 
-            return;
-        }
-    }
+//             return;
+//         }
+//     }
 
-    LikedSongs liked;
+//     LikedSongs liked;
 
-    liked.listenerId = listenerId;
+//     liked.listenerId = listenerId;
 
-    liked.songs.push_back(songId);
+//     liked.songs.push_back(songId);
 
-    likedSongsList.push_back(liked);
+//     likedSongsList.push_back(liked);
 
-    saveToFile();
-}
+//     saveToFile();
+// }
 
-void LikedSongsRepository::removeSong(int listenerId, int songId)
-{
-    loadFromFile();
+// void LikedSongsRepository::removeSong(int listenerId, int songId)
+// {
+//     loadFromFile();
 
-    for (int i = 0; i < likedSongsList.size(); i++)
-    {
-        if (likedSongsList[i].listenerId == listenerId)
-        {
-            for (int j = 0; j < likedSongsList[i].songs.size(); j++)
-            {
-                if (likedSongsList[i].songs[j] == songId)
-                {
-                    likedSongsList[i].songs.erase(
-                        likedSongsList[i].songs.begin() + j);
+//     for (int i = 0; i < likedSongsList.size(); i++)
+//     {
+//         if (likedSongsList[i].listenerId == listenerId)
+//         {
+//             for (int j = 0; j < likedSongsList[i].songs.size(); j++)
+//             {
+//                 if (likedSongsList[i].songs[j] == songId)
+//                 {
+//                     likedSongsList[i].songs.erase(
+//                         likedSongsList[i].songs.begin() + j);
 
-                    saveToFile();
+//                     saveToFile();
 
-                    return;
-                }
-            }
-        }
-    }
-}
+//                     return;
+//                 }
+//             }
+//         }
+//     }
+// }
 
-bool LikedSongsRepository::isLiked(int listenerId, int songId)
-{
-    loadFromFile();
+// bool LikedSongsRepository::isLiked(int listenerId, int songId)
+// {
+//     loadFromFile();
 
-    for (int i = 0; i < likedSongsList.size(); i++)
-    {
-        if (likedSongsList[i].listenerId == listenerId)
-        {
-            for (int j = 0; j < likedSongsList[i].songs.size(); j++)
-            {
-                if (likedSongsList[i].songs[j] == songId)
-                    return true;
-            }
-        }
-    }
+//     for (int i = 0; i < likedSongsList.size(); i++)
+//     {
+//         if (likedSongsList[i].listenerId == listenerId)
+//         {
+//             for (int j = 0; j < likedSongsList[i].songs.size(); j++)
+//             {
+//                 if (likedSongsList[i].songs[j] == songId)
+//                     return true;
+//             }
+//         }
+//     }
 
-    return false;
-}
+//     return false;
+// }
 
 
-std::vector<int> LikedSongsRepository::getLikedSongs(int listenerId)
-{
-    loadFromFile();
+// std::vector<int> LikedSongsRepository::getLikedSongs(int listenerId)
+// {
+//     loadFromFile();
 
-    for (int i = 0; i < likedSongsList.size(); i++)
-    {
-        if (likedSongsList[i].listenerId == listenerId)
-        {
-            return likedSongsList[i].songs;
-        }
-    }
+//     for (int i = 0; i < likedSongsList.size(); i++)
+//     {
+//         if (likedSongsList[i].listenerId == listenerId)
+//         {
+//             return likedSongsList[i].songs;
+//         }
+//     }
 
-    return {};
-}
+//     return {};
+// }

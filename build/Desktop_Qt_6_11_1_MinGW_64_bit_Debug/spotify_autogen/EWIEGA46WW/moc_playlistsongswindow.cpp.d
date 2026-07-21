@@ -1,5 +1,6 @@
 C:/Users/BLUE0409/Documents/spotify/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/spotify_autogen/EWIEGA46WW/moc_playlistsongswindow.cpp: C:/Users/BLUE0409/Documents/spotify/playlistsongswindow.h \
   C:/Users/BLUE0409/Documents/spotify/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/spotify_autogen/moc_predefs.h \
+  C:/Qt/6.11.1/mingw_64/include/QtCore/QUrl \
   C:/Qt/6.11.1/mingw_64/include/QtCore/q17memory.h \
   C:/Qt/6.11.1/mingw_64/include/QtCore/q20bit.h \
   C:/Qt/6.11.1/mingw_64/include/QtCore/q20functional.h \
@@ -126,6 +127,7 @@ C:/Users/BLUE0409/Documents/spotify/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/s
   C:/Qt/6.11.1/mingw_64/include/QtCore/qtversionchecks.h \
   C:/Qt/6.11.1/mingw_64/include/QtCore/qtypeinfo.h \
   C:/Qt/6.11.1/mingw_64/include/QtCore/qtypes.h \
+  C:/Qt/6.11.1/mingw_64/include/QtCore/qurl.h \
   C:/Qt/6.11.1/mingw_64/include/QtCore/qutf8stringview.h \
   C:/Qt/6.11.1/mingw_64/include/QtCore/qvariant.h \
   C:/Qt/6.11.1/mingw_64/include/QtCore/qvarlengtharray.h \
@@ -159,6 +161,15 @@ C:/Users/BLUE0409/Documents/spotify/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/s
   C:/Qt/6.11.1/mingw_64/include/QtGui/qvalidator.h \
   C:/Qt/6.11.1/mingw_64/include/QtGui/qwindowdefs.h \
   C:/Qt/6.11.1/mingw_64/include/QtGui/qwindowdefs_win.h \
+  C:/Qt/6.11.1/mingw_64/include/QtMultimedia/QAudioOutput \
+  C:/Qt/6.11.1/mingw_64/include/QtMultimedia/QMediaPlayer \
+  C:/Qt/6.11.1/mingw_64/include/QtMultimedia/qaudio.h \
+  C:/Qt/6.11.1/mingw_64/include/QtMultimedia/qaudiooutput.h \
+  C:/Qt/6.11.1/mingw_64/include/QtMultimedia/qmediaplayer.h \
+  C:/Qt/6.11.1/mingw_64/include/QtMultimedia/qtaudio.h \
+  C:/Qt/6.11.1/mingw_64/include/QtMultimedia/qtmultimedia-config.h \
+  C:/Qt/6.11.1/mingw_64/include/QtMultimedia/qtmultimediaexports.h \
+  C:/Qt/6.11.1/mingw_64/include/QtMultimedia/qtmultimediaglobal.h \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/QListWidgetItem \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/QWidget \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qabstractitemdelegate.h \

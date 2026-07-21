@@ -36,6 +36,7 @@ public:
     QLabel *label_5;
     QComboBox *comboBox_2;
     QComboBox *comboBox_3;
+    QLabel *label_6;
 
     void setupUi(QWidget *albumWindow)
     {
@@ -134,6 +135,9 @@ public:
         comboBox_3->addItem(QString());
         comboBox_3->setObjectName("comboBox_3");
         comboBox_3->setGeometry(QRect(100, 80, 261, 28));
+        label_6 = new QLabel(albumWindow);
+        label_6->setObjectName("label_6");
+        label_6->setGeometry(QRect(40, 80, 63, 20));
 
         retranslateUi(albumWindow);
 
@@ -175,6 +179,7 @@ public:
         comboBox_3->setItemText(1, QCoreApplication::translate("albumWindow", "Name (A_Z)", nullptr));
         comboBox_3->setItemText(2, QCoreApplication::translate("albumWindow", "Year (New_old)", nullptr));
 
+        label_6->setText(QCoreApplication::translate("albumWindow", "Sort:", nullptr));
     } // retranslateUi
 
 };

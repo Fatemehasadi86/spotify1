@@ -150,12 +150,12 @@ QListWidget::item:selected{
     <rect>
      <x>260</x>
      <y>280</y>
-     <width>111</width>
-     <height>31</height>
+     <width>121</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="text">
-    <string>Choose File</string>
+    <string>Choose Song</string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_2">

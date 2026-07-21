@@ -4,6 +4,8 @@
 #include "SongRepository.h"
 #include <QMessageBox>
 #include "AlbumRepository.h"
+#include <QFileDialog>
+#include <QFileInfo>
 
 addSongWindow::addSongWindow(int artistId,QWidget *parent)
     : QWidget(parent)
@@ -54,8 +56,23 @@ void addSongWindow::on_pushButton_3_clicked()
         return;
     }
 
-    Song song;
 
+    if(songPath.isEmpty())
+    {
+        QMessageBox::warning(this,"Error","Please choose a song.");
+        return;
+    }
+
+    if(imagePath.isEmpty())
+    {
+        QMessageBox::warning(this,"Error","Please choose an image.");
+        return;
+    }
+
+
+    Song song;
+    song.setFilePath(songPath.toStdString());
+    song.setImagePath(imagePath.toStdString());
     song.setName(name.toStdString());
     song.setGenre(genre.toStdString());
     song.setReleaseYear(year.toInt());
@@ -103,5 +120,37 @@ void addSongWindow::on_pushButton_3_clicked()
     QMessageBox::information(this,"Success"," Song added successfully ");
 
     close();
+}
+
+
+void addSongWindow::on_pushButton_clicked()
+{
+    QString path = QFileDialog::getOpenFileName(
+        this,
+        "Select Song",
+        "",
+        "Audio Files (*.mp3 *.wav)"
+        );
+
+    if(path.isEmpty())
+        return;
+
+    songPath = path;
+}
+
+
+void addSongWindow::on_pushButton_2_clicked()
+{
+    QString path = QFileDialog::getOpenFileName(
+        this,
+        "Select Image",
+        "",
+        "Images (*.png *.jpg *.jpeg)"
+        );
+
+    if(path.isEmpty())
+        return;
+
+    imagePath = path;
 }
 

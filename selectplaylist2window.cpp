@@ -30,7 +30,7 @@ void selectplaylist2window::loadPlaylists()
     repository.loadFromFile();
 
     std::vector<Playlist> playlists =
-        repository.playlistsByListener(listenerId);
+        repository.playlists(listenerId);
 
     for (int i = 0; i < playlists.size(); i++)
     {
@@ -58,8 +58,7 @@ void selectplaylist2window::on_pushButton_clicked()
     PlaylistRepository repository;
     repository.loadFromFile();
 
-    std::vector<Playlist> playlists =
-        repository.playlistsByListener(listenerId);
+    std::vector<Playlist> playlists =repository.playlists(listenerId);
 
     int playlistId = 0;
 
@@ -74,19 +73,15 @@ void selectplaylist2window::on_pushButton_clicked()
 
     QMessageBox::StandardButton reply;
 
-    reply = QMessageBox::question(
-        this,
-        "Delete Playlist",
-        "Are you sure you want to delete this playlist?",
+    reply = QMessageBox::question(this,"Delete Playlist","Are you sure you want to delete this playlist?",
         QMessageBox::Yes | QMessageBox::No);
+
 
     if (reply == QMessageBox::Yes)
     {
         repository.remove(playlistId);
 
-        QMessageBox::information(this,
-                                 "Success",
-                                 "Playlist deleted successfully.");
+        QMessageBox::information(this, "Success","Playlist deleted successfully.");
 
         emit playlistDelete();
 

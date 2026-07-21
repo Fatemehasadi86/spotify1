@@ -55,6 +55,8 @@ void ArtistRepository::saveToFile()
 
 int ArtistRepository::save(const Account& account)
 {
+    loadFromFile();
+
     for (int i = 0; i < artists.size(); i++)
     {
         if (artists[i].getId() == account.getId())
@@ -72,6 +74,8 @@ int ArtistRepository::save(const Account& account)
 
 bool ArtistRepository::remove(int id)
 {
+    loadFromFile();
+
     for (int i = 0; i < artists.size(); i++)
     {
         if (artists[i].getId() == id)
@@ -99,6 +103,7 @@ std::optional<Account> ArtistRepository::search(int id)
 
     return std::nullopt;
 }
+
 
 std::optional<Account> ArtistRepository::searchByUserName(const std::string& userName)
 {

@@ -20,9 +20,16 @@ private slots:
 
     void on_pushButton_3_clicked();
 
+    void on_pushButton_clicked();
+
+    void on_pushButton_2_clicked();
+
 private:
     Ui::addSongWindow *ui;
     int artistId;
+
+    QString songPath;
+    QString imagePath;
 };
 
 #endif // ADDSONGWINDOW_H

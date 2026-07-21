@@ -33,8 +33,7 @@ void selectPlaylistforsongwindow::loadPlaylist()
     PlaylistRepository repository;
     repository.loadFromFile();
 
-    std::vector<Playlist> playlists =
-        repository.playlistsByListener(listenerId);
+    std::vector<Playlist> playlists = repository.playlists(listenerId);
 
     for (int i = 0; i < playlists.size(); i++)
     {
@@ -63,7 +62,7 @@ void selectPlaylistforsongwindow::on_pushButton_clicked()
     repository.loadFromFile();
 
     std::vector<Playlist> playlists =
-        repository.playlistsByListener(listenerId);
+        repository.playlists(listenerId);
 
     int playlistId = 0;
 
@@ -78,9 +77,7 @@ void selectPlaylistforsongwindow::on_pushButton_clicked()
 
     repository.insertSong(playlistId, songId);
 
-    QMessageBox::information(this,
-                             "Success",
-                             "Song added successfully.");
+    QMessageBox::information(this, "Success", "Song added successfully.");
 
     close();
 }

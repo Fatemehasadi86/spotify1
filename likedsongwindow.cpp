@@ -1,7 +1,8 @@
 #include "likedsongwindow.h"
 #include "ui_likedsongwindow.h"
+
 #include <QListWidgetItem>
-#include "likedSongsRepository.h"
+#include<QMessageBox>
 #include "SongRepository.h"
 
 LikedSongWindow::LikedSongWindow(int listenerId, QWidget *parent)
@@ -24,28 +25,25 @@ void LikedSongWindow::loadSongs()
 {
     ui->listWidget->clear();
 
-    LikedSongsRepository likedRepository;
-    SongRepository songRepository;
+    SongRepository repository;
+    repository.loadFromFile();
 
-    songRepository.loadFromFile();
-
-    std::vector<int> likedSongs =
-        likedRepository.getLikedSongs(listenerId);
+    std::vector<Song> likedSongs =
+        repository.getByLikedSongs(listenerId);
 
     for (int i = 0; i < likedSongs.size(); i++)
     {
-        std::optional<Song> song =
-            songRepository.search(likedSongs[i]);
+        QString name = QString::fromStdString(likedSongs[i].getName());
 
-        if (!song.has_value())
+        if (!searchText.isEmpty() &&
+            !name.contains(searchText, Qt::CaseInsensitive))
+        {
             continue;
+        }
 
-        QString name = QString::fromStdString(song->getName());
+        QListWidgetItem *item = new QListWidgetItem(name);
 
-        if (!name.contains(searchText))
-            continue;
-
-        QListWidgetItem *item =new QListWidgetItem(name);
+        item->setData(Qt::UserRole, likedSongs[i].getId());
 
         ui->listWidget->addItem(item);
     }
@@ -53,21 +51,7 @@ void LikedSongWindow::loadSongs()
 
 void LikedSongWindow::on_listWidget_itemClicked(QListWidgetItem *item)
 {
-    QString songName = item->text();
-
-    SongRepository repository;
-    repository.loadFromFile();
-
-    std::vector<Song> songs = repository.getAllSongs();
-
-    for (int i = 0; i < songs.size(); i++)
-    {
-        if (songs[i].getName() == songName.toStdString())
-        {
-            selectedSongId = songs[i].getId();
-            break;
-        }
-    }
+    selectedSongId = item->data(Qt::UserRole).toInt();
 }
 
 void LikedSongWindow::on_lineEdit_textChanged(const QString &arg1)
@@ -75,8 +59,28 @@ void LikedSongWindow::on_lineEdit_textChanged(const QString &arg1)
     searchText = arg1;
     loadSongs();
 }
+
 void LikedSongWindow::on_pushButton_clicked()
 {
     close();
+}
+
+void LikedSongWindow::on_pushButton_2_clicked()
+{
+    if (selectedSongId == 0)
+    {
+        QMessageBox::warning(this,"Error","Please select a song.");
+        return;
+    }
+
+    SongRepository repository;
+
+    repository.unlikeSong(listenerId, selectedSongId);
+
+    loadSongs();
+
+    selectedSongId = 0;
+
+    QMessageBox::information(this,"Success","Song removed from liked songs.");
 }
 

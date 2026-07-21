@@ -3,6 +3,9 @@
 
 #include <QWidget>
 #include <QListWidgetItem>
+#include <QMediaPlayer>
+#include <QAudioOutput>
+#include <QUrl>
 
 namespace Ui {
 class PlaylistSongsWindow;
@@ -26,11 +29,24 @@ private slots:
 
     void on_pushButton_2_clicked();
 
+    void on_comboBox_currentTextChanged(const QString &arg1);
+
+    void on_comboBox_3_currentTextChanged(const QString &arg1);
+
+    void on_comboBox_2_currentTextChanged(const QString &arg1);
+
+    void on_pushButton_3_clicked();
+
 private:
     Ui::PlaylistSongsWindow *ui;
     int playlistId;
     int selectedSongId=-1;
     QString searchText;
+    QString sortText="Default";
+    QString filtergenre="All";
+    QString yearfilter="All";
+    QMediaPlayer *player;
+    QAudioOutput *audioOutput;
 
 };
 

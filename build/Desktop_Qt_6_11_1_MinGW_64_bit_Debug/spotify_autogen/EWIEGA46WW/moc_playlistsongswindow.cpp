@@ -46,7 +46,11 @@ template <> constexpr inline auto PlaylistSongsWindow::qt_create_metaobjectdata<
         "on_pushButton_clicked",
         "on_lineEdit_textChanged",
         "arg1",
-        "on_pushButton_2_clicked"
+        "on_pushButton_2_clicked",
+        "on_comboBox_currentTextChanged",
+        "on_comboBox_3_currentTextChanged",
+        "on_comboBox_2_currentTextChanged",
+        "on_pushButton_3_clicked"
     };
 
     QtMocHelpers::UintData qt_methods {
@@ -62,6 +66,20 @@ template <> constexpr inline auto PlaylistSongsWindow::qt_create_metaobjectdata<
         }}),
         // Slot 'on_pushButton_2_clicked'
         QtMocHelpers::SlotData<void()>(8, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_comboBox_currentTextChanged'
+        QtMocHelpers::SlotData<void(const QString &)>(9, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::QString, 7 },
+        }}),
+        // Slot 'on_comboBox_3_currentTextChanged'
+        QtMocHelpers::SlotData<void(const QString &)>(10, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::QString, 7 },
+        }}),
+        // Slot 'on_comboBox_2_currentTextChanged'
+        QtMocHelpers::SlotData<void(const QString &)>(11, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::QString, 7 },
+        }}),
+        // Slot 'on_pushButton_3_clicked'
+        QtMocHelpers::SlotData<void()>(12, 2, QMC::AccessPrivate, QMetaType::Void),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -89,6 +107,10 @@ void PlaylistSongsWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, 
         case 1: _t->on_pushButton_clicked(); break;
         case 2: _t->on_lineEdit_textChanged((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
         case 3: _t->on_pushButton_2_clicked(); break;
+        case 4: _t->on_comboBox_currentTextChanged((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
+        case 5: _t->on_comboBox_3_currentTextChanged((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
+        case 6: _t->on_comboBox_2_currentTextChanged((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
+        case 7: _t->on_pushButton_3_clicked(); break;
         default: ;
         }
     }
@@ -113,14 +135,14 @@ int PlaylistSongsWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 4)
+        if (_id < 8)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 4;
+        _id -= 8;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 4)
+        if (_id < 8)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 4;
+        _id -= 8;
     }
     return _id;
 }

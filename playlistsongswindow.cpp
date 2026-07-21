@@ -3,6 +3,7 @@
 #include "PlaylistRepository.h"
 #include <QMessageBox>
 #include <QListWidgetItem>
+#include "SongRepository.h"
 
 PlaylistSongsWindow::PlaylistSongsWindow(int playlistId,QWidget *parent)
     : QWidget(parent)
@@ -10,7 +11,14 @@ PlaylistSongsWindow::PlaylistSongsWindow(int playlistId,QWidget *parent)
 {
     ui->setupUi(this);
 
+    player = new QMediaPlayer(this);
+    audioOutput = new QAudioOutput(this);
+
+    player->setAudioOutput(audioOutput);
+    audioOutput->setVolume(1.0);
+
     this->playlistId = playlistId;
+    sortText= ui->comboBox->currentText();
 
     loadSongs();
 }
@@ -35,11 +43,62 @@ void PlaylistSongsWindow::loadSongs()
 
     std::vector<Song> songs = playlist->getSongs();
 
+    // ---------- Filter ----------
+    if (filtergenre != "All")
+    {
+        std::vector<Song> filtered;
+
+        for (int i = 0; i < songs.size(); i++)
+        {
+            if (songs[i].getGenre() == filtergenre.toStdString())
+            {
+                filtered.push_back(songs[i]);
+            }
+        }
+
+        songs = filtered;
+    }
+
+    // ---------- Filter by Year ----------
+    if (yearfilter != "All")
+    {
+        std::vector<Song> filtered;
+
+        for (int i = 0; i < songs.size(); i++)
+        {
+            if (songs[i].getReleaseYear() == yearfilter.toInt())
+            {
+                filtered.push_back(songs[i]);
+            }
+        }
+
+        songs = filtered;
+    }
+
+    // ---------- Sort ----------
+    if (sortText == "Name (A-Z)")
+    {
+        std::sort(songs.begin(), songs.end(),
+                  [](const Song &a, const Song &b)
+                  {
+                      return a.getName() < b.getName();
+                  });
+    }
+    else if (sortText == "Year (New-old)")
+    {
+        std::sort(songs.begin(), songs.end(),
+                  [](const Song &a, const Song &b)
+                  {
+                      return a.getReleaseYear() > b.getReleaseYear();
+                  });
+    }
+
+    // ---------- Search ----------
     for (int i = 0; i < songs.size(); i++)
     {
         QString name = QString::fromStdString(songs[i].getName());
 
-        if (!name.contains(searchText))
+        if (!name.contains(searchText, Qt::CaseInsensitive))
             continue;
 
         QListWidgetItem *item = new QListWidgetItem(name);
@@ -106,5 +165,55 @@ void PlaylistSongsWindow::on_lineEdit_textChanged(const QString &arg1)
 void PlaylistSongsWindow::on_pushButton_2_clicked()
 {
     close();
+}
+
+
+void PlaylistSongsWindow::on_comboBox_currentTextChanged(const QString &arg1)
+{
+    sortText=arg1;
+    loadSongs();
+}
+
+
+void PlaylistSongsWindow::on_comboBox_3_currentTextChanged(const QString &arg1)
+{
+    filtergenre=arg1;
+    loadSongs();
+}
+
+
+void PlaylistSongsWindow::on_comboBox_2_currentTextChanged(const QString &arg1)
+{
+    yearfilter=arg1;
+    loadSongs();
+}
+
+
+void PlaylistSongsWindow::on_pushButton_3_clicked()
+{
+    if(selectedSongId == -1)
+        return;
+
+    SongRepository repository;
+    repository.loadFromFile();
+
+    std::optional<Song> song = repository.search(selectedSongId);
+
+    if(!song.has_value())
+        return;
+
+    player->setSource(
+        QUrl::fromLocalFile(
+            QString::fromStdString(song->getFilePath())
+            )
+        );
+
+    player->play();
+}
+
+
+void PlaylistSongsWindow::on_pushButton_4_clicked()
+{
+
 }
 

@@ -10,7 +10,7 @@
 class PlaylistRepository : public AbstractRepository<Playlist>
 {
 private:
-    std::vector<Playlist> playlists;
+    std::vector<Playlist> playlists2;
 
 public:
     PlaylistRepository();
@@ -25,7 +25,7 @@ public:
     bool removeSong(int playlistId, int songId);
     void loadFromFile();
     void saveToFile();
-    std::vector<Playlist> playlistsByListener(int listenerId);
+    std::vector<Playlist> playlists(int listenerId);
     std::vector<Playlist> getAllPlaylist();
 };
 
