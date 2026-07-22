@@ -37,6 +37,11 @@ public:
     QComboBox *comboBox_2;
     QComboBox *comboBox_3;
     QLabel *label_6;
+    QPushButton *pushButton_5;
+    QPushButton *pushButton_6;
+    QPushButton *pushButton_7;
+    QPushButton *pushButton_8;
+    QPushButton *pushButton_9;
 
     void setupUi(QWidget *albumWindow)
     {
@@ -138,6 +143,21 @@ public:
         label_6 = new QLabel(albumWindow);
         label_6->setObjectName("label_6");
         label_6->setGeometry(QRect(40, 80, 63, 20));
+        pushButton_5 = new QPushButton(albumWindow);
+        pushButton_5->setObjectName("pushButton_5");
+        pushButton_5->setGeometry(QRect(580, 220, 111, 41));
+        pushButton_6 = new QPushButton(albumWindow);
+        pushButton_6->setObjectName("pushButton_6");
+        pushButton_6->setGeometry(QRect(580, 280, 111, 41));
+        pushButton_7 = new QPushButton(albumWindow);
+        pushButton_7->setObjectName("pushButton_7");
+        pushButton_7->setGeometry(QRect(580, 340, 111, 41));
+        pushButton_8 = new QPushButton(albumWindow);
+        pushButton_8->setObjectName("pushButton_8");
+        pushButton_8->setGeometry(QRect(580, 160, 111, 41));
+        pushButton_9 = new QPushButton(albumWindow);
+        pushButton_9->setObjectName("pushButton_9");
+        pushButton_9->setGeometry(QRect(580, 400, 111, 41));
 
         retranslateUi(albumWindow);
 
@@ -180,6 +200,11 @@ public:
         comboBox_3->setItemText(2, QCoreApplication::translate("albumWindow", "Year (New_old)", nullptr));
 
         label_6->setText(QCoreApplication::translate("albumWindow", "Sort:", nullptr));
+        pushButton_5->setText(QCoreApplication::translate("albumWindow", "Play", nullptr));
+        pushButton_6->setText(QCoreApplication::translate("albumWindow", "Pause", nullptr));
+        pushButton_7->setText(QCoreApplication::translate("albumWindow", "Next", nullptr));
+        pushButton_8->setText(QCoreApplication::translate("albumWindow", "Previous", nullptr));
+        pushButton_9->setText(QCoreApplication::translate("albumWindow", "Details", nullptr));
     } // retranslateUi
 
 };

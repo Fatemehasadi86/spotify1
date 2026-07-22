@@ -4,6 +4,7 @@
 #include <QMessageBox>
 #include <QListWidgetItem>
 #include "SongRepository.h"
+#include "songprofilewindow.h"
 
 PlaylistSongsWindow::PlaylistSongsWindow(int playlistId,QWidget *parent)
     : QWidget(parent)
@@ -111,6 +112,8 @@ void PlaylistSongsWindow::on_listWidget_itemClicked(QListWidgetItem *item)
 {
     QString songName = item->text();
 
+    currentIndex = ui->listWidget->row(item);
+
     PlaylistRepository repository;
     repository.loadFromFile();
 
@@ -214,6 +217,96 @@ void PlaylistSongsWindow::on_pushButton_3_clicked()
 
 void PlaylistSongsWindow::on_pushButton_4_clicked()
 {
+    player->pause();
+}
 
+
+void PlaylistSongsWindow::on_pushButton_5_clicked()
+{
+    if (currentIndex == -1)
+        return;
+
+    if (currentIndex + 1 >= ui->listWidget->count())
+        return;
+
+    currentIndex++;
+
+    QListWidgetItem *item = ui->listWidget->item(currentIndex);
+
+    ui->listWidget->setCurrentItem(item);
+
+    on_listWidget_itemClicked(item);
+
+    SongRepository repository;
+    repository.loadFromFile();
+
+    std::optional<Song> song = repository.search(selectedSongId);
+
+    if (song.has_value())
+    {
+        player->setSource(
+            QUrl::fromLocalFile(
+                QString::fromStdString(song.value().getFilePath())
+                )
+            );
+
+        player->play();
+    }
+}
+
+
+void PlaylistSongsWindow::on_pushButton_6_clicked()
+{
+    if (currentIndex <= 0)
+        return;
+
+    currentIndex--;
+
+    QListWidgetItem *item = ui->listWidget->item(currentIndex);
+
+    ui->listWidget->setCurrentItem(item);
+
+    on_listWidget_itemClicked(item);
+
+    SongRepository repository;
+    repository.loadFromFile();
+
+    std::optional<Song> song = repository.search(selectedSongId);
+
+    if (song.has_value())
+    {
+        player->setSource(
+            QUrl::fromLocalFile(
+                QString::fromStdString(song.value().getFilePath())
+                )
+            );
+
+        player->play();
+    }
+}
+
+
+void PlaylistSongsWindow::on_pushButton_7_clicked()
+{
+    if (selectedSongId == -1)
+    {
+        QMessageBox::warning(this,
+                             "Error",
+                             "Please select a song.");
+        return;
+    }
+
+    SongRepository repository;
+    repository.loadFromFile();
+
+    std::optional<Song> song = repository.search(selectedSongId);
+
+    if (!song.has_value())
+        return;
+
+    SongProfileWindow *window =
+        new SongProfileWindow(song.value());
+
+    window->show();
 }
 

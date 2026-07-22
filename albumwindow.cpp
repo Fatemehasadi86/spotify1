@@ -4,12 +4,22 @@
 #include <QMessageBox>
 #include "editsongwindow.h"
 #include "AlbumRepository.h"
+#include <QIcon>
+#include <QPixmap>
+#include "songprofilewindow.h"
 
 albumWindow::albumWindow(int albumId,int artistId,QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::albumWindow)
 {
     ui->setupUi(this);
+    audioOutput = new QAudioOutput(this);
+    player = new QMediaPlayer(this);
+
+    player->setAudioOutput(audioOutput);
+    audioOutput->setVolume(0.7);
+
+    ui->listWidget->setIconSize(QSize(120,120));
     this->albumId=albumId;
     this->artistId=artistId;
     if (albumId == 0)
@@ -86,7 +96,11 @@ void albumWindow::loadSong()
         if (yearFilter != "All" && year != yearFilter)
             continue;
 
-        QListWidgetItem *item = new QListWidgetItem(name);
+        QPixmap pixmap(QString::fromStdString(songs[i].getImagePath()));
+
+        QIcon icon(pixmap);
+
+        QListWidgetItem *item = new QListWidgetItem(icon, name);
 
         ui->listWidget->addItem(item);
     }
@@ -138,9 +152,7 @@ void albumWindow::on_pushButton_3_clicked()
     {
         loadSong();
 
-        QMessageBox::information(this,
-                                 "Success",
-                                 "Song deleted successfully.");
+        QMessageBox::information(this, "Success","Song deleted successfully.");
     }
 
 }
@@ -191,22 +203,8 @@ void albumWindow::on_pushButton_2_clicked()
 
 void albumWindow::on_lineEdit_textChanged(const QString &text)
 {
-    ui->listWidget->clear();
-
-    SongRepository repository;
-    repository.loadFromFile();
-
-    std::vector<Song> songs = repository.getByAlbum(albumId);
-
-    for (int i = 0; i < songs.size(); i++)
-    {
-        if (QString::fromStdString(songs[i].getName()).contains(text))
-        {
-            QListWidgetItem *item = new QListWidgetItem(QString::fromStdString(songs[i].getName()));
-
-            ui->listWidget->addItem(item);
-        }
-    }
+    searchText=text;
+    loadSong();
 }
 
 void albumWindow::on_comboBox_currentTextChanged(const QString &arg1)
@@ -229,5 +227,161 @@ void albumWindow::on_comboBox_3_currentTextChanged(const QString &arg1)
 {
     sortType=arg1;
     loadSong();
+}
+
+
+void albumWindow::on_pushButton_5_clicked()
+{
+    if (ui->listWidget->selectedItems().isEmpty())
+    {
+        QMessageBox::warning(this,
+                             "Error",
+                             "Please select a song.");
+        return;
+    }
+
+    QListWidgetItem *item = ui->listWidget->selectedItems().first();
+
+    QString songName = item->text();
+
+    SongRepository repository;
+    repository.loadFromFile();
+
+    std::vector<Song> songs = repository.getAllSongs();
+
+    for (int i = 0; i < songs.size(); i++)
+    {
+        if (songs[i].getName() == songName.toStdString())
+        {
+            player->setSource(
+                QUrl::fromLocalFile(
+                    QString::fromStdString(songs[i].getFilePath())
+                    )
+                );
+
+            player->play();
+
+            break;
+        }
+    }
+}
+
+
+void albumWindow::on_pushButton_6_clicked()
+{
+    player->pause();
+}
+
+
+void albumWindow::on_pushButton_7_clicked()
+{
+    int row = ui->listWidget->currentRow();
+
+    if (row == -1)
+    {
+        QMessageBox::warning(this,
+                             "Error",
+                             "Please select a song.");
+        return;
+    }
+
+    if (row >= ui->listWidget->count() - 1)
+        return;
+
+    ui->listWidget->setCurrentRow(row + 1);
+
+    QListWidgetItem *item = ui->listWidget->currentItem();
+
+    QString songName = item->text();
+
+    SongRepository repository;
+    repository.loadFromFile();
+
+    std::vector<Song> songs = repository.getAllSongs();
+
+    for (int i = 0; i < songs.size(); i++)
+    {
+        if (songs[i].getName() == songName.toStdString())
+        {
+            player->setSource(
+                QUrl::fromLocalFile(
+                    QString::fromStdString(songs[i].getFilePath())
+                    )
+                );
+
+            player->play();
+
+            break;
+        }
+    }
+}
+
+
+void albumWindow::on_pushButton_8_clicked()
+{
+    int row = ui->listWidget->currentRow();
+
+    if (row == -1)
+    {
+        QMessageBox::warning(this,
+                             "Error",
+                             "Please select a song.");
+        return;
+    }
+
+    if (row == 0)
+        return;
+
+    ui->listWidget->setCurrentRow(row - 1);
+
+    QListWidgetItem *item = ui->listWidget->currentItem();
+
+    QString songName = item->text();
+
+    SongRepository repository;
+    repository.loadFromFile();
+
+    std::vector<Song> songs = repository.getAllSongs();
+
+    for (int i = 0; i < songs.size(); i++)
+    {
+        if (songs[i].getName() == songName.toStdString())
+        {
+            player->setSource(
+                QUrl::fromLocalFile(
+                    QString::fromStdString(songs[i].getFilePath())
+                    )
+                );
+
+            player->play();
+
+            break;
+        }
+    }
+}
+
+
+void albumWindow::on_pushButton_9_clicked()
+{
+    if (selectedSongId == -1)
+    {
+        QMessageBox::warning(this,
+                             "Error",
+                             "Please select a song.");
+        return;
+    }
+
+    SongRepository repository;
+    repository.loadFromFile();
+
+    std::optional<Song> song = repository.search(selectedSongId);
+
+    if (!song.has_value())
+        return;
+
+    SongProfileWindow *window =
+        new SongProfileWindow(song.value());
+
+    window->show();
 }
 

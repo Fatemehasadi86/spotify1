@@ -133,6 +133,7 @@ spotify_autogen/timestamp: \
 	C:/Qt/6.11.1/mingw_64/include/QtCore/qversiontagging.h \
 	C:/Qt/6.11.1/mingw_64/include/QtCore/qxptype_traits.h \
 	C:/Qt/6.11.1/mingw_64/include/QtCore/qyieldcpu.h \
+	C:/Qt/6.11.1/mingw_64/include/QtGui/QPixmap \
 	C:/Qt/6.11.1/mingw_64/include/QtGui/qaction.h \
 	C:/Qt/6.11.1/mingw_64/include/QtGui/qbitmap.h \
 	C:/Qt/6.11.1/mingw_64/include/QtGui/qbrush.h \
@@ -759,8 +760,6 @@ spotify_autogen/timestamp: \
 	C:/Users/BLUE0409/Documents/spotify/editsongwindow.h \
 	C:/Users/BLUE0409/Documents/spotify/exploremusicwindow.cpp \
 	C:/Users/BLUE0409/Documents/spotify/exploremusicwindow.h \
-	C:/Users/BLUE0409/Documents/spotify/likedSongsRepository.cpp \
-	C:/Users/BLUE0409/Documents/spotify/likedSongsRepository.h \
 	C:/Users/BLUE0409/Documents/spotify/likedsongwindow.cpp \
 	C:/Users/BLUE0409/Documents/spotify/likedsongwindow.h \
 	C:/Users/BLUE0409/Documents/spotify/listenerwindow.cpp \
@@ -784,6 +783,8 @@ spotify_autogen/timestamp: \
 	C:/Users/BLUE0409/Documents/spotify/selectplaylistforsongwindow.h \
 	C:/Users/BLUE0409/Documents/spotify/selectplaylistwindow.cpp \
 	C:/Users/BLUE0409/Documents/spotify/selectplaylistwindow.h \
+	C:/Users/BLUE0409/Documents/spotify/songprofilewindow.cpp \
+	C:/Users/BLUE0409/Documents/spotify/songprofilewindow.h \
 	C:/Users/BLUE0409/Documents/spotify/addalbumwindow.ui \
 	C:/Users/BLUE0409/Documents/spotify/addsongwindow.ui \
 	C:/Users/BLUE0409/Documents/spotify/album_artist_window.ui \
@@ -807,4 +808,5 @@ spotify_autogen/timestamp: \
 	C:/Users/BLUE0409/Documents/spotify/selectplaylist2window.ui \
 	C:/Users/BLUE0409/Documents/spotify/selectplaylistforsongwindow.ui \
 	C:/Users/BLUE0409/Documents/spotify/selectplaylistwindow.ui \
+	C:/Users/BLUE0409/Documents/spotify/songprofilewindow.ui \
 	C:/Qt/Tools/CMake_64/bin/cmake.exe

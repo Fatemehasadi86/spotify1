@@ -50,7 +50,11 @@ template <> constexpr inline auto PlaylistSongsWindow::qt_create_metaobjectdata<
         "on_comboBox_currentTextChanged",
         "on_comboBox_3_currentTextChanged",
         "on_comboBox_2_currentTextChanged",
-        "on_pushButton_3_clicked"
+        "on_pushButton_3_clicked",
+        "on_pushButton_4_clicked",
+        "on_pushButton_5_clicked",
+        "on_pushButton_6_clicked",
+        "on_pushButton_7_clicked"
     };
 
     QtMocHelpers::UintData qt_methods {
@@ -80,6 +84,14 @@ template <> constexpr inline auto PlaylistSongsWindow::qt_create_metaobjectdata<
         }}),
         // Slot 'on_pushButton_3_clicked'
         QtMocHelpers::SlotData<void()>(12, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_pushButton_4_clicked'
+        QtMocHelpers::SlotData<void()>(13, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_pushButton_5_clicked'
+        QtMocHelpers::SlotData<void()>(14, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_pushButton_6_clicked'
+        QtMocHelpers::SlotData<void()>(15, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_pushButton_7_clicked'
+        QtMocHelpers::SlotData<void()>(16, 2, QMC::AccessPrivate, QMetaType::Void),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -111,6 +123,10 @@ void PlaylistSongsWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, 
         case 5: _t->on_comboBox_3_currentTextChanged((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
         case 6: _t->on_comboBox_2_currentTextChanged((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
         case 7: _t->on_pushButton_3_clicked(); break;
+        case 8: _t->on_pushButton_4_clicked(); break;
+        case 9: _t->on_pushButton_5_clicked(); break;
+        case 10: _t->on_pushButton_6_clicked(); break;
+        case 11: _t->on_pushButton_7_clicked(); break;
         default: ;
         }
     }
@@ -135,14 +151,14 @@ int PlaylistSongsWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 8)
+        if (_id < 12)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 8;
+        _id -= 12;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 8)
+        if (_id < 12)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 8;
+        _id -= 12;
     }
     return _id;
 }

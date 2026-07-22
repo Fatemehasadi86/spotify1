@@ -22,3 +22,4 @@
 #include "EWIEGA46WW/moc_selectplaylist2window.cpp"
 #include "EWIEGA46WW/moc_selectplaylistforsongwindow.cpp"
 #include "EWIEGA46WW/moc_selectplaylistwindow.cpp"
+#include "EWIEGA46WW/moc_songprofilewindow.cpp"

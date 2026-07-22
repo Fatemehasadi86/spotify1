@@ -2,6 +2,8 @@
 #define ALBUMWINDOW_H
 
 #include <QWidget>
+#include <QMediaPlayer>
+#include <QAudioOutput>
 
 namespace Ui {
 class albumWindow;
@@ -31,6 +33,16 @@ private slots:
 
     void on_comboBox_3_currentTextChanged(const QString &arg1);
 
+    void on_pushButton_5_clicked();
+
+    void on_pushButton_6_clicked();
+
+    void on_pushButton_7_clicked();
+
+    void on_pushButton_8_clicked();
+
+    void on_pushButton_9_clicked();
+
 private:
     Ui::albumWindow *ui;
     int albumId;
@@ -39,6 +51,10 @@ private:
     QString genreFilter = "All";
     QString yearFilter = "All";
     QString sortType= "Default";
+    int selectedSongId = -1;
+
+    QMediaPlayer *player;
+    QAudioOutput *audioOutput;
 };
 
 #endif // ALBUMWINDOW_H

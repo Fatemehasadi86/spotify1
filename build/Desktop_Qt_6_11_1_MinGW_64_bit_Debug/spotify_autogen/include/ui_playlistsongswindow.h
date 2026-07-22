@@ -35,6 +35,10 @@ public:
     QComboBox *comboBox_2;
     QComboBox *comboBox_3;
     QPushButton *pushButton_3;
+    QPushButton *pushButton_4;
+    QPushButton *pushButton_5;
+    QPushButton *pushButton_6;
+    QPushButton *pushButton_7;
 
     void setupUi(QWidget *PlaylistSongsWindow)
     {
@@ -88,7 +92,7 @@ public:
 "}"));
         listWidget = new QListWidget(PlaylistSongsWindow);
         listWidget->setObjectName("listWidget");
-        listWidget->setGeometry(QRect(150, 170, 281, 301));
+        listWidget->setGeometry(QRect(20, 170, 411, 301));
         pushButton = new QPushButton(PlaylistSongsWindow);
         pushButton->setObjectName("pushButton");
         pushButton->setGeometry(QRect(140, 490, 141, 41));
@@ -142,7 +146,19 @@ public:
         comboBox_3->setGeometry(QRect(510, 90, 121, 31));
         pushButton_3 = new QPushButton(PlaylistSongsWindow);
         pushButton_3->setObjectName("pushButton_3");
-        pushButton_3->setGeometry(QRect(499, 250, 91, 41));
+        pushButton_3->setGeometry(QRect(540, 230, 91, 41));
+        pushButton_4 = new QPushButton(PlaylistSongsWindow);
+        pushButton_4->setObjectName("pushButton_4");
+        pushButton_4->setGeometry(QRect(540, 170, 91, 41));
+        pushButton_5 = new QPushButton(PlaylistSongsWindow);
+        pushButton_5->setObjectName("pushButton_5");
+        pushButton_5->setGeometry(QRect(540, 290, 91, 41));
+        pushButton_6 = new QPushButton(PlaylistSongsWindow);
+        pushButton_6->setObjectName("pushButton_6");
+        pushButton_6->setGeometry(QRect(540, 350, 91, 41));
+        pushButton_7 = new QPushButton(PlaylistSongsWindow);
+        pushButton_7->setObjectName("pushButton_7");
+        pushButton_7->setGeometry(QRect(540, 450, 91, 41));
 
         retranslateUi(PlaylistSongsWindow);
 
@@ -183,6 +199,10 @@ public:
         comboBox_3->setItemText(9, QCoreApplication::translate("PlaylistSongsWindow", "Country", nullptr));
 
         pushButton_3->setText(QCoreApplication::translate("PlaylistSongsWindow", "Play", nullptr));
+        pushButton_4->setText(QCoreApplication::translate("PlaylistSongsWindow", "Stop", nullptr));
+        pushButton_5->setText(QCoreApplication::translate("PlaylistSongsWindow", "Next", nullptr));
+        pushButton_6->setText(QCoreApplication::translate("PlaylistSongsWindow", "Previous", nullptr));
+        pushButton_7->setText(QCoreApplication::translate("PlaylistSongsWindow", "Details", nullptr));
     } // retranslateUi
 
 };

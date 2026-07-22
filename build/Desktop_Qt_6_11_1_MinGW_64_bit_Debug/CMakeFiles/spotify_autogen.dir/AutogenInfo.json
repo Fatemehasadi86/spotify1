@@ -597,12 +597,6 @@
 			null
 		],
 		[
-			"C:/Users/BLUE0409/Documents/spotify/likedSongsRepository.h",
-			"MU",
-			"EWIEGA46WW/moc_likedSongsRepository.cpp",
-			null
-		],
-		[
 			"C:/Users/BLUE0409/Documents/spotify/likedsongwindow.h",
 			"MU",
 			"EWIEGA46WW/moc_likedsongwindow.cpp",
@@ -666,6 +660,12 @@
 			"C:/Users/BLUE0409/Documents/spotify/selectplaylistwindow.h",
 			"MU",
 			"EWIEGA46WW/moc_selectplaylistwindow.cpp",
+			null
+		],
+		[
+			"C:/Users/BLUE0409/Documents/spotify/songprofilewindow.h",
+			"MU",
+			"EWIEGA46WW/moc_songprofilewindow.cpp",
 			null
 		]
 	],
@@ -808,11 +808,6 @@
 			"MU",
 			null
 		],
-		[
-			"C:/Users/BLUE0409/Documents/spotify/likedSongsRepository.cpp",
-			"MU",
-			null
-		],
 		[ "C:/Users/BLUE0409/Documents/spotify/likedsongwindow.cpp", "MU", null ],
 		[ "C:/Users/BLUE0409/Documents/spotify/listenerwindow.cpp", "MU", null ],
 		[ "C:/Users/BLUE0409/Documents/spotify/loginwindow.cpp", "MU", null ],
@@ -846,6 +841,11 @@
 		],
 		[
 			"C:/Users/BLUE0409/Documents/spotify/selectplaylistwindow.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/BLUE0409/Documents/spotify/songprofilewindow.cpp",
 			"MU",
 			null
 		]
