@@ -21,6 +21,8 @@ artistWindow::artistWindow(int artistId,QWidget *parent)
     this->artistId=artistId;
     ui->setupUi(this);
 
+    ui->listWidgetAlbums->setIconSize(QSize(120,120));
+
     ArtistRepository repository;
     repository.loadFromFile();
 
@@ -68,8 +70,13 @@ void artistWindow::loadAlbums()
         if (albums[i].getArtistId() != artistId)
             continue;
 
-        QListWidgetItem *item = new QListWidgetItem(
-            QString::fromStdString(albums[i].getName()));
+        QPixmap pixmap(QString::fromStdString(albums[i].getCoverImage()));
+
+        QIcon icon(pixmap);
+
+        QListWidgetItem *item =
+            new QListWidgetItem(icon,
+                                QString::fromStdString(albums[i].getName()));
 
         ui->listWidgetAlbums->addItem(item);
     }

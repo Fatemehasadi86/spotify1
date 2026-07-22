@@ -379,9 +379,31 @@ void albumWindow::on_pushButton_9_clicked()
     if (!song.has_value())
         return;
 
-    SongProfileWindow *window =
-        new SongProfileWindow(song.value());
+    SongProfileWindow *window = new SongProfileWindow(song.value());
 
     window->show();
+}
+
+
+
+
+
+void albumWindow::on_listWidget_itemClicked(QListWidgetItem *item)
+{
+    QString songName = item->text();
+
+    SongRepository repository;
+    repository.loadFromFile();
+
+    std::vector<Song> songs = repository.getAllSongs();
+
+    for (int i = 0; i < songs.size(); i++)
+    {
+        if (songs[i].getName() == songName.toStdString())
+        {
+            selectedSongId = songs[i].getId();
+            break;
+        }
+    }
 }
 

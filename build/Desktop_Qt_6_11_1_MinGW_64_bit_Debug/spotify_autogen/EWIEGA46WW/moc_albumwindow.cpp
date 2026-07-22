@@ -53,7 +53,10 @@ template <> constexpr inline auto albumWindow::qt_create_metaobjectdata<qt_meta_
         "on_pushButton_6_clicked",
         "on_pushButton_7_clicked",
         "on_pushButton_8_clicked",
-        "on_pushButton_9_clicked"
+        "on_pushButton_9_clicked",
+        "on_listWidget_itemClicked",
+        "QListWidgetItem*",
+        "item"
     };
 
     QtMocHelpers::UintData qt_methods {
@@ -89,6 +92,10 @@ template <> constexpr inline auto albumWindow::qt_create_metaobjectdata<qt_meta_
         QtMocHelpers::SlotData<void()>(14, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'on_pushButton_9_clicked'
         QtMocHelpers::SlotData<void()>(15, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_listWidget_itemClicked'
+        QtMocHelpers::SlotData<void(QListWidgetItem *)>(16, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { 0x80000000 | 17, 18 },
+        }}),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -124,6 +131,7 @@ void albumWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         case 9: _t->on_pushButton_7_clicked(); break;
         case 10: _t->on_pushButton_8_clicked(); break;
         case 11: _t->on_pushButton_9_clicked(); break;
+        case 12: _t->on_listWidget_itemClicked((*reinterpret_cast<std::add_pointer_t<QListWidgetItem*>>(_a[1]))); break;
         default: ;
         }
     }
@@ -148,14 +156,14 @@ int albumWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 12)
+        if (_id < 13)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 12;
+        _id -= 13;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 12)
+        if (_id < 13)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 12;
+        _id -= 13;
     }
     return _id;
 }

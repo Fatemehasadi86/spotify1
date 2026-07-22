@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QMediaPlayer>
 #include <QAudioOutput>
+#include <QListWidget>
 
 namespace Ui {
 class albumWindow;
@@ -42,6 +43,8 @@ private slots:
     void on_pushButton_8_clicked();
 
     void on_pushButton_9_clicked();
+
+    void on_listWidget_itemClicked(QListWidgetItem *item);
 
 private:
     Ui::albumWindow *ui;

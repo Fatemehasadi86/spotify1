@@ -11,6 +11,7 @@ PlaylistSongsWindow::PlaylistSongsWindow(int playlistId,QWidget *parent)
     , ui(new Ui::PlaylistSongsWindow)
 {
     ui->setupUi(this);
+    ui->listWidget->setIconSize(QSize(120,120));
 
     player = new QMediaPlayer(this);
     audioOutput = new QAudioOutput(this);
@@ -102,7 +103,12 @@ void PlaylistSongsWindow::loadSongs()
         if (!name.contains(searchText, Qt::CaseInsensitive))
             continue;
 
-        QListWidgetItem *item = new QListWidgetItem(name);
+        QPixmap pixmap(QString::fromStdString(songs[i].getImagePath()));
+
+        QIcon icon(pixmap);
+
+        QListWidgetItem *item =
+            new QListWidgetItem(icon, name);
 
         ui->listWidget->addItem(item);
     }

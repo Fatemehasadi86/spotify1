@@ -107,9 +107,7 @@ void album_song_window::on_pushButton_2_clicked()
     {
         repository.likeSong(listenerId, selectedId);
 
-        QMessageBox::information(this,
-                                 "Success",
-                                 "Song added to liked songs.");
+        QMessageBox::information(this,"Success","Song added to liked songs.");
     }
 }
 

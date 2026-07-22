@@ -3,6 +3,7 @@
 #include <QMessageBox>
 #include "Album.h"
 #include "AlbumRepository.h"
+#include <QFileDialog>
 
 AddAlbumWindow::AddAlbumWindow(int artistId,QWidget *parent)
     : QWidget(parent)
@@ -37,6 +38,14 @@ void AddAlbumWindow::on_pushButton_2_clicked()
         return;
     }
 
+    if(image.isEmpty())
+    {
+        QMessageBox::warning(this,
+                             "Error",
+                             "Please choose a cover image.");
+        return;
+    }
+
     Album album;
 
     album.setName(title.toStdString());
@@ -50,6 +59,7 @@ void AddAlbumWindow::on_pushButton_2_clicked()
 
     album.setID(newId);
     album.setArtistId(artistId);
+    album.setCoverImage(image.toStdString());
 
     repository.save(album);
 
@@ -61,4 +71,20 @@ void AddAlbumWindow::on_pushButton_2_clicked()
     close();
 }
 
+
+
+void AddAlbumWindow::on_pushButton_clicked()
+{
+    QString path = QFileDialog::getOpenFileName(
+        this,
+        "Select Cover",
+        "",
+        "Images (*.png *.jpg *.jpeg)"
+        );
+
+    if(path.isEmpty())
+        return;
+
+    image = path;
+}
 

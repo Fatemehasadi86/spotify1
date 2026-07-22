@@ -24,8 +24,8 @@ SongProfileWindow::SongProfileWindow(Song &song,QWidget *parent)
 
     ui->label->setPixmap(
         pixmap.scaled(
-            400,
-            400,
+            200,
+            200,
             Qt::KeepAspectRatio,
             Qt::SmoothTransformation));
 }

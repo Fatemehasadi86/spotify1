@@ -103,6 +103,7 @@ void AlbumRepository::loadFromFile()
     std::string title;
     int year;
     int artistId;
+    string imagecover;
 
     while (file >> id)
     {
@@ -113,6 +114,7 @@ void AlbumRepository::loadFromFile()
         file >> year;
         file >> artistId;
         file.ignore();
+        getline(file,imagecover);
 
         Album album;
 
@@ -120,6 +122,7 @@ void AlbumRepository::loadFromFile()
         album.setName(title);
         album.setYear(year);
         album.setArtistId(artistId);
+        album.setCoverImage(imagecover);
 
         albumsList.push_back(album);
     }
@@ -142,6 +145,7 @@ void AlbumRepository::saveToFile()
         file << album.getName() << std::endl;
         file << album.getYear() << std::endl;
         file << album.getArtistId() << std::endl;
+        file << album.getCoverImage()<<std::endl;
     }
 
     file.close();
