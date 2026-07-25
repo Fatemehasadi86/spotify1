@@ -508,6 +508,12 @@
 			null
 		],
 		[
+			"C:/Users/BLUE0409/Documents/spotify/PlaybackList.h",
+			"MU",
+			"EWIEGA46WW/moc_PlaybackList.cpp",
+			null
+		],
+		[
 			"C:/Users/BLUE0409/Documents/spotify/PlaylistRepository.h",
 			"MU",
 			"EWIEGA46WW/moc_PlaylistRepository.cpp",
@@ -772,6 +778,7 @@
 			null
 		],
 		[ "C:/Users/BLUE0409/Documents/spotify/PlayList.cpp", "MU", null ],
+		[ "C:/Users/BLUE0409/Documents/spotify/PlaybackList.cpp", "MU", null ],
 		[
 			"C:/Users/BLUE0409/Documents/spotify/PlaylistRepository.cpp",
 			"MU",

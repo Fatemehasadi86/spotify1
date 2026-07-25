@@ -14,11 +14,6 @@ albumWindow::albumWindow(int albumId,int artistId,QWidget *parent)
     , ui(new Ui::albumWindow)
 {
     ui->setupUi(this);
-    audioOutput = new QAudioOutput(this);
-    player = new QMediaPlayer(this);
-
-    player->setAudioOutput(audioOutput);
-    audioOutput->setVolume(0.7);
 
     ui->listWidget->setIconSize(QSize(120,120));
     this->albumId=albumId;
@@ -64,6 +59,7 @@ void albumWindow::loadSong()
     repository.loadFromFile();
 
     std::vector<Song> songs = repository.getByAlbum(albumId);
+    playback.setSongs(songs);
 
     if (sortType == "Name (A_Z)")
     {
@@ -240,132 +236,25 @@ void albumWindow::on_comboBox_3_currentTextChanged(const QString &arg1)
 
 void albumWindow::on_pushButton_5_clicked()
 {
-    if (ui->listWidget->selectedItems().isEmpty())
-    {
-        QMessageBox::warning(this,
-                             "Error",
-                             "Please select a song.");
-        return;
-    }
-
-    QListWidgetItem *item = ui->listWidget->selectedItems().first();
-
-    QString songName = item->text();
-
-    SongRepository repository;
-    repository.loadFromFile();
-
-    std::vector<Song> songs = repository.getAllSongs();
-
-    for (int i = 0; i < songs.size(); i++)
-    {
-        if (songs[i].getName() == songName.toStdString())
-        {
-            player->setSource(
-                QUrl::fromLocalFile(
-                    QString::fromStdString(songs[i].getFilePath())
-                    )
-                );
-
-            player->play();
-
-            break;
-        }
-    }
+    playback.play();
 }
 
 
 void albumWindow::on_pushButton_6_clicked()
 {
-    player->pause();
+    playback.pause();
 }
 
 
 void albumWindow::on_pushButton_7_clicked()
 {
-    int row = ui->listWidget->currentRow();
-
-    if (row == -1)
-    {
-        QMessageBox::warning(this,
-                             "Error",
-                             "Please select a song.");
-        return;
-    }
-
-    if (row >= ui->listWidget->count() - 1)
-        return;
-
-    ui->listWidget->setCurrentRow(row + 1);
-
-    QListWidgetItem *item = ui->listWidget->currentItem();
-
-    QString songName = item->text();
-
-    SongRepository repository;
-    repository.loadFromFile();
-
-    std::vector<Song> songs = repository.getAllSongs();
-
-    for (int i = 0; i < songs.size(); i++)
-    {
-        if (songs[i].getName() == songName.toStdString())
-        {
-            player->setSource(
-                QUrl::fromLocalFile(
-                    QString::fromStdString(songs[i].getFilePath())
-                    )
-                );
-
-            player->play();
-
-            break;
-        }
-    }
+    playback.next();
 }
 
 
 void albumWindow::on_pushButton_8_clicked()
 {
-    int row = ui->listWidget->currentRow();
-
-    if (row == -1)
-    {
-        QMessageBox::warning(this,
-                             "Error",
-                             "Please select a song.");
-        return;
-    }
-
-    if (row == 0)
-        return;
-
-    ui->listWidget->setCurrentRow(row - 1);
-
-    QListWidgetItem *item = ui->listWidget->currentItem();
-
-    QString songName = item->text();
-
-    SongRepository repository;
-    repository.loadFromFile();
-
-    std::vector<Song> songs = repository.getAllSongs();
-
-    for (int i = 0; i < songs.size(); i++)
-    {
-        if (songs[i].getName() == songName.toStdString())
-        {
-            player->setSource(
-                QUrl::fromLocalFile(
-                    QString::fromStdString(songs[i].getFilePath())
-                    )
-                );
-
-            player->play();
-
-            break;
-        }
-    }
+    playback.previous();
 }
 
 
@@ -410,6 +299,7 @@ void albumWindow::on_listWidget_itemClicked(QListWidgetItem *item)
         if (songs[i].getName() == songName.toStdString())
         {
             selectedSongId = songs[i].getId();
+            playback.setCurrentSong(ui->listWidget->currentRow());
             break;
         }
     }

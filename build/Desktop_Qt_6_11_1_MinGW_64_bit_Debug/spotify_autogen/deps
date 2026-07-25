@@ -724,6 +724,8 @@ spotify_autogen/timestamp: \
 	C:/Users/BLUE0409/Documents/spotify/ListenerRepository.h \
 	C:/Users/BLUE0409/Documents/spotify/PlayList.cpp \
 	C:/Users/BLUE0409/Documents/spotify/PlayList.h \
+	C:/Users/BLUE0409/Documents/spotify/PlaybackList.cpp \
+	C:/Users/BLUE0409/Documents/spotify/PlaybackList.h \
 	C:/Users/BLUE0409/Documents/spotify/PlaylistRepository.cpp \
 	C:/Users/BLUE0409/Documents/spotify/PlaylistRepository.h \
 	C:/Users/BLUE0409/Documents/spotify/Song.cpp \

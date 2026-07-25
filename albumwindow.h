@@ -5,6 +5,7 @@
 #include <QMediaPlayer>
 #include <QAudioOutput>
 #include <QListWidget>
+#include "PlaybackList.h"
 
 namespace Ui {
 class albumWindow;
@@ -56,8 +57,8 @@ private:
     QString sortType= "Default";
     int selectedSongId = -1;
 
-    QMediaPlayer *player;
-    QAudioOutput *audioOutput;
+
+    PlaybackList playback;
 };
 
 #endif // ALBUMWINDOW_H

@@ -68,6 +68,8 @@ qt_add_executable(spotify
     editaccountwindow.h editaccountwindow.cpp editaccountwindow.ui
     songprofilewindow.h songprofilewindow.cpp songprofilewindow.ui
     profilewindow.h profilewindow.cpp profilewindow.ui
+    PlaybackList.cpp
+    PlaybackList.h
 
 
 )

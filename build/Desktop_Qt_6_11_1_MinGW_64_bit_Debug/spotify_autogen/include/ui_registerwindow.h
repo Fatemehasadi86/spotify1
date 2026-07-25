@@ -314,7 +314,7 @@ public:
         pushButton->setText(QCoreApplication::translate("registerWindow", "Ok", nullptr));
         pushButton_2->setText(QCoreApplication::translate("registerWindow", "Cancel", nullptr));
         label_10->setText(QCoreApplication::translate("registerWindow", "Biography", nullptr));
-        label_2->setText(QCoreApplication::translate("registerWindow", "TextLabel", nullptr));
+        label_2->setText(QString());
     } // retranslateUi
 
 };
