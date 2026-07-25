@@ -5,6 +5,29 @@
 #include "Artist.h"
 #include "ArtistRepository.h"
 #include "ListenerRepository.h"
+#include <QRegularExpression>
+
+QString registerWindow::checkPassword(QString password)
+{
+    bool lower = QRegularExpression("[a-z]").match(password).hasMatch();
+    bool upper = QRegularExpression("[A-Z]").match(password).hasMatch();
+    bool number = QRegularExpression("[0-9]").match(password).hasMatch();
+    bool symbol = QRegularExpression("[^a-zA-Z0-9]").match(password).hasMatch();
+
+    if(password.length() >= 12 &&
+        lower && upper && number && symbol)
+    {
+        return "Password is strong";
+    }
+
+    if(password.length() >= 6 &&
+        lower && upper && number && symbol)
+    {
+        return "Password is medium";
+    }
+
+    return "Password is Weak";
+}
 
 registerWindow::registerWindow(QWidget *parent)
     : QWidget(parent)
@@ -28,6 +51,14 @@ void registerWindow::on_pushButton_clicked()
         QString fullName = ui->lineEdit_4->text();
         QString userName = ui->lineEdit_6->text();
         QString password = ui->lineEdit_5->text();
+
+        QString level = checkPassword(password);
+
+        QMessageBox::information(
+            this,
+            "level",
+            level);
+
         QString biography = ui->lineEdit_7->text();
 
         if(fullName.isEmpty() || userName.isEmpty() || password.isEmpty())
@@ -85,5 +116,14 @@ void registerWindow::on_pushButton_clicked()
 void registerWindow::on_pushButton_2_clicked()
 {
     close();
+}
+
+
+void registerWindow::on_lineEdit_5_textChanged(const QString &arg1)
+{
+    QString level = checkPassword(arg1);
+
+    ui->label_2->setText(level);
+
 }
 

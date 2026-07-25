@@ -20,8 +20,12 @@ private slots:
 
     void on_pushButton_2_clicked();
 
+    void on_lineEdit_5_textChanged(const QString &arg1);
+
 private:
     Ui::registerWindow *ui;
+
+    QString checkPassword(QString password);
 };
 
 #endif // REGISTERWINDOW_H

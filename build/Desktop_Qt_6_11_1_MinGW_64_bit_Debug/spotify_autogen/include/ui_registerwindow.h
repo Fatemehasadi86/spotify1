@@ -47,6 +47,7 @@ public:
     QPushButton *pushButton_2;
     QLineEdit *lineEdit_7;
     QLabel *label_10;
+    QLabel *label_2;
 
     void setupUi(QWidget *registerWindow)
     {
@@ -55,7 +56,7 @@ public:
         registerWindow->resize(735, 617);
         layoutWidget = new QWidget(registerWindow);
         layoutWidget->setObjectName("layoutWidget");
-        layoutWidget->setGeometry(QRect(70, 140, 571, 42));
+        layoutWidget->setGeometry(QRect(60, 100, 571, 42));
         horizontalLayout_4 = new QHBoxLayout(layoutWidget);
         horizontalLayout_4->setObjectName("horizontalLayout_4");
         horizontalLayout_4->setContentsMargins(0, 0, 0, 0);
@@ -81,7 +82,7 @@ public:
 
         layoutWidget_2 = new QWidget(registerWindow);
         layoutWidget_2->setObjectName("layoutWidget_2");
-        layoutWidget_2->setGeometry(QRect(70, 260, 571, 42));
+        layoutWidget_2->setGeometry(QRect(60, 220, 571, 42));
         horizontalLayout_5 = new QHBoxLayout(layoutWidget_2);
         horizontalLayout_5->setObjectName("horizontalLayout_5");
         horizontalLayout_5->setContentsMargins(0, 0, 0, 0);
@@ -107,7 +108,7 @@ public:
 
         layoutWidget_3 = new QWidget(registerWindow);
         layoutWidget_3->setObjectName("layoutWidget_3");
-        layoutWidget_3->setGeometry(QRect(70, 200, 571, 42));
+        layoutWidget_3->setGeometry(QRect(60, 160, 571, 42));
         horizontalLayout_6 = new QHBoxLayout(layoutWidget_3);
         horizontalLayout_6->setObjectName("horizontalLayout_6");
         horizontalLayout_6->setContentsMargins(0, 0, 0, 0);
@@ -133,7 +134,7 @@ public:
 
         label = new QLabel(registerWindow);
         label->setObjectName("label");
-        label->setGeometry(QRect(40, 20, 661, 131));
+        label->setGeometry(QRect(30, -20, 661, 131));
         label->setStyleSheet(QString::fromUtf8("QLabel{\n"
 "    color: #F5F5F5;\n"
 "    font-size: 20pt;\n"
@@ -291,6 +292,9 @@ public:
 "    font-weight:900;\n"
 "    font-family:\"Segoe UI\";\n"
 "}"));
+        label_2 = new QLabel(registerWindow);
+        label_2->setObjectName("label_2");
+        label_2->setGeometry(QRect(60, 280, 571, 21));
 
         retranslateUi(registerWindow);
 
@@ -310,6 +314,7 @@ public:
         pushButton->setText(QCoreApplication::translate("registerWindow", "Ok", nullptr));
         pushButton_2->setText(QCoreApplication::translate("registerWindow", "Cancel", nullptr));
         label_10->setText(QCoreApplication::translate("registerWindow", "Biography", nullptr));
+        label_2->setText(QCoreApplication::translate("registerWindow", "TextLabel", nullptr));
     } // retranslateUi
 
 };
