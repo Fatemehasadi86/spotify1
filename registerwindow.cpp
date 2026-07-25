@@ -19,7 +19,7 @@ registerWindow::~registerWindow()
 }
 
 
-#include <stdexcept>
+
 
 void registerWindow::on_pushButton_clicked()
 {

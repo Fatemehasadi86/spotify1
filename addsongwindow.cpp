@@ -117,6 +117,8 @@ void addSongWindow::on_pushButton_3_clicked()
 
     repository.save(song);
 
+    qDebug()<<imagePath;
+
     QMessageBox::information(this,"Success"," Song added successfully ");
 
     close();
@@ -138,19 +140,44 @@ void addSongWindow::on_pushButton_clicked()
     songPath = path;
 }
 
-
 void addSongWindow::on_pushButton_2_clicked()
 {
-    QString path = QFileDialog::getOpenFileName(
+    QString fileName = QFileDialog::getOpenFileName(
         this,
         "Select Image",
         "",
         "Images (*.png *.jpg *.jpeg)"
         );
 
-    if(path.isEmpty())
+    if (fileName.isEmpty())
         return;
 
-    imagePath = path;
-}
+    QString projectImages =
+        QDir::cleanPath(QDir::currentPath() + "/../../../spotify/images");
 
+    QDir dir(projectImages);
+
+    if (!dir.exists())
+        dir.mkpath(".");
+
+    QString imageName = QFileInfo(fileName).fileName();
+
+    QString newPath = dir.filePath(imageName);
+
+    QFile::remove(newPath);
+
+    bool ok = QFile::copy(fileName, newPath);
+
+    if (!ok)
+    {
+        QMessageBox::warning(this, "Error", "Image was not copied.");
+        return;
+    }
+
+    imagePath = "images/" + imageName;
+
+    qDebug() << "Saved Image:" << newPath;
+    qDebug() << "Stored Path:" << imagePath;
+
+    ui->label->setPixmap(QPixmap(newPath));
+}

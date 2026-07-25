@@ -5,6 +5,9 @@ find_package(Qt6 6.5 REQUIRED COMPONENTS Core Widgets Multimedia)
 
 qt_standard_project_setup()
 
+
+set(CMAKE_AUTORCC ON)
+
 qt_add_executable(spotify
     WIN32 MACOSX_BUNDLE
     main.cpp
@@ -64,6 +67,7 @@ qt_add_executable(spotify
     likedsongwindow.h likedsongwindow.cpp likedsongwindow.ui
     editaccountwindow.h editaccountwindow.cpp editaccountwindow.ui
     songprofilewindow.h songprofilewindow.cpp songprofilewindow.ui
+    profilewindow.h profilewindow.cpp profilewindow.ui
 
 
 )

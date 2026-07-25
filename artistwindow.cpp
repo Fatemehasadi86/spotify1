@@ -11,6 +11,9 @@
 #include "editaccountwindow.h"
 #include <QMessageBox>
 #include "loginwindow.h"
+#include <QFileDialog>
+#include <QFileInfo>
+
 
 
 
@@ -18,10 +21,11 @@ artistWindow::artistWindow(int artistId,QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::artistWindow)
 {
-    this->artistId=artistId;
     ui->setupUi(this);
 
     ui->listWidgetAlbums->setIconSize(QSize(120,120));
+
+    this->artistId = artistId;
 
     ArtistRepository repository;
     repository.loadFromFile();
@@ -30,8 +34,34 @@ artistWindow::artistWindow(int artistId,QWidget *parent)
 
     if (artist.has_value())
     {
-        ui->label_3->setText(
-            QString::fromStdString(artist->getFullName()));
+        ui->label_3->setText(QString::fromStdString(artist->getFullName()));
+
+
+        QString path;
+
+        // اگر عکس انتخاب نکرده باشد
+        if (artist->getProfileImage().empty())
+        {
+            path = ":/images/cover1.jpg";   // عکس پیش‌فرض داخل qrc
+        }
+        else
+        {
+            path = QDir::cleanPath(
+                QCoreApplication::applicationDirPath()
+                + "/../../../spotify/"
+                + QString::fromStdString(artist->getProfileImage())
+                );
+        }
+
+        QPixmap pixmap(path);
+
+        ui->label->setPixmap(
+            pixmap.scaled(
+                200,
+                200,
+                Qt::KeepAspectRatio,
+                Qt::SmoothTransformation));
+
     }
 
     loadAlbums();
@@ -183,5 +213,35 @@ void artistWindow::on_pushButton_7_clicked()
     login->show();
 
     close();
+}
+
+
+void artistWindow::on_pushButton_8_clicked()
+{
+    QString path = QFileDialog::getOpenFileName(
+        this,
+        "Select Profile Image",
+        "",
+        "Images (*.png *.jpg *.jpeg)"
+        );
+
+    if(path.isEmpty())
+        return;
+
+    ArtistRepository repository;
+    repository.loadFromFile();
+
+    std::optional<Account> account = repository.search(artistId);
+
+    if(!account.has_value())
+        return;
+
+    Account artist = account.value();
+
+    artist.setProfileImage(path.toStdString());
+
+    repository.save(artist);
+
+    QMessageBox::information(this,"Success","Profile image updated successfully.");
 }
 

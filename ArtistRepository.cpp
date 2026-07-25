@@ -37,6 +37,8 @@ void ArtistRepository::saveToFile()
         file << listeners[i].getFullName() << std::endl;
         file << listeners[i].getUsername() << std::endl;
         file << listeners[i].getPassword() << std::endl;
+        file << listeners[i].getBiography() << std::endl;
+        file << listeners[i].getProfileImage() << std ::endl;
         file << "Listener" << std::endl;
     }
 
@@ -47,6 +49,8 @@ void ArtistRepository::saveToFile()
         file << artists[i].getFullName() << std::endl;
         file << artists[i].getUsername() << std::endl;
         file << artists[i].getPassword() << std::endl;
+        file << artists[i].getBiography() << std::endl;
+        file << artists[i].getProfileImage() << std ::endl;
         file << "Artist" << std::endl;
     }
 
@@ -131,6 +135,8 @@ void ArtistRepository::loadFromFile(){
     std::string userName;
     std::string password;
     std::string type;
+    std::string biography;
+    std::string profileImage;
 
     while (file >> id)
     {
@@ -139,6 +145,8 @@ void ArtistRepository::loadFromFile(){
         getline(file, fullName);
         getline(file, userName);
         getline(file, password);
+        getline(file,biography);
+        getline(file,profileImage);
         getline(file, type);
 
         if (type == "Artist")
@@ -148,6 +156,8 @@ void ArtistRepository::loadFromFile(){
             artist.setFullName(fullName);
             artist.setUsername(userName);
             artist.setPassword(password);
+            artist.setBiography(biography);
+            artist.setProfileImage(profileImage);
             artists.push_back(artist);
         }
     }

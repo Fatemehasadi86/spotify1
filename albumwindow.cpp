@@ -7,6 +7,7 @@
 #include <QIcon>
 #include <QPixmap>
 #include "songprofilewindow.h"
+#include <QDir>
 
 albumWindow::albumWindow(int albumId,int artistId,QWidget *parent)
     : QWidget(parent)
@@ -96,7 +97,14 @@ void albumWindow::loadSong()
         if (yearFilter != "All" && year != yearFilter)
             continue;
 
-        QPixmap pixmap(QString::fromStdString(songs[i].getImagePath()));
+        QString imagePath =
+            QDir::cleanPath(
+                QCoreApplication::applicationDirPath()
+                + "/../../../spotify/"
+                + QString::fromStdString(songs[i].getImagePath())
+                );
+
+        QPixmap pixmap(imagePath);
 
         QIcon icon(pixmap);
 

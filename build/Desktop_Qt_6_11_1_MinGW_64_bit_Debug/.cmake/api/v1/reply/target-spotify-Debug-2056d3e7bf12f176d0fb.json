@@ -65,7 +65,7 @@
 			{
 				"command" : 3,
 				"file" : 1,
-				"line" : 8,
+				"line" : 11,
 				"parent" : 0
 			},
 			{
@@ -89,13 +89,13 @@
 			{
 				"command" : 4,
 				"file" : 1,
-				"line" : 78,
+				"line" : 82,
 				"parent" : 0
 			},
 			{
 				"command" : 5,
 				"file" : 1,
-				"line" : 71,
+				"line" : 75,
 				"parent" : 0
 			},
 			{
@@ -552,20 +552,21 @@
 				86,
 				89,
 				92,
-				94,
-				97,
-				100
+				95,
+				98,
+				101,
+				130
 			]
 		}
 	],
 	"dependencies" : 
 	[
 		{
-			"backtrace" : 0,
-			"id" : "spotify_autogen::@6890427a1f51a3e7e1df"
+			"id" : "spotify_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
 		},
 		{
-			"id" : "spotify_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
+			"backtrace" : 0,
+			"id" : "spotify_autogen::@6890427a1f51a3e7e1df"
 		}
 	],
 	"id" : "spotify::@6890427a1f51a3e7e1df",
@@ -691,7 +692,6 @@
 			"sourceIndexes" : 
 			[
 				0,
-				103,
 				104,
 				105,
 				106,
@@ -715,7 +715,10 @@
 				124,
 				125,
 				126,
-				127
+				127,
+				128,
+				129,
+				130
 			]
 		},
 		{
@@ -757,9 +760,9 @@
 				86,
 				89,
 				92,
-				94,
-				97,
-				100
+				95,
+				98,
+				101
 			]
 		},
 		{
@@ -801,9 +804,9 @@
 				85,
 				88,
 				91,
-				93,
-				96,
-				99
+				94,
+				97,
+				100
 			]
 		},
 		{
@@ -831,9 +834,10 @@
 				84,
 				87,
 				90,
-				95,
-				98,
-				101
+				93,
+				96,
+				99,
+				102
 			]
 		},
 		{
@@ -847,14 +851,15 @@
 			"name" : "",
 			"sourceIndexes" : 
 			[
-				102
+				103
 			]
 		},
 		{
 			"name" : "CMake Rules",
 			"sourceIndexes" : 
 			[
-				128
+				131,
+				132
 			]
 		}
 	],
@@ -1353,17 +1358,6 @@
 		},
 		{
 			"backtrace" : 4,
-			"path" : "likedSongsRepository.h",
-			"sourceGroupIndex" : 2
-		},
-		{
-			"backtrace" : 4,
-			"compileGroupIndex" : 0,
-			"path" : "likedSongsRepository.cpp",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 4,
 			"path" : "likedsongwindow.h",
 			"sourceGroupIndex" : 2
 		},
@@ -1408,6 +1402,22 @@
 		{
 			"backtrace" : 4,
 			"path" : "songprofilewindow.ui",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 4,
+			"path" : "profilewindow.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "profilewindow.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "profilewindow.ui",
 			"sourceGroupIndex" : 3
 		},
 		{
@@ -1562,13 +1572,32 @@
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/spotify_autogen/include/ui_profilewindow.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
 			"path" : "build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/spotify_autogen/timestamp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 0,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/spotify_autogen/EWIEGA46WW/qrc_resources.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
 			"path" : "build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/spotify_autogen/timestamp.rule",
+			"sourceGroupIndex" : 6
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/spotify_autogen/EWIEGA46WW/qrc_resources.cpp.rule",
 			"sourceGroupIndex" : 6
 		}
 	],

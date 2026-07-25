@@ -438,7 +438,8 @@
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeFindDependencyMacro.cmake",
 		"C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6/Qt6Dependencies.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/GNUInstallDirs.cmake",
-		"C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6/windows/app.exe.manifest.in"
+		"C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6/windows/app.exe.manifest.in",
+		"C:/Users/BLUE0409/Documents/spotify/resources.qrc"
 	],
 	"CMAKE_SOURCE_DIR" : "C:/Users/BLUE0409/Documents/spotify",
 	"CROSS_CONFIG" : false,
@@ -624,6 +625,12 @@
 			"C:/Users/BLUE0409/Documents/spotify/playlistsongswindow.h",
 			"MU",
 			"EWIEGA46WW/moc_playlistsongswindow.cpp",
+			null
+		],
+		[
+			"C:/Users/BLUE0409/Documents/spotify/profilewindow.h",
+			"MU",
+			"EWIEGA46WW/moc_profilewindow.cpp",
 			null
 		],
 		[
@@ -818,6 +825,7 @@
 			"MU",
 			null
 		],
+		[ "C:/Users/BLUE0409/Documents/spotify/profilewindow.cpp", "MU", null ],
 		[ "C:/Users/BLUE0409/Documents/spotify/registerwindow.cpp", "MU", null ],
 		[
 			"C:/Users/BLUE0409/Documents/spotify/selectalbum2window.cpp",

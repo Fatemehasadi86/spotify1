@@ -1,5 +1,6 @@
 #include "songprofilewindow.h"
 #include "ui_songprofilewindow.h"
+#include <QDir>
 
 SongProfileWindow::SongProfileWindow(Song &song,QWidget *parent)
     : QWidget(parent)
@@ -19,8 +20,17 @@ SongProfileWindow::SongProfileWindow(Song &song,QWidget *parent)
         QString::number(song.getReleaseYear()));
 
 
-    QPixmap pixmap(
-        QString::fromStdString(song.getImagePath()));
+    QString image =
+        QDir::cleanPath(
+            QCoreApplication::applicationDirPath()
+            + "/../../../spotify/"
+            + QString::fromStdString(song.getImagePath())
+            );
+
+    QPixmap pixmap(image);
+
+    qDebug() << image;
+    qDebug() << QFile::exists(image);
 
     ui->label->setPixmap(
         pixmap.scaled(

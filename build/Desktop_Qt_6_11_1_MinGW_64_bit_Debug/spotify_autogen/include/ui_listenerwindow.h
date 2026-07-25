@@ -35,6 +35,8 @@ public:
     QLabel *label_3;
     QPushButton *pushButton_6;
     QPushButton *pushButton_7;
+    QPushButton *pushButton_8;
+    QLabel *label_4;
 
     void setupUi(QWidget *listenerWindow)
     {
@@ -133,7 +135,7 @@ public:
 "}"));
         layoutWidget = new QWidget(listenerWindow);
         layoutWidget->setObjectName("layoutWidget");
-        layoutWidget->setGeometry(QRect(20, 30, 293, 42));
+        layoutWidget->setGeometry(QRect(110, 20, 293, 42));
         horizontalLayout = new QHBoxLayout(layoutWidget);
         horizontalLayout->setObjectName("horizontalLayout");
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
@@ -173,6 +175,14 @@ public:
         pushButton_7 = new QPushButton(listenerWindow);
         pushButton_7->setObjectName("pushButton_7");
         pushButton_7->setGeometry(QRect(550, 10, 121, 41));
+        pushButton_8 = new QPushButton(listenerWindow);
+        pushButton_8->setObjectName("pushButton_8");
+        pushButton_8->setGeometry(QRect(300, 90, 121, 31));
+        label_4 = new QLabel(listenerWindow);
+        label_4->setObjectName("label_4");
+        label_4->setGeometry(QRect(30, 20, 51, 51));
+        label_4->setStyleSheet(QString::fromUtf8(""));
+        label_4->setScaledContents(true);
 
         retranslateUi(listenerWindow);
 
@@ -192,6 +202,8 @@ public:
         label_3->setText(QCoreApplication::translate("listenerWindow", "TextLabel", nullptr));
         pushButton_6->setText(QCoreApplication::translate("listenerWindow", "Edit account", nullptr));
         pushButton_7->setText(QCoreApplication::translate("listenerWindow", "Delete account", nullptr));
+        pushButton_8->setText(QCoreApplication::translate("listenerWindow", "Profile", nullptr));
+        label_4->setText(QCoreApplication::translate("listenerWindow", "TextLabel", nullptr));
     } // retranslateUi
 
 };

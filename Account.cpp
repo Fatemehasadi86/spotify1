@@ -64,3 +64,13 @@ void Account::setBiography(const string bio) {
 void Account::setRole(const string newRole) {
     role = newRole;
 }
+
+std::string Account::getProfileImage()
+{
+    return profileImage;
+}
+
+void Account::setProfileImage(const std::string &image)
+{
+    profileImage = image;
+}

@@ -12,6 +12,9 @@
 #include "editaccountwindow.h"
 #include "loginwindow.h"
 #include <QMessageBox>
+#include <QFileDialog>
+#include <QFileInfo>
+#include "ListenerRepository.h"
 
 
 listenerWindow::listenerWindow(int listenerId, QWidget *parent)
@@ -19,6 +22,7 @@ listenerWindow::listenerWindow(int listenerId, QWidget *parent)
     , ui(new Ui::listenerWindow)
 {
     ui->setupUi(this);
+
     this->listenerId = listenerId;
 
     ListenerRepository repository;
@@ -28,8 +32,32 @@ listenerWindow::listenerWindow(int listenerId, QWidget *parent)
 
     if (listener.has_value())
     {
-        ui->label_3->setText(
-            QString::fromStdString(listener->getFullName()));
+        ui->label_3->setText(QString::fromStdString(listener->getFullName()));
+
+        QString path;
+
+        // اگر عکس انتخاب نکرده باشد
+        if (listener->getProfileImage().empty())
+        {
+            path = ":/images/cover1.jpg";   // عکس پیش‌فرض داخل qrc
+        }
+        else
+        {
+            path = QDir::cleanPath(
+                QCoreApplication::applicationDirPath()
+                + "/../../../spotify/"
+                + QString::fromStdString(listener->getProfileImage())
+                );
+        }
+
+        QPixmap pixmap(path);
+
+        ui->label_4->setPixmap(
+            pixmap.scaled(
+                200,
+                200,
+                Qt::KeepAspectRatio,
+                Qt::SmoothTransformation));
     }
 
     loadplaylist();
@@ -171,4 +199,41 @@ void listenerWindow::on_pushButton_7_clicked()
 
     close();
 }
+
+
+void listenerWindow::on_pushButton_8_clicked()
+{
+    QString path = QFileDialog::getOpenFileName(
+        this,
+        "Select Profile Image",
+        "",
+        "Images (*.png *.jpg *.jpeg)"
+        );
+
+    if(path.isEmpty())
+        return;
+
+    ListenerRepository repository;
+    repository.loadFromFile();
+
+    std::optional<Account> account = repository.search(listenerId);
+
+    if(!account.has_value())
+        return;
+
+    Account listener = account.value();
+
+    listener.setProfileImage(path.toStdString());
+
+    repository.save(listener);
+
+    QMessageBox::information(
+        this,
+        "Success",
+        "Profile image updated successfully."
+        );
+}
+
+
+
 

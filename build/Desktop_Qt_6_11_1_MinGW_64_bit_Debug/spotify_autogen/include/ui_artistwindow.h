@@ -24,11 +24,11 @@ class Ui_artistWindow
 {
 public:
     QFrame *frame;
-    QLabel *label;
     QWidget *layoutWidget;
     QHBoxLayout *horizontalLayout;
     QLabel *label_2;
     QLabel *label_3;
+    QLabel *label;
     QLabel *label_4;
     QPushButton *pushButton;
     QPushButton *pushButton_2;
@@ -38,6 +38,7 @@ public:
     QListWidget *listWidgetAlbums;
     QPushButton *pushButton_6;
     QPushButton *pushButton_7;
+    QPushButton *pushButton_8;
 
     void setupUi(QWidget *artistWindow)
     {
@@ -56,17 +57,6 @@ public:
         frame->setFrameShape(QFrame::Shape::StyledPanel);
         frame->setFrameShadow(QFrame::Shadow::Raised);
         frame->setLineWidth(1);
-        label = new QLabel(frame);
-        label->setObjectName("label");
-        label->setGeometry(QRect(10, 10, 50, 50));
-        label->setMinimumSize(QSize(50, 50));
-        label->setMaximumSize(QSize(50, 50));
-        label->setStyleSheet(QString::fromUtf8("QLabel{\n"
-"    border-radius:25px;\n"
-"    border:2px solid #1DB954;\n"
-"}"));
-        label->setPixmap(QPixmap(QString::fromUtf8(":/images/124.png")));
-        label->setScaledContents(true);
         layoutWidget = new QWidget(frame);
         layoutWidget->setObjectName("layoutWidget");
         layoutWidget->setGeometry(QRect(120, 19, 157, 42));
@@ -101,6 +91,10 @@ public:
 "    font-weight:900;\n"
 "    font-family:\"Segoe UI\";\n"
 "}"));
+        label = new QLabel(frame);
+        label->setObjectName("label");
+        label->setGeometry(QRect(20, 10, 51, 51));
+        label->setScaledContents(true);
         label_4 = new QLabel(artistWindow);
         label_4->setObjectName("label_4");
         label_4->setGeometry(QRect(50, 110, 211, 51));
@@ -295,6 +289,30 @@ public:
 "QPushButton:pressed{\n"
 "    background: #12853d;\n"
 "}"));
+        pushButton_8 = new QPushButton(artistWindow);
+        pushButton_8->setObjectName("pushButton_8");
+        pushButton_8->setGeometry(QRect(360, 120, 131, 31));
+        pushButton_8->setStyleSheet(QString::fromUtf8("QPushButton{\n"
+"    background: qlineargradient(\n"
+"        x1:0, y1:0,\n"
+"        x2:1, y2:1,\n"
+"        stop:0 #1DB954,\n"
+"        stop:1 #18a84b);\n"
+"    color: white;\n"
+"    border: none;\n"
+"    border-radius: 12px;\n"
+"    font-size: 11pt;\n"
+"    font-weight: bold;\n"
+"    padding: 5px 12px;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"    background: #28e46a;\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"    background: #12853d;\n"
+"}"));
 
         retranslateUi(artistWindow);
 
@@ -304,9 +322,9 @@ public:
     void retranslateUi(QWidget *artistWindow)
     {
         artistWindow->setWindowTitle(QCoreApplication::translate("artistWindow", "Form", nullptr));
-        label->setText(QString());
         label_2->setText(QCoreApplication::translate("artistWindow", "Welcome", nullptr));
         label_3->setText(QCoreApplication::translate("artistWindow", ".", nullptr));
+        label->setText(QCoreApplication::translate("artistWindow", "TextLabel", nullptr));
         label_4->setText(QCoreApplication::translate("artistWindow", "My Albums", nullptr));
         pushButton->setText(QCoreApplication::translate("artistWindow", "Add Album", nullptr));
         pushButton_2->setText(QCoreApplication::translate("artistWindow", "Add Song", nullptr));
@@ -315,6 +333,7 @@ public:
         pushButton_5->setText(QCoreApplication::translate("artistWindow", "Logout", nullptr));
         pushButton_6->setText(QCoreApplication::translate("artistWindow", "Edit Account", nullptr));
         pushButton_7->setText(QCoreApplication::translate("artistWindow", "Delete Account", nullptr));
+        pushButton_8->setText(QCoreApplication::translate("artistWindow", "Profile", nullptr));
     } // retranslateUi
 
 };

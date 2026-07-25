@@ -20,6 +20,8 @@ int AccountRepository::generateNewId()
     std::string fullName;
     std::string username;
     std::string password;
+    std::string biography;
+    std::string profileImage;
     std::string role;
 
     while (file >> id)
@@ -29,6 +31,8 @@ int AccountRepository::generateNewId()
         getline(file, fullName);
         getline(file, username);
         getline(file, password);
+        getline(file, biography);
+        getline(file, profileImage);
         getline(file, role);
 
         if (id > maxId)

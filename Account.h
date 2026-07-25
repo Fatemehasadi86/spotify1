@@ -9,6 +9,7 @@ private:
     std::string password;
     std::string biography;
     std::string role;
+    std::string profileImage;
 
 public:
     Account();
@@ -28,4 +29,7 @@ public:
     void setPassword(const std::string pass);
     void setBiography(const std::string bio);
     void setRole(const std::string newRole);
+    std::string getProfileImage();
+    void setProfileImage(const std::string &image);
+
 };

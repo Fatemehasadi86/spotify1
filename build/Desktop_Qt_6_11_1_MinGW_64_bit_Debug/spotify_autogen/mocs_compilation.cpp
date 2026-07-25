@@ -16,6 +16,7 @@
 #include "EWIEGA46WW/moc_loginwindow.cpp"
 #include "EWIEGA46WW/moc_mainwindow.cpp"
 #include "EWIEGA46WW/moc_playlistsongswindow.cpp"
+#include "EWIEGA46WW/moc_profilewindow.cpp"
 #include "EWIEGA46WW/moc_registerwindow.cpp"
 #include "EWIEGA46WW/moc_selectalbum2window.cpp"
 #include "EWIEGA46WW/moc_selectalbumwindow.cpp"

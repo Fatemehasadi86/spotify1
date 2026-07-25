@@ -29,6 +29,8 @@ void ListenerRepository::saveToFile()
         file << artists[i].getFullName() << std::endl;
         file << artists[i].getUsername() << std::endl;
         file << artists[i].getPassword() << std::endl;
+        file << artists[i].getBiography() << std::endl;
+        file << artists[i].getProfileImage() << std ::endl;
         file << "Artist" << std::endl;
     }
 
@@ -39,6 +41,8 @@ void ListenerRepository::saveToFile()
         file << listeners[i].getFullName() << std::endl;
         file << listeners[i].getUsername() << std::endl;
         file << listeners[i].getPassword() << std::endl;
+        file << listeners[i].getBiography() << std::endl;
+        file << listeners[i].getProfileImage() << std ::endl;
         file << "Listener" << std::endl;
     }
 
@@ -119,6 +123,8 @@ void ListenerRepository::loadFromFile(){
     std::string userName;
     std::string password;
     std::string type;
+    std::string biography;
+    std::string profileImage;
 
     while (file >> id)
     {
@@ -127,7 +133,11 @@ void ListenerRepository::loadFromFile(){
         getline(file, fullName);
         getline(file, userName);
         getline(file, password);
+        getline(file,biography);
+        getline(file,profileImage);
         getline(file, type);
+
+
 
         if (type == "Listener")
         {
@@ -136,6 +146,8 @@ void ListenerRepository::loadFromFile(){
             listener.setFullName(fullName);
             listener.setUsername(userName);
             listener.setPassword(password);
+            listener.setBiography(biography);
+            listener.setProfileImage(profileImage);
             listeners.push_back(listener);
         }
     }
@@ -143,19 +155,98 @@ void ListenerRepository::loadFromFile(){
     file.close();
 }
 
-void ListenerRepository::updateLiked(int listenerId, int songId, bool liked)
-{
+// void ListenerRepository::updateLiked(int listenerId, int songId, bool liked)
+// {
+//     SongRepository repository;
 
-}
+//     if (liked)
+//     {
+//         repository.likeSong(listenerId, songId);
+//     }
+//     else
+//     {
+//         repository.unlikeSong(listenerId, songId);
+//     }
+// }
 
-bool ListenerRepository::isLiked(int listenerId, int songId)
-{
-    return false;
-}
+// bool ListenerRepository::isLiked(int listenerId, int songId)
+// {
+//     SongRepository repository;
+//     return repository.isLiked(listenerId, songId);
+// }
 
 std::vector<Account> ListenerRepository::getAll()
 {
     loadFromFile();
 
     return listeners;
+}
+
+
+void ListenerRepository::updateLiked(int listenerId, int songId, bool liked)
+{
+    std::vector<int> listenerIds;
+    std::vector<int> songIds;
+
+    std::ifstream in("likedSongs.txt");
+
+    int lId, sId;
+
+    while (in >> lId >> sId)
+    {
+        listenerIds.push_back(lId);
+        songIds.push_back(sId);
+    }
+
+    in.close();
+
+    bool found = false;
+
+    for (int i = 0; i < listenerIds.size(); i++)
+    {
+        if (listenerIds[i] == listenerId &&
+            songIds[i] == songId)
+        {
+            found = true;
+
+            if (!liked)
+            {
+                listenerIds.erase(listenerIds.begin() + i);
+                songIds.erase(songIds.begin() + i);
+            }
+
+            break;
+        }
+    }
+
+    if (liked && !found)
+    {
+        listenerIds.push_back(listenerId);
+        songIds.push_back(songId);
+    }
+
+    std::ofstream out("likedSongs.txt");
+
+    for (int i = 0; i < listenerIds.size(); i++)
+    {
+        out << listenerIds[i] << std::endl;
+        out << songIds[i] << std::endl;
+    }
+
+    out.close();
+}
+
+bool ListenerRepository::isLiked(int listenerId, int songId)
+{
+    std::ifstream file("likedSongs.txt");
+
+    int lId, sId;
+
+    while (file >> lId >> sId)
+    {
+        if (lId == listenerId && sId == songId)
+            return true;
+    }
+
+    return false;
 }

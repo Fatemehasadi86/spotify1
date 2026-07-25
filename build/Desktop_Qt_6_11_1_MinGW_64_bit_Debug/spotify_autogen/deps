@@ -772,8 +772,11 @@ spotify_autogen/timestamp: \
 	C:/Users/BLUE0409/Documents/spotify/mainwindow.h \
 	C:/Users/BLUE0409/Documents/spotify/playlistsongswindow.cpp \
 	C:/Users/BLUE0409/Documents/spotify/playlistsongswindow.h \
+	C:/Users/BLUE0409/Documents/spotify/profilewindow.cpp \
+	C:/Users/BLUE0409/Documents/spotify/profilewindow.h \
 	C:/Users/BLUE0409/Documents/spotify/registerwindow.cpp \
 	C:/Users/BLUE0409/Documents/spotify/registerwindow.h \
+	C:/Users/BLUE0409/Documents/spotify/resources.qrc \
 	C:/Users/BLUE0409/Documents/spotify/selectalbum2window.cpp \
 	C:/Users/BLUE0409/Documents/spotify/selectalbum2window.h \
 	C:/Users/BLUE0409/Documents/spotify/selectalbumwindow.cpp \
@@ -803,6 +806,7 @@ spotify_autogen/timestamp: \
 	C:/Users/BLUE0409/Documents/spotify/loginwindow.ui \
 	C:/Users/BLUE0409/Documents/spotify/mainwindow.ui \
 	C:/Users/BLUE0409/Documents/spotify/playlistsongswindow.ui \
+	C:/Users/BLUE0409/Documents/spotify/profilewindow.ui \
 	C:/Users/BLUE0409/Documents/spotify/registerwindow.ui \
 	C:/Users/BLUE0409/Documents/spotify/selectalbum2window.ui \
 	C:/Users/BLUE0409/Documents/spotify/selectalbumwindow.ui \
