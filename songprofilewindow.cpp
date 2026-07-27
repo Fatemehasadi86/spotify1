@@ -29,9 +29,6 @@ SongProfileWindow::SongProfileWindow(Song &song,QWidget *parent)
 
     QPixmap pixmap(image);
 
-    qDebug() << image;
-    qDebug() << QFile::exists(image);
-
     ui->label->setPixmap(
         pixmap.scaled(
             200,

@@ -176,8 +176,6 @@ void addSongWindow::on_pushButton_3_clicked()
 
     repository.save(song);
 
-    qDebug()<<imagePath;
-
     QMessageBox::information(this,"Success"," Song added successfully ");
 
     close();
@@ -201,9 +199,6 @@ void addSongWindow::on_pushButton_clicked()
     player->setSource(QUrl::fromLocalFile(path));
 
     QFileInfo info(path);
-
-   // ui->lineEdit->setText(info.baseName());
-
 
 }
 
@@ -242,9 +237,6 @@ void addSongWindow::on_pushButton_2_clicked()
     }
 
     imagePath = "images/" + imageName;
-
-    qDebug() << "Saved Image:" << newPath;
-    qDebug() << "Stored Path:" << imagePath;
 
     ui->label->setPixmap(QPixmap(newPath));
 }
