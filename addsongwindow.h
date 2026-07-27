@@ -32,6 +32,8 @@ private:
     QString songPath;
     QString imagePath;
 
+    QMediaPlayer *player;
+    QAudioOutput *audioOutput;
 
 };
 

@@ -17,6 +17,62 @@ addSongWindow::addSongWindow(int artistId,QWidget *parent)
 
     this->artistId=artistId;
 
+
+     player = new QMediaPlayer(this);
+
+    connect(player,
+            &QMediaPlayer::metaDataChanged,
+            this,
+            [=]()
+            {
+                QMediaMetaData meta = player->metaData();
+
+                QString title = meta.stringValue(QMediaMetaData::Title);
+
+                QString genre;
+
+                QVariant genreVar = meta.value(QMediaMetaData::Genre);
+
+                if (genreVar.isValid())
+                {
+                    QStringList list = genreVar.toStringList();
+
+                    if (!list.isEmpty())
+                        genre = list.first();
+                }
+
+                QString message;
+
+                if(!title.isEmpty())
+                    message += "Title : " + title + "\n";
+
+                if(!genre.isEmpty())
+                    message += "Genre : " + genre + "\n";
+
+                if(message.isEmpty())
+                    return;
+
+                int answer = QMessageBox::question(
+                    this,
+                    "Song Information",
+                    message + "\nUse these information?",
+                    QMessageBox::Yes | QMessageBox::No
+                    );
+
+                if(answer == QMessageBox::Yes)
+                {
+                    if(!title.isEmpty())
+                        ui->lineEdit->setText(title);
+
+                    if(!genre.isEmpty())
+                        ui->comboBox_2->setCurrentText(genre);
+                }
+            });
+
+    audioOutput = new QAudioOutput(this);
+
+    player->setAudioOutput(audioOutput);
+
     AlbumRepository repository;
     repository.loadFromFile();
 
@@ -141,6 +197,12 @@ void addSongWindow::on_pushButton_clicked()
         return;
 
     songPath = path;
+
+    player->setSource(QUrl::fromLocalFile(path));
+
+    QFileInfo info(path);
+
+   // ui->lineEdit->setText(info.baseName());
 
 
 }
