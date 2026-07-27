@@ -142,11 +142,7 @@ void addSongWindow::on_pushButton_clicked()
 
     songPath = path;
 
-    // player->setSource(QUrl::fromLocalFile(path));
 
-    // QFileInfo info(path);
-
-    // ui->lineEdit->setText(info.baseName());
 }
 
 void addSongWindow::on_pushButton_2_clicked()

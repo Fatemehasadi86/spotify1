@@ -152,7 +152,7 @@ public:
         label_2->setText(QCoreApplication::translate("addSongWindow", "Genre", nullptr));
         label_3->setText(QCoreApplication::translate("addSongWindow", "Release Year", nullptr));
         label_4->setText(QCoreApplication::translate("addSongWindow", "Audio File", nullptr));
-        label_5->setText(QCoreApplication::translate("addSongWindow", "TextLabel", nullptr));
+        label_5->setText(QCoreApplication::translate("addSongWindow", "Image :", nullptr));
         pushButton->setText(QCoreApplication::translate("addSongWindow", "Choose Song", nullptr));
         pushButton_2->setText(QCoreApplication::translate("addSongWindow", "Choose Image", nullptr));
         pushButton_3->setText(QCoreApplication::translate("addSongWindow", "Save", nullptr));

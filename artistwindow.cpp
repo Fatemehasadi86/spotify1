@@ -30,17 +30,16 @@ artistWindow::artistWindow(int artistId,QWidget *parent)
     ArtistRepository repository;
     repository.loadFromFile();
 
-    std::optional<Account> artist = repository.search(artistId);
+    std::optional<Account> listener = repository.search(artistId);
 
-    if (artist.has_value())
+    if (listener.has_value())
     {
-        ui->label_3->setText(QString::fromStdString(artist->getFullName()));
-
+        ui->label_3->setText(
+            QString::fromStdString(listener->getFullName()));
 
         QString path;
 
-        // اگر عکس انتخاب نکرده باشد
-        if (artist->getProfileImage().empty())
+        if (listener->getProfileImage().empty())
         {
             path = ":/images/cover1.jpg";
         }
@@ -49,11 +48,16 @@ artistWindow::artistWindow(int artistId,QWidget *parent)
             path = QDir::cleanPath(
                 QCoreApplication::applicationDirPath()
                 + "/../../../spotify/"
-                + QString::fromStdString(artist->getProfileImage())
+                + QString::fromStdString(listener->getProfileImage())
                 );
         }
 
         QPixmap pixmap(path);
+
+        if (pixmap.isNull())
+        {
+            pixmap.load(":/images/cover1.jpg");
+        }
 
         ui->label->setPixmap(
             pixmap.scaled(
@@ -61,12 +65,9 @@ artistWindow::artistWindow(int artistId,QWidget *parent)
                 150,
                 Qt::KeepAspectRatio,
                 Qt::SmoothTransformation));
-
     }
 
     loadAlbums();
-
-
 
 }
 
@@ -113,6 +114,7 @@ void artistWindow::loadAlbums()
 
         ui->listWidgetAlbums->addItem(item);
     }
+
 }
 
 
@@ -221,30 +223,60 @@ void artistWindow::on_pushButton_7_clicked()
 
 void artistWindow::on_pushButton_8_clicked()
 {
-    QString path = QFileDialog::getOpenFileName(
+    QString fileName = QFileDialog::getOpenFileName(
         this,
         "Select Profile Image",
         "",
         "Images (*.png *.jpg *.jpeg)"
         );
 
-    if(path.isEmpty())
+    if (fileName.isEmpty())
         return;
+
+    QString projectImages =
+        QDir::cleanPath(QDir::currentPath() + "/../../../spotify/images");
+
+    QDir dir(projectImages);
+
+    if (!dir.exists())
+        dir.mkpath(".");
+
+    QString imageName = QFileInfo(fileName).fileName();
+
+    QString newPath = dir.filePath(imageName);
+
+    QFile::remove(newPath);
+
+    bool ok = QFile::copy(fileName, newPath);
+
+    if (!ok)
+    {
+        QMessageBox::warning(this,
+                             "Error",
+                             "Image was not copied.");
+        return;
+    }
+
+    QString relativePath = "images/" + imageName;
 
     ArtistRepository repository;
     repository.loadFromFile();
 
     std::optional<Account> account = repository.search(artistId);
 
-    if(!account.has_value())
+    if (!account.has_value())
         return;
 
-    Account artist = account.value();
+    Account listener = account.value();
 
-    artist.setProfileImage(path.toStdString());
+    listener.setProfileImage(relativePath.toStdString());
 
-    repository.save(artist);
+    repository.save(listener);
 
-    QMessageBox::information(this,"Success","Profile image updated successfully.");
+    QMessageBox::information(
+        this,
+        "Success",
+        "Profile image updated successfully."
+        );
 }
 

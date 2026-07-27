@@ -36,6 +36,7 @@ listenerWindow::listenerWindow(int listenerId, QWidget *parent)
         ui->label_3->setText(
             QString::fromStdString(listener->getFullName()));
 
+
         QString path;
 
         if (listener->getProfileImage().empty())
@@ -51,6 +52,8 @@ listenerWindow::listenerWindow(int listenerId, QWidget *parent)
                 );
         }
 
+
+
         QPixmap pixmap(path);
 
         if (pixmap.isNull())
@@ -65,6 +68,8 @@ listenerWindow::listenerWindow(int listenerId, QWidget *parent)
                 Qt::KeepAspectRatio,
                 Qt::SmoothTransformation));
     }
+
+    loadplaylist();
 }
 
 listenerWindow::~listenerWindow()
@@ -218,6 +223,7 @@ void listenerWindow::on_pushButton_8_clicked()
     if (fileName.isEmpty())
         return;
 
+
     QString projectImages =
         QDir::cleanPath(QDir::currentPath() + "/../../../spotify/images");
 
@@ -273,6 +279,7 @@ void listenerWindow::on_pushButton_9_clicked()
 {
     SongRepository repository;
     repository.loadFromFile();
+
 
     ListenerRepository listenerRepository;
 
