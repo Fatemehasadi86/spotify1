@@ -37,6 +37,7 @@ public:
     QPushButton *pushButton_7;
     QPushButton *pushButton_8;
     QLabel *label_4;
+    QPushButton *pushButton_9;
 
     void setupUi(QWidget *listenerWindow)
     {
@@ -90,13 +91,13 @@ public:
         listWidget->setGeometry(QRect(20, 150, 611, 351));
         pushButton = new QPushButton(listenerWindow);
         pushButton->setObjectName("pushButton");
-        pushButton->setGeometry(QRect(50, 530, 131, 31));
+        pushButton->setGeometry(QRect(20, 520, 131, 31));
         pushButton_2 = new QPushButton(listenerWindow);
         pushButton_2->setObjectName("pushButton_2");
-        pushButton_2->setGeometry(QRect(230, 530, 121, 31));
+        pushButton_2->setGeometry(QRect(170, 520, 121, 31));
         pushButton_3 = new QPushButton(listenerWindow);
         pushButton_3->setObjectName("pushButton_3");
-        pushButton_3->setGeometry(QRect(400, 530, 131, 31));
+        pushButton_3->setGeometry(QRect(300, 520, 131, 31));
         pushButton_4 = new QPushButton(listenerWindow);
         pushButton_4->setObjectName("pushButton_4");
         pushButton_4->setGeometry(QRect(440, 80, 211, 41));
@@ -115,7 +116,7 @@ public:
 "}"));
         pushButton_5 = new QPushButton(listenerWindow);
         pushButton_5->setObjectName("pushButton_5");
-        pushButton_5->setGeometry(QRect(569, 568, 91, 31));
+        pushButton_5->setGeometry(QRect(570, 570, 91, 31));
         pushButton_5->setStyleSheet(QString::fromUtf8("QPushButton{\n"
 "    background-color: #E53935;\n"
 "    color: white;\n"
@@ -183,6 +184,9 @@ public:
         label_4->setGeometry(QRect(30, 20, 51, 51));
         label_4->setStyleSheet(QString::fromUtf8(""));
         label_4->setScaledContents(true);
+        pushButton_9 = new QPushButton(listenerWindow);
+        pushButton_9->setObjectName("pushButton_9");
+        pushButton_9->setGeometry(QRect(460, 520, 171, 41));
 
         retranslateUi(listenerWindow);
 
@@ -204,6 +208,7 @@ public:
         pushButton_7->setText(QCoreApplication::translate("listenerWindow", "Delete account", nullptr));
         pushButton_8->setText(QCoreApplication::translate("listenerWindow", "Profile", nullptr));
         label_4->setText(QCoreApplication::translate("listenerWindow", "TextLabel", nullptr));
+        pushButton_9->setText(QCoreApplication::translate("listenerWindow", "Recommend Song", nullptr));
     } // retranslateUi
 
 };

@@ -15,6 +15,7 @@
 #include <QFileDialog>
 #include <QFileInfo>
 #include "ListenerRepository.h"
+#include "SongRepository.h"
 
 
 listenerWindow::listenerWindow(int listenerId, QWidget *parent)
@@ -32,14 +33,14 @@ listenerWindow::listenerWindow(int listenerId, QWidget *parent)
 
     if (listener.has_value())
     {
-        ui->label_3->setText(QString::fromStdString(listener->getFullName()));
+        ui->label_3->setText(
+            QString::fromStdString(listener->getFullName()));
 
         QString path;
 
-        // اگر عکس انتخاب نکرده باشد
         if (listener->getProfileImage().empty())
         {
-            path = ":/images/cover1.jpg";   // عکس پیش‌فرض داخل qrc
+            path = ":/images/cover1.jpg";
         }
         else
         {
@@ -52,15 +53,18 @@ listenerWindow::listenerWindow(int listenerId, QWidget *parent)
 
         QPixmap pixmap(path);
 
+        if (pixmap.isNull())
+        {
+            pixmap.load(":/images/cover1.jpg");
+        }
+
         ui->label_4->setPixmap(
             pixmap.scaled(
-                200,
-                200,
+                150,
+                150,
                 Qt::KeepAspectRatio,
                 Qt::SmoothTransformation));
     }
-
-    loadplaylist();
 }
 
 listenerWindow::~listenerWindow()
@@ -201,29 +205,56 @@ void listenerWindow::on_pushButton_7_clicked()
 }
 
 
+
 void listenerWindow::on_pushButton_8_clicked()
 {
-    QString path = QFileDialog::getOpenFileName(
+    QString fileName = QFileDialog::getOpenFileName(
         this,
         "Select Profile Image",
         "",
         "Images (*.png *.jpg *.jpeg)"
         );
 
-    if(path.isEmpty())
+    if (fileName.isEmpty())
         return;
+
+    QString projectImages =
+        QDir::cleanPath(QDir::currentPath() + "/../../../spotify/images");
+
+    QDir dir(projectImages);
+
+    if (!dir.exists())
+        dir.mkpath(".");
+
+    QString imageName = QFileInfo(fileName).fileName();
+
+    QString newPath = dir.filePath(imageName);
+
+    QFile::remove(newPath);
+
+    bool ok = QFile::copy(fileName, newPath);
+
+    if (!ok)
+    {
+        QMessageBox::warning(this,
+                             "Error",
+                             "Image was not copied.");
+        return;
+    }
+
+    QString relativePath = "images/" + imageName;
 
     ListenerRepository repository;
     repository.loadFromFile();
 
     std::optional<Account> account = repository.search(listenerId);
 
-    if(!account.has_value())
+    if (!account.has_value())
         return;
 
     Account listener = account.value();
 
-    listener.setProfileImage(path.toStdString());
+    listener.setProfileImage(relativePath.toStdString());
 
     repository.save(listener);
 
@@ -236,4 +267,34 @@ void listenerWindow::on_pushButton_8_clicked()
 
 
 
+
+
+void listenerWindow::on_pushButton_9_clicked()
+{
+    SongRepository repository;
+    repository.loadFromFile();
+
+    ListenerRepository listenerRepository;
+
+    std::vector<Song> songs = repository.getAllSongs();
+
+    for (int i = 0; i < songs.size(); i++)
+    {
+        if (!listenerRepository.isLiked(listenerId, songs[i].getId()))
+        {
+            QMessageBox::information(
+                this,
+                "Recommended Song",
+                QString::fromStdString(songs[i].getName()));
+
+            return;
+        }
+    }
+
+    QMessageBox::information(
+        this,
+        "Recommend",
+        "No song to recommend.");
+
+}
 

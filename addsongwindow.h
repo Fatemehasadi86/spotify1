@@ -2,6 +2,7 @@
 #define ADDSONGWINDOW_H
 
 #include <QWidget>
+#include <QMediaPlayer>
 
 namespace Ui {
 class addSongWindow;
@@ -30,6 +31,8 @@ private:
 
     QString songPath;
     QString imagePath;
+
+
 };
 
 #endif // ADDSONGWINDOW_H

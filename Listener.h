@@ -21,7 +21,9 @@ public:
 
     void removeLikedSong(int songId);
 
-    const std::vector<int>& getLikedSongs() const;
+    const std::vector<int>& getLikedSongs();
+
+
 };
 
 #endif // LISTENER_H

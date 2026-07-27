@@ -1,3 +1,4 @@
+#pragma once
 #include <QMediaPlayer>
 #include <QAudioOutput>
 #include <vector>
@@ -5,6 +6,15 @@
 
 class PlaybackList
 {
+private:
+    std::vector<Song> songs;
+
+    int currentSong;
+
+    QMediaPlayer *player;
+
+    QAudioOutput *audioOutput;
+
 public:
     PlaybackList();
 
@@ -20,12 +30,4 @@ public:
 
     void previous();
 
-private:
-    std::vector<Song> songs;
-
-    int currentSong;
-
-    QMediaPlayer *player;
-
-    QAudioOutput *audioOutput;
 };

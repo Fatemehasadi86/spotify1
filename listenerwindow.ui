@@ -70,8 +70,8 @@ QListWidget::item:selected{
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>530</y>
+     <x>20</x>
+     <y>520</y>
      <width>131</width>
      <height>31</height>
     </rect>
@@ -83,8 +83,8 @@ QListWidget::item:selected{
   <widget class="QPushButton" name="pushButton_2">
    <property name="geometry">
     <rect>
-     <x>230</x>
-     <y>530</y>
+     <x>170</x>
+     <y>520</y>
      <width>121</width>
      <height>31</height>
     </rect>
@@ -96,8 +96,8 @@ QListWidget::item:selected{
   <widget class="QPushButton" name="pushButton_3">
    <property name="geometry">
     <rect>
-     <x>400</x>
-     <y>530</y>
+     <x>300</x>
+     <y>520</y>
      <width>131</width>
      <height>31</height>
     </rect>
@@ -147,8 +147,8 @@ QListWidget::item:selected{
   <widget class="QPushButton" name="pushButton_5">
    <property name="geometry">
     <rect>
-     <x>569</x>
-     <y>568</y>
+     <x>570</x>
+     <y>570</y>
      <width>91</width>
      <height>31</height>
     </rect>
@@ -282,6 +282,19 @@ QPushButton:pressed{
    </property>
    <property name="scaledContents">
     <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_9">
+   <property name="geometry">
+    <rect>
+     <x>460</x>
+     <y>520</y>
+     <width>171</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Recommend Song</string>
    </property>
   </widget>
  </widget>

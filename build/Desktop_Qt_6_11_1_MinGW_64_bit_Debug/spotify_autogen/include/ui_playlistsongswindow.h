@@ -199,7 +199,7 @@ public:
         comboBox_3->setItemText(9, QCoreApplication::translate("PlaylistSongsWindow", "Country", nullptr));
 
         pushButton_3->setText(QCoreApplication::translate("PlaylistSongsWindow", "Play", nullptr));
-        pushButton_4->setText(QCoreApplication::translate("PlaylistSongsWindow", "Stop", nullptr));
+        pushButton_4->setText(QCoreApplication::translate("PlaylistSongsWindow", "Pause", nullptr));
         pushButton_5->setText(QCoreApplication::translate("PlaylistSongsWindow", "Next", nullptr));
         pushButton_6->setText(QCoreApplication::translate("PlaylistSongsWindow", "Previous", nullptr));
         pushButton_7->setText(QCoreApplication::translate("PlaylistSongsWindow", "Details", nullptr));

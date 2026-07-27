@@ -3,14 +3,17 @@
 
 #include "AccountRepository.h"
 #include "Account.h"
-
 #include <vector>
 #include <optional>
+#include "Listener.h"
+
+
 
 class ListenerRepository : public AccountRepository
 {
 private:
     std::vector<Account> listeners;
+    void recommendSong();
 
 public:
     ListenerRepository();
@@ -27,6 +30,10 @@ public:
     void loadFromFile();
     void saveToFile();
     bool isLiked(int listenerId, int songId);
+    // Listener getListener(int id);
+    // std::optional<Listener> searchListener(int id);
+    Listener* findListener(int id);
+
 };
 
 #endif

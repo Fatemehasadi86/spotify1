@@ -3,6 +3,7 @@
 #include "Listener.h"
 #include "ArtistRepository.h"
 
+
 using namespace std;
 
 ListenerRepository::ListenerRepository()
@@ -110,6 +111,8 @@ std::optional<Account> ListenerRepository::searchByUserName(const std::string& u
     return std::nullopt;
 }
 
+
+
 void ListenerRepository::loadFromFile(){
     listeners.clear();
 
@@ -155,25 +158,7 @@ void ListenerRepository::loadFromFile(){
     file.close();
 }
 
-// void ListenerRepository::updateLiked(int listenerId, int songId, bool liked)
-// {
-//     SongRepository repository;
 
-//     if (liked)
-//     {
-//         repository.likeSong(listenerId, songId);
-//     }
-//     else
-//     {
-//         repository.unlikeSong(listenerId, songId);
-//     }
-// }
-
-// bool ListenerRepository::isLiked(int listenerId, int songId)
-// {
-//     SongRepository repository;
-//     return repository.isLiked(listenerId, songId);
-// }
 
 std::vector<Account> ListenerRepository::getAll()
 {
@@ -250,3 +235,4 @@ bool ListenerRepository::isLiked(int listenerId, int songId)
 
     return false;
 }
+

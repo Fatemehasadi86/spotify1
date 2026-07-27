@@ -42,7 +42,7 @@ artistWindow::artistWindow(int artistId,QWidget *parent)
         // اگر عکس انتخاب نکرده باشد
         if (artist->getProfileImage().empty())
         {
-            path = ":/images/cover1.jpg";   // عکس پیش‌فرض داخل qrc
+            path = ":/images/cover1.jpg";
         }
         else
         {
@@ -57,14 +57,17 @@ artistWindow::artistWindow(int artistId,QWidget *parent)
 
         ui->label->setPixmap(
             pixmap.scaled(
-                200,
-                200,
+                150,
+                150,
                 Qt::KeepAspectRatio,
                 Qt::SmoothTransformation));
 
     }
 
     loadAlbums();
+
+
+
 }
 
 artistWindow::~artistWindow()

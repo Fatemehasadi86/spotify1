@@ -36,6 +36,10 @@ private slots:
 
     void on_pushButton_8_clicked();
 
+    void on_pushButton_9_clicked();
+
+    //void recommendSong();
+
 private:
     Ui::listenerWindow *ui;
     int listenerId;

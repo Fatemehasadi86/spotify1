@@ -29,7 +29,7 @@ void Listener::removeLikedSong(int songId)
     }
 }
 
-const std::vector<int>& Listener::getLikedSongs() const
+const std::vector<int>& Listener::getLikedSongs()
 {
     return likedSongs;
 }

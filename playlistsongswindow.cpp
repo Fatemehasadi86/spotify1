@@ -13,12 +13,6 @@ PlaylistSongsWindow::PlaylistSongsWindow(int playlistId,QWidget *parent)
     ui->setupUi(this);
     ui->listWidget->setIconSize(QSize(120,120));
 
-    player = new QMediaPlayer(this);
-    audioOutput = new QAudioOutput(this);
-
-    player->setAudioOutput(audioOutput);
-    audioOutput->setVolume(1.0);
-
     this->playlistId = playlistId;
     sortText= ui->comboBox->currentText();
 
@@ -200,95 +194,25 @@ void PlaylistSongsWindow::on_comboBox_2_currentTextChanged(const QString &arg1)
 
 void PlaylistSongsWindow::on_pushButton_3_clicked()
 {
-    if(selectedSongId == -1)
-        return;
-
-    SongRepository repository;
-    repository.loadFromFile();
-
-    std::optional<Song> song = repository.search(selectedSongId);
-
-    if(!song.has_value())
-        return;
-
-    player->setSource(
-        QUrl::fromLocalFile(
-            QString::fromStdString(song->getFilePath())
-            )
-        );
-
-    player->play();
+    playback.play();
 }
 
 
 void PlaylistSongsWindow::on_pushButton_4_clicked()
 {
-    player->pause();
+    playback.pause();
 }
 
 
 void PlaylistSongsWindow::on_pushButton_5_clicked()
 {
-    if (currentIndex == -1)
-        return;
-
-    if (currentIndex + 1 >= ui->listWidget->count())
-        return;
-
-    currentIndex++;
-
-    QListWidgetItem *item = ui->listWidget->item(currentIndex);
-
-    ui->listWidget->setCurrentItem(item);
-
-    on_listWidget_itemClicked(item);
-
-    SongRepository repository;
-    repository.loadFromFile();
-
-    std::optional<Song> song = repository.search(selectedSongId);
-
-    if (song.has_value())
-    {
-        player->setSource(
-            QUrl::fromLocalFile(
-                QString::fromStdString(song.value().getFilePath())
-                )
-            );
-
-        player->play();
-    }
+    playback.next();
 }
 
 
 void PlaylistSongsWindow::on_pushButton_6_clicked()
 {
-    if (currentIndex <= 0)
-        return;
-
-    currentIndex--;
-
-    QListWidgetItem *item = ui->listWidget->item(currentIndex);
-
-    ui->listWidget->setCurrentItem(item);
-
-    on_listWidget_itemClicked(item);
-
-    SongRepository repository;
-    repository.loadFromFile();
-
-    std::optional<Song> song = repository.search(selectedSongId);
-
-    if (song.has_value())
-    {
-        player->setSource(
-            QUrl::fromLocalFile(
-                QString::fromStdString(song.value().getFilePath())
-                )
-            );
-
-        player->play();
-    }
+    playback.previous();
 }
 
 

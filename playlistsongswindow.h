@@ -6,6 +6,7 @@
 #include <QMediaPlayer>
 #include <QAudioOutput>
 #include <QUrl>
+#include "PlaybackList.h"
 
 namespace Ui {
 class PlaylistSongsWindow;
@@ -55,8 +56,8 @@ private:
     QString sortText="Default";
     QString filtergenre="All";
     QString yearfilter="All";
-    QMediaPlayer *player;
-    QAudioOutput *audioOutput;
+
+    PlaybackList playback;
 
 };
 

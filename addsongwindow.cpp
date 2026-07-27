@@ -6,12 +6,15 @@
 #include "AlbumRepository.h"
 #include <QFileDialog>
 #include <QFileInfo>
+#include <QAudioOutput>
+#include <QMediaMetaData>
 
 addSongWindow::addSongWindow(int artistId,QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::addSongWindow)
 {
     ui->setupUi(this);
+
     this->artistId=artistId;
 
     AlbumRepository repository;
@@ -138,6 +141,12 @@ void addSongWindow::on_pushButton_clicked()
         return;
 
     songPath = path;
+
+    // player->setSource(QUrl::fromLocalFile(path));
+
+    // QFileInfo info(path);
+
+    // ui->lineEdit->setText(info.baseName());
 }
 
 void addSongWindow::on_pushButton_2_clicked()
